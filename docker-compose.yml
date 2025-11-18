@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mgnl-headless-cms-landing
+    command: ["npm", "run", "mgnl", "--", "start"]
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      NODE_ENV: development
