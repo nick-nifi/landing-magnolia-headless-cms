@@ -73,3 +73,13 @@ All collected data are collected anonymously and not tied to any individual
 [StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Starting Magnolia located at: /usr/src/app/.magnolia/apache-tomcat
 [StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Press CTRL+C to terminate the process
 [StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Displaying log activity from: /usr/src/app/.magnolia/apache-tomcat/logs/catalina.out
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: Name "container" will be used instead of provided "Container" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: Using prototype "container" set by command option
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: File "container.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/container.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: File "container.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/container.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: File "Container.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/Container.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: Added: import ContainerComponent from './app/templates/components/Container'
+and: "spa-lm:components/container": ContainerComponent
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"

@@ -1,10 +1,10 @@
-title: 'SPA: Basic'
+title: "SPA: Basic"
 dialog: spa-lm:pages/basic
 renderType: spa
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 
 baseUrl: http://localhost:8181
-routeTemplate: '/{language}{{@path}}'
+routeTemplate: "/{language}{{@path}}"
 
 areas:
   main:
@@ -16,6 +16,9 @@ areas:
         id: spa-lm:components/textImage
       LinkList:
         id: spa-lm:components/linkList
+      Container:
+        id: spa-lm:components/container
+
     autoGeneration:
       content:
         text:
@@ -35,6 +38,3 @@ areas:
     inheritance:
       enabled: true
       components: all
-
-
-  
