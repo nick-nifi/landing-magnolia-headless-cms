@@ -68,3 +68,8 @@ All collected data are collected anonymously and not tied to any individual
 [JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Start the project using: "npm run mgnl -- start"
 [JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: If the "StartPlugin" is not available, install it using: "npm run mgnl -- add-plugin @magnolia/cli-start-plugin"
 [JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: For additional plugins and features, refer to the Magnolia CLI documentation: https://docs.magnolia-cms.com/magnolia-cli
+[StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Using light modules path "/usr/src/app/light-modules" set by global argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Using tomcat path "/usr/src/app/.magnolia/apache-tomcat" set by plugin argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Starting Magnolia located at: /usr/src/app/.magnolia/apache-tomcat
+[StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Press CTRL+C to terminate the process
+[StartPlugin@1.0.4] 2025-11-18T06:18:28.767+00:00 info: Displaying log activity from: /usr/src/app/.magnolia/apache-tomcat/logs/catalina.out
