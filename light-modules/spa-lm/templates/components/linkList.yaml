@@ -1,0 +1,8 @@
+title: Link List
+dialog: spa-lm:components/linkList
+areas:
+  items:
+    title: Link List Items Area
+    availableComponents:
+      Item:
+        id: spa-lm:components/listItem

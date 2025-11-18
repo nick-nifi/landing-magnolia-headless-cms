@@ -1,0 +1,70 @@
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Directory 'landing-magnolia-headless-cms' was created
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: The project will be set up inside the 'landing-magnolia-headless-cms' directory
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Starting download from: https://gitlab.magnolia-platform.com/magnolia-cli/project-templates/nextjs-ssr-starter/-/archive/main/nextjs-ssr-starter-main.zip
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Starting download from: https://gitlab.magnolia-platform.com/demos/common-lm/-/archive/main/common-lm-main.zip
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Starting download from: https://gitlab.magnolia-platform.com/demos/community-lm/-/archive/6.3/community-lm-6.3.zip
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Retrieving download URL from: https://nexus.magnolia-cms.com/service/rest/v1/search/assets?sort=version&repository=public&maven.groupId=info.magnolia.tomcat.barebone&maven.artifactId=magnolia-tomcat-barebone&maven.extension=zip
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Starting download from: https://nexus.magnolia-cms.com/repository/public/info/magnolia/tomcat/barebone/magnolia-tomcat-barebone/2.0.0/magnolia-tomcat-barebone-2.0.0.zip
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Retrieving download URL from: https://nexus.magnolia-cms.com/service/rest/v1/search/assets?sort=version&repository=public&maven.groupId=info.magnolia.bundle&maven.artifactId=magnolia-community-webapp&maven.extension=war
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Starting download from: https://nexus.magnolia-cms.com/repository/public/info/magnolia/bundle/magnolia-community-webapp/6.4.0/magnolia-community-webapp-6.4.0.war
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Created "microprofile-config.properties" at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/config/default/microprofile-config.properties
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Starting download from: https://gitlab.magnolia-platform.com/demos/demo-content/-/archive/ce/demo-content-ce.zip
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: [32m[1m✅ Found existing "light-modules" directory at: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules"[22m[39m
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 warn: File "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/ROOT/WEB-INF/config/default/magnolia.properties" not found; skipping configuration
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Set "magnolia.resources.dir" to: "${magnolia.home}/../../../../light-modules" in "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/config/default/magnolia.properties"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Set "magnolia.update.auto" to: "true" in "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/config/default/magnolia.properties"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Set "magnolia.develop" to: "true" in "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/config/default/magnolia.properties"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Set "magnolia.graphql.introspection.enabled" to: "true" in "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/config/default/magnolia.properties"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Set "magnolia.personalization.rest.allowVariants" to: "true" in "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaAuthor/WEB-INF/config/default/magnolia.properties"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 warn: File "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/.magnolia/apache-tomcat/webapps/magnoliaPublic/WEB-INF/config/default/magnolia.properties" not found; skipping configuration
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Added "mgnl" script to package.json
+[@magnolia/cli@5.2.0] 2025-11-18T13:11:51.617+07:00 info: We collect anonymised data to improve your experience.
+Data include the names and versions of used commands, Magnolia CLI version, Node.js version and OS information.
+We use this data to prioritize further development of the tool.
+All collected data are collected anonymously and not tied to any individual
+.No personal information is collected.
+[AddPlugin@5.2.0] 2025-11-18T13:11:52.081+07:00 info: Installing @magnolia/cli-start-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:11:52.081+07:00 info: Package @magnolia/cli-start-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:11:52.081+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:11:52.081+07:00 info: Added new plugin: "StartPlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:11:52.081+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:11:57.987+07:00 info: Installing @magnolia/cli-create-light-module-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:11:57.987+07:00 info: Package @magnolia/cli-create-light-module-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:11:57.987+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:11:57.987+07:00 info: Added new plugin: "CreateLightModulePlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:11:57.987+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:12:02.377+07:00 info: Installing @magnolia/cli-create-app-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:12:02.377+07:00 info: Package @magnolia/cli-create-app-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:12:02.377+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:12:02.377+07:00 info: Added new plugin: "CreateAppPlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:12:02.377+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:12:08.126+07:00 info: Installing @magnolia/cli-create-content-type-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:12:08.126+07:00 info: Package @magnolia/cli-create-content-type-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:12:08.126+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:12:08.126+07:00 info: Added new plugin: "CreateContentTypePlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:12:08.126+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:12:11.528+07:00 info: Installing @magnolia/cli-create-rest-endpoint-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:12:11.528+07:00 info: Package @magnolia/cli-create-rest-endpoint-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:12:11.528+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:12:11.528+07:00 info: Added new plugin: "CreateRestEndpointPlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:12:11.528+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:12:16.203+07:00 info: Installing @magnolia/cli-create-virtual-uri-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:12:16.203+07:00 info: Package @magnolia/cli-create-virtual-uri-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:12:16.203+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:12:16.203+07:00 info: Added new plugin: "CreateVirtualUriPlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:12:16.203+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:12:20.442+07:00 info: Installing @magnolia/cli-create-component-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:12:20.442+07:00 info: Package @magnolia/cli-create-component-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:12:20.442+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:12:20.442+07:00 info: Added new plugin: "CreateComponentPlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:12:20.442+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[AddPlugin@5.2.0] 2025-11-18T13:12:30.197+07:00 info: Installing @magnolia/cli-create-page-plugin...
+[AddPlugin@5.2.0] 2025-11-18T13:12:30.197+07:00 info: Package @magnolia/cli-create-page-plugin is installed.
+[AddPlugin@5.2.0] 2025-11-18T13:12:30.197+07:00 info: Modifying mgnl.config.js...
+[AddPlugin@5.2.0] 2025-11-18T13:12:30.197+07:00 info: Added new plugin: "CreatePagePlugin" to mgnl.config.js.
+[AddPlugin@5.2.0] 2025-11-18T13:12:30.197+07:00 info: Run `npm run mgnl` to see the list of registered commands.
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Project successfully downloaded
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Run "npm run mgnl" to see the list of registered commands
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: Start the project using: "npm run mgnl -- start"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: If the "StartPlugin" is not available, install it using: "npm run mgnl -- add-plugin @magnolia/cli-start-plugin"
+[JumpstartPlugin@1.1.5] 2025-11-18T13:08:40.261+07:00 info: For additional plugins and features, refer to the Magnolia CLI documentation: https://docs.magnolia-cms.com/magnolia-cli

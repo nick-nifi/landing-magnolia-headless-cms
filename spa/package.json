@@ -1,0 +1,36 @@
+{
+  "name": "nextjs-minimal",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "PORT=8181 next dev",
+    "prebuild": "npm run lint",
+    "build": "next build",
+    "start": "PORT=8181 next start",
+    "format": "prettier --write src/**",
+    "lint": "eslint 'src/**'",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@magnolia/react-editor": "^2.1.0",
+    "next": "^15.2.4",
+    "react": "^19.0.4",
+    "react-dom": "^19.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.23.0",
+    "eslint-config-next": "^15.2.4",
+    "eslint-config-prettier": "^10.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0"
+  }
+}
