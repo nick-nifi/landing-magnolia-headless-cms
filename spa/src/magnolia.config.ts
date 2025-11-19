@@ -1,3 +1,5 @@
+import FlexibleC1Component from './app/templates/components/FlexibleC1'
+import ContainerComponent from './app/templates/components/Container'
 import { MagnoliaConfig } from '@magnolia/react-editor';
 
 import List from './app/templates/components/List';
@@ -14,5 +16,7 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/textImage': TextImage,
     'spa-lm:components/list': List,
     'spa-lm:components/listItem': ListItem,
+    "spa-lm:components/container": ContainerComponent,
+    "spa-lm:components/flexibleC1": FlexibleC1Component
   },
 };

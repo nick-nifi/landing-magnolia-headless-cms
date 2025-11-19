@@ -1,6 +1,6 @@
+import AppFooter from '@/components/app-footer';
 import { MgnlContent } from '@magnolia/frontend-helpers-base';
 import { EditableArea } from '@magnolia/react-editor';
-import Footer from '../fragments/Footer';
 
 const Basic = ({
   title,
@@ -13,21 +13,22 @@ const Basic = ({
 }) => {
   return (
     <div className='flex flex-col justify-between min-h-[calc(100vh-5rem)]'>
-      {title &&
-        <header className="hidden">
-          <h1 className="sr-only">{title}</h1>
+      {title && (
+        <header className='hidden'>
+          <h1 className='sr-only'>{title}</h1>
         </header>
-      }
+      )}
 
       <main>{main && <EditableArea content={main} />}</main>
 
-      {footer && (
+      {/* {footer && (
         <EditableArea
           className={'bg-dark-teal text-white px-8'}
           content={footer}
           customView={Footer}
         />
-      )}
+      )} */}
+      {footer && <AppFooter />}
     </div>
   );
 };

@@ -1,0 +1,13 @@
+title: container
+dialog: spa-lm:components/container
+areas:
+  item1: &id0001
+    title: Items
+    availableComponents:
+      flexibleC1:
+        id: spa-lm:components/flexibleC1
+
+  item2: *id0001
+  item3: *id0001
+  item4: *id0001
+  item5: *id0001
