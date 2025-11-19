@@ -1,6 +1,11 @@
 label: Container
 form:
   properties:
+    title:
+      $type: textField
+      label: Title
+      required: false
+      i18n: true
     container:
       $type: switchableField
       label: Container

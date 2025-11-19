@@ -83,3 +83,13 @@ All collected data are collected anonymously and not tied to any individual
 [CreateComponentPlugin@1.3.0] 2025-11-18T16:49:44.795+07:00 info: Added: import ContainerComponent from './app/templates/components/Container'
 and: "spa-lm:components/container": ContainerComponent
 to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: Name "flexibleC1" will be used instead of provided "FlexibleC1" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: Using prototype "card" set by command option
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: File "flexibleC1.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/flexibleC1.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: File "flexibleC1.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/flexibleC1.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: File "FlexibleC1.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/FlexibleC1.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: Added: import FlexibleC1Component from './app/templates/components/FlexibleC1'
+and: "spa-lm:components/flexibleC1": FlexibleC1Component
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
