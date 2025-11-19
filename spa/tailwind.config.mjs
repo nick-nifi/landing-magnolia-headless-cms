@@ -52,6 +52,10 @@ export default {
           5: 'hsl(var(--chart-5))',
         },
       },
+      aspectRatio: {
+        '13/8': '13 / 8',
+        '53/32': '53 / 32',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

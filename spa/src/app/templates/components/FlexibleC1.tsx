@@ -1,6 +1,12 @@
+import { decodeIfEscaped } from '@/app/services/content-service';
+import ImageHover from '@/components/image-hover';
+import { Typography } from '@/components/typography';
+import { Card, CardContent } from '@/components/ui/card';
+import get from 'lodash/get';
+import has from 'lodash/has';
+import Link from 'next/link';
 import React from 'react';
 import { environment } from '../../../environments/environment';
-import { decodeIfEscaped } from '../../services/content-service';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -25,53 +31,44 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
   imageChooser,
   link,
 }) => {
-  let imageSrc = '';
-  let imageAlt = 'Image';
+  const imgSrc = has(imageChooser, 'externalImage')
+    ? get(imageChooser, 'externalImage')
+    : `${environment.damRawBase}${get(imageChooser, "image['@link']")}`;
 
-  if (
-    imageChooser &&
-    imageChooser.field &&
-    (imageChooser.image || imageChooser.externalImage)
-  ) {
-    if (imageChooser.field === 'image' && imageChooser.image) {
-      imageSrc = `${environment.damRawBase}${imageChooser.image['@link']}`;
-      imageAlt = imageChooser.imageAlt || 'Image';
-    } else if (
-      imageChooser.field === 'externalImage' &&
-      imageChooser.externalImage
-    ) {
-      imageSrc = imageChooser.externalImage;
-      imageAlt = imageChooser.externalImageAlt || 'Image';
-    }
-  }
+  const imageAlt =
+    get(imageChooser, 'externalImageAlt') ||
+    get(imageChooser, 'image.metadata.caption');
 
-  return (
-    <div className='w-full p-4'>
-      <div className='rounded overflow-hidden shadow-lg bg-white'>
-        {imageSrc ? (
-          <div className='w-full h-48 overflow-hidden'>
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className='w-full h-full object-cover object-center'
-            />
-          </div>
-        ) : (
-          <div className='w-full h-48 flex items-center justify-center bg-gray-200'>
-            <p>No image available.</p>
-          </div>
-        )}
-        <div className='p-6'>
-          {title && <h2 className='font-bold text-xl mb-2'>{title}</h2>}
-          {description && (
-            <div
+  const renderContent = () => (
+    <Card>
+      <Card className='gap-0 h-full flex-1'>
+        <CardContent className='p-5 flex flex-1 flex-col'>
+          <Typography variant={'h4'} weight={'medium'} className='mb-4'>
+            {title}
+          </Typography>
+          <Typography variant={'body-large'} weight={'light'}>
+            <span
               dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
             />
-          )}
-        </div>
-      </div>
-    </div>
+          </Typography>
+        </CardContent>
+        <ImageHover
+          src={imgSrc}
+          alt={imageAlt || ''}
+          fill
+          unoptimized
+          className='object-cover'
+          imageContainerClass='aspect-53/32'
+        />
+      </Card>
+    </Card>
   );
+
+  if (link) {
+    return <Link href={link}>{renderContent()}</Link>;
+  }
+
+  return <>{renderContent()}</>;
 };
 
 export default FlexibleC1;
