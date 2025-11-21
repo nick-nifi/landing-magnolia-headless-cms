@@ -1,3 +1,12 @@
+import FlexibleC2Component from './app/templates/components/FlexibleC2'
+import FlexibleC5Component from './app/templates/components/FlexibleC5'
+import GridContainerComponent from './app/templates/components/GridContainer'
+import HomeCarouselComponent from './app/templates/components/HomeCarousel'
+import ContentB1Component from './app/templates/components/ContentB1'
+import ButtonComponent from './app/templates/components/Button'
+import BreadcrumbComponent from './app/templates/components/Breadcrumb'
+import Sample1Component from './app/templates/components/Sample1'
+import SampleComponent from './app/templates/components/Sample'
 import FlexibleC1Component from './app/templates/components/FlexibleC1'
 import ContainerComponent from './app/templates/components/Container'
 import { MagnoliaConfig } from '@magnolia/react-editor';
@@ -17,6 +26,15 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/list': List,
     'spa-lm:components/listItem': ListItem,
     "spa-lm:components/container": ContainerComponent,
-    "spa-lm:components/flexibleC1": FlexibleC1Component
+    "spa-lm:components/flexibleC1": FlexibleC1Component,
+    "spa-lm:components/sample": SampleComponent,
+    "spa-lm:components/sample1": Sample1Component,
+    "spa-lm:components/breadcrumb": BreadcrumbComponent,
+    "spa-lm:components/button": ButtonComponent,
+    "spa-lm:components/contentB1": ContentB1Component,
+    "spa-lm:components/homeCarousel": HomeCarouselComponent,
+    "spa-lm:components/gridContainer": GridContainerComponent,
+    "spa-lm:components/flexibleC5": FlexibleC5Component,
+    "spa-lm:components/flexibleC2": FlexibleC2Component
   },
 };

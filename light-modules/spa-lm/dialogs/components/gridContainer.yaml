@@ -1,0 +1,167 @@
+label: gridContainer
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    subtitle:
+      $type: textField
+      label: Subtitle
+      i18n: true
+    container:
+      $type: switchableField
+      label: Container
+      field:
+        $type: comboBoxField
+        defaultValue: columns
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: columns
+              label: Columns
+              value: columns
+            - name: rows
+              label: Rows
+              value: rows
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: columns
+          properties:
+            count:
+              $type: radioButtonGroupField
+              layout: horizontal
+              label: Number of columns
+              defaultValue: 3
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: one
+                    label: 1
+                    value: 1
+                  - name: two
+                    label: 2
+                    value: 2
+                  - name: three
+                    label: 3
+                    value: 3
+                  - name: four
+                    label: 4
+                    value: 4
+                  - name: five
+                    label: 5
+                    value: 5
+        - name: rows
+          properties:
+            count:
+              $type: radioButtonGroupField
+              layout: horizontal
+              label: Number of rows
+              defaultValue: 3
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: one
+                    label: 1
+                    value: 1
+                  - name: two
+                    label: 2
+                    value: 2
+                  - name: three
+                    label: 3
+                    value: 3
+                  - name: four
+                    label: 4
+                    value: 4
+                  - name: five
+                    label: 5
+                    value: 5
+    gap:
+      $type: jcrMultiField
+      label: Gap
+      field:
+        $type: compositeField
+        label: Gap Item
+        properties:
+          screen:
+            $type: comboBoxField
+            label: Screen Size
+            defaultValue: mobile
+            required: true
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: mobile
+                  label: Mobile
+                  value: mobile
+                - name: tablet
+                  label: Tablet
+                  value: tablet
+                - name: desktop
+                  label: Desktop
+                  value: desktop
+                - name: widescreen
+                  label: Widescreen
+                  value: widescreen
+          size:
+            $type: textField
+            label: Size
+            defaultValue: 4
+            required: true
+            type: java.lang.Long
+            converterClass: com.vaadin.data.converter.StringToLongConverter
+    items:
+      $type: jcrMultiField
+      label: Number of items
+      field:
+        $type: compositeField
+        label: Item Config
+        properties:
+          screen:
+            $type: comboBoxField
+            label: Screen Size
+            defaultValue: mobile
+            required: true
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: mobile
+                  label: Mobile
+                  value: mobile
+                - name: tablet
+                  label: Tablet
+                  value: tablet
+                - name: desktop
+                  label: Desktop
+                  value: desktop
+                - name: widescreen
+                  label: Widescreen
+                  value: widescreen
+          count:
+            $type: comboBoxField
+            label: Count
+            defaultValue: 1
+            required: true
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: one
+                  label: 1
+                  value: 1
+                - name: two
+                  label: 2
+                  value: 2
+                - name: three
+                  label: 3
+                  value: 3
+                - name: four
+                  label: 4
+                  value: 4
+                - name: five
+                  label: 5
+                  value: 5

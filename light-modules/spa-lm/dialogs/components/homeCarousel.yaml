@@ -1,0 +1,100 @@
+label: homeCarousel
+form:
+  properties:
+    autoplay:
+      label: Autoplay
+      $type: switchableField
+      field:
+        $type: comboBoxField
+        defaultValue: enableAutoPlay
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: enableAutoPlay
+              label: Enable Autoplay
+              value: enableAutoPlay
+            - name: disableAutoPlay
+              label: Disable Autoplay
+              value: disableAutoPlay
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: enableAutoPlay
+          properties:
+            pauseButton:
+              label: Carousel Controls
+              buttonLabel: Display play/pause button
+              $type: checkBoxField
+            time:
+              label: Time (milliseconds)
+              description: Time in milliseconds for the transition
+              $type: textField
+              defaultValue: 3000
+              type: java.lang.Long
+              converterClass: com.vaadin.data.converter.StringToLongConverter
+        - name: disableAutoPlay
+          properties: {}
+    carouselList:
+      i18n: true
+      required: true
+      $type: jcrMultiField
+      label: Carousel List
+      field:
+        $type: compositeField
+        label: Carousel Item
+        properties:
+          imageChooser:
+            $type: switchableField
+            label: Image
+            field:
+              $type: comboBoxField
+              defaultValue: image
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: image
+                    label: Internal Image
+                    value: image
+                  - name: externalImage
+                    label: External Image
+                    value: externalImage
+            itemProvider:
+              $type: jcrChildNodeProvider
+            forms:
+              - name: image
+                properties:
+                  image:
+                    i18n: true
+                    required: true
+                    $type: damLinkField
+                    label: Internal Image Link
+                  imageAlt:
+                    i18n: true
+                    $type: textField
+                    label: Image Alt Text
+              - name: externalImage
+                properties:
+                  externalImage:
+                    i18n: true
+                    required: true
+                    $type: textField
+                    label: External Image Link
+                    validators:
+                      imageUrlValidator:
+                        $type: regexpValidator
+                        pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                        errorMessage: Enter a valid Image URL
+                  externalImageAlt:
+                    i18n: true
+                    $type: textField
+                    label: Image Alt Text
+          title:
+            i18n: true
+            $type: textField
+            label: Title
+          description:
+            i18n: true
+            $type: textField
+            label: Description
