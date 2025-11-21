@@ -1,3 +1,6 @@
+import BreadcrumbComponent from './app/templates/components/Breadcrumb'
+import Sample1Component from './app/templates/components/Sample1'
+import SampleComponent from './app/templates/components/Sample'
 import FlexibleC1Component from './app/templates/components/FlexibleC1'
 import ContainerComponent from './app/templates/components/Container'
 import { MagnoliaConfig } from '@magnolia/react-editor';
@@ -17,6 +20,9 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/list': List,
     'spa-lm:components/listItem': ListItem,
     "spa-lm:components/container": ContainerComponent,
-    "spa-lm:components/flexibleC1": FlexibleC1Component
+    "spa-lm:components/flexibleC1": FlexibleC1Component,
+    "spa-lm:components/sample": SampleComponent,
+    "spa-lm:components/sample1": Sample1Component,
+    "spa-lm:components/breadcrumb": BreadcrumbComponent
   },
 };

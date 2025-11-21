@@ -93,3 +93,58 @@ to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/land
 [CreateComponentPlugin@1.3.0] 2025-11-18T17:18:03.569+07:00 info: Added: import FlexibleC1Component from './app/templates/components/FlexibleC1'
 and: "spa-lm:components/flexibleC1": FlexibleC1Component
 to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[StartPlugin@1.0.4] 2025-11-20T02:31:31.495+00:00 info: Using light modules path "/usr/src/app/light-modules" set by global argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-20T02:31:31.495+00:00 info: Using tomcat path "/usr/src/app/.magnolia/apache-tomcat" set by plugin argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-20T02:31:31.495+00:00 info: Starting Magnolia located at: /usr/src/app/.magnolia/apache-tomcat
+[StartPlugin@1.0.4] 2025-11-20T02:31:31.495+00:00 info: Press CTRL+C to terminate the process
+[StartPlugin@1.0.4] 2025-11-20T02:31:31.495+00:00 info: Displaying log activity from: /usr/src/app/.magnolia/apache-tomcat/logs/catalina.out
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: Name "sample" will be used instead of provided "Sample" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: Using prototype "card" set by command option
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: File "sample.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/sample.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: File "sample.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/sample.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: File "Sample.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/Sample.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: Added: import SampleComponent from './app/templates/components/Sample'
+and: "spa-lm:components/sample": SampleComponent
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: No target area specified; will default to 'main'
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:46:19.522+07:00 info: Availability for spa-lm:components/sample added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
+[StartPlugin@1.0.4] 2025-11-20T02:52:41.136+00:00 info: Using light modules path "/usr/src/app/light-modules" set by global argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-20T02:52:41.136+00:00 info: Using tomcat path "/usr/src/app/.magnolia/apache-tomcat" set by plugin argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-20T02:52:41.136+00:00 info: Starting Magnolia located at: /usr/src/app/.magnolia/apache-tomcat
+[StartPlugin@1.0.4] 2025-11-20T02:52:41.136+00:00 info: Press CTRL+C to terminate the process
+[StartPlugin@1.0.4] 2025-11-20T02:52:41.136+00:00 info: Displaying log activity from: /usr/src/app/.magnolia/apache-tomcat/logs/catalina.out
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: Name "sample1" will be used instead of provided "Sample1" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: Using prototype "card" set by command option
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: File "sample1.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/sample1.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: File "sample1.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/sample1.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: File "Sample1.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/Sample1.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: Added: import Sample1Component from './app/templates/components/Sample1'
+and: "spa-lm:components/sample1": Sample1Component
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: No target area specified; will default to 'main'
+[CreateComponentPlugin@1.3.0] 2025-11-20T09:56:58.858+07:00 info: Availability for spa-lm:components/sample1 added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
+[StartPlugin@1.0.4] 2025-11-21T07:33:56.005+00:00 info: Using light modules path "/usr/src/app/light-modules" set by global argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-21T07:33:56.005+00:00 info: Using tomcat path "/usr/src/app/.magnolia/apache-tomcat" set by plugin argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-21T07:33:56.005+00:00 info: Starting Magnolia located at: /usr/src/app/.magnolia/apache-tomcat
+[StartPlugin@1.0.4] 2025-11-21T07:33:56.005+00:00 info: Press CTRL+C to terminate the process
+[StartPlugin@1.0.4] 2025-11-21T07:33:56.005+00:00 info: Displaying log activity from: /usr/src/app/.magnolia/apache-tomcat/logs/catalina.out
+[StartPlugin@1.0.4] 2025-11-21T09:50:34.227+00:00 info: Using light modules path "/usr/src/app/light-modules" set by global argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-21T09:50:34.227+00:00 info: Using tomcat path "/usr/src/app/.magnolia/apache-tomcat" set by plugin argument in mgnl.config.js
+[StartPlugin@1.0.4] 2025-11-21T09:50:34.227+00:00 info: Starting Magnolia located at: /usr/src/app/.magnolia/apache-tomcat
+[StartPlugin@1.0.4] 2025-11-21T09:50:34.227+00:00 info: Press CTRL+C to terminate the process
+[StartPlugin@1.0.4] 2025-11-21T09:50:34.227+00:00 info: Displaying log activity from: /usr/src/app/.magnolia/apache-tomcat/logs/catalina.out
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: Name "breadcrumb" will be used instead of provided "Breadcrumb" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: File "breadcrumb.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/breadcrumb.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: File "breadcrumb.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/breadcrumb.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: File "Breadcrumb.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/Breadcrumb.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: Added: import BreadcrumbComponent from './app/templates/components/Breadcrumb'
+and: "spa-lm:components/breadcrumb": BreadcrumbComponent
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: No target area specified; will default to 'main'
+[CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: Availability for spa-lm:components/breadcrumb added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
