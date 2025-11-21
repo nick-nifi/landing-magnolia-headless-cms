@@ -1,3 +1,5 @@
+import ContentB1Component from './app/templates/components/ContentB1'
+import ButtonComponent from './app/templates/components/Button'
 import BreadcrumbComponent from './app/templates/components/Breadcrumb'
 import Sample1Component from './app/templates/components/Sample1'
 import SampleComponent from './app/templates/components/Sample'
@@ -23,6 +25,8 @@ export const config: MagnoliaConfig = {
     "spa-lm:components/flexibleC1": FlexibleC1Component,
     "spa-lm:components/sample": SampleComponent,
     "spa-lm:components/sample1": Sample1Component,
-    "spa-lm:components/breadcrumb": BreadcrumbComponent
+    "spa-lm:components/breadcrumb": BreadcrumbComponent,
+    "spa-lm:components/button": ButtonComponent,
+    "spa-lm:components/contentB1": ContentB1Component
   },
 };

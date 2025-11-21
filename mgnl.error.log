@@ -148,3 +148,26 @@ and: "spa-lm:components/breadcrumb": BreadcrumbComponent
 to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
 [CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: No target area specified; will default to 'main'
 [CreateComponentPlugin@1.3.0] 2025-11-21T16:55:29.795+07:00 info: Availability for spa-lm:components/breadcrumb added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: Name "button" will be used instead of provided "Button" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: File "button.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/button.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: File "button.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/button.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: File "Button.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/Button.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: Added: import ButtonComponent from './app/templates/components/Button'
+and: "spa-lm:components/button": ButtonComponent
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: No target area specified; will default to 'main'
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:16:57.506+07:00 info: Availability for spa-lm:components/button added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Name "contentB1" will be used instead of provided "ContentB1" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Using prototype "card" set by command option
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: File "contentB1.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/contentB1.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: File "contentB1.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/contentB1.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: File "ContentB1.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/ContentB1.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Added: import ContentB1Component from './app/templates/components/ContentB1'
+and: "spa-lm:components/contentB1": ContentB1Component
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: No target area specified; will default to 'main'
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Availability for spa-lm:components/contentB1 added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml

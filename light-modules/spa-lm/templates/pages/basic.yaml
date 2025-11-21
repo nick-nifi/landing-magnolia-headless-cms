@@ -18,12 +18,12 @@ areas:
         id: spa-lm:components/linkList
       Container:
         id: spa-lm:components/container
-      sample:
-        id: spa-lm:components/sample
-      sample1:
-        id: spa-lm:components/sample1
       breadcrumb:
         id: spa-lm:components/breadcrumb
+      button:
+        id: spa-lm:components/button
+      contentB1:
+        id: spa-lm:components/contentB1
     # autoGeneration:
     #   content:
     #     text:

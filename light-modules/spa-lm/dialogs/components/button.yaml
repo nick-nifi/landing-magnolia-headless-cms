@@ -1,0 +1,99 @@
+label: button
+form:
+  properties:
+    title:
+      label: Title
+      $type: textField
+      i18n: true  
+      required: true
+    variant:
+      label: Variant
+      $type: comboBoxField
+      defaultValue: primary
+      required: true
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: primary
+            label: Primary
+            value: primary
+          - name: secondary
+            label: Secondary
+            value: secondary
+          - name: ternary
+            label: Ternary
+            value: ternary
+          - name: outline
+            label: Outline
+            value: outline
+          - name: link
+            label: Link
+            value: link
+    size:
+      label: Size
+      $type: comboBoxField
+      defaultValue: medium
+      required: true
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: small
+            label: Small
+            value: small
+          - name: medium
+            label: Medium
+            value: medium
+          - name: large
+            label: Large
+            value: large
+    backgroundColor:
+      label: Background color
+      $type: textField
+      validators:
+        hexColorValidator:
+          $type: regexpValidator
+          pattern: ^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$
+          errorMessage: Enter a valid color in hex format
+    disabled:
+      $type: checkBoxField
+      label: Button State
+      buttonLabel: Disable this button
+    pageLinkChooser:
+      $type: switchableField
+      label: Page Link
+      field:
+        $type: comboBoxField
+        defaultValue: internalPageLink
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: internalPageLink
+              label: Internal Page Link
+              value: internalPageLink
+            - name: externalPageLink
+              label: External Page Link
+              value: externalPageLink
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: internalPageLink
+          properties:
+            internalLink:
+              i18n: true
+              $type: pageLinkField
+              label: Internal Page Link
+              required: true
+              converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+        - name: externalPageLink
+          properties:
+            externalLink:
+              i18n: true
+              $type: textField
+              label: External Page Link
+              required: true
+              validators:
+                urlValidator:
+                  $type: regexpValidator
+                  pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                  errorMessage: Enter a valid URL
