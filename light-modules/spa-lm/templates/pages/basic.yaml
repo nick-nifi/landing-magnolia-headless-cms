@@ -24,6 +24,8 @@ areas:
         id: spa-lm:components/button
       contentB1:
         id: spa-lm:components/contentB1
+      homeCarousel:
+        id: spa-lm:components/homeCarousel
     # autoGeneration:
     #   content:
     #     text:

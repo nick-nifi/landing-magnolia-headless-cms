@@ -171,3 +171,14 @@ and: "spa-lm:components/contentB1": ContentB1Component
 to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
 [CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: No target area specified; will default to 'main'
 [CreateComponentPlugin@1.3.0] 2025-11-21T17:17:25.371+07:00 info: Availability for spa-lm:components/contentB1 added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: Name "homeCarousel" will be used instead of provided "HomeCarousel" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: File "homeCarousel.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/homeCarousel.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: File "homeCarousel.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/homeCarousel.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: File "HomeCarousel.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/HomeCarousel.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: Added: import HomeCarouselComponent from './app/templates/components/HomeCarousel'
+and: "spa-lm:components/homeCarousel": HomeCarouselComponent
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: No target area specified; will default to 'main'
+[CreateComponentPlugin@1.3.0] 2025-11-21T17:20:21.148+07:00 info: Availability for spa-lm:components/homeCarousel added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
