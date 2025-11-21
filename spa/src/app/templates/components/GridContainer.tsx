@@ -92,18 +92,20 @@ const GridContainer: React.FC<IGridContainerProps> = ({
 
             if (currentItem) {
               return (
-                <EditableArea
-                  content={currentItem}
-                  key={index}
-                  className={cn('h-full')}
-                >
-                  {getComponents(currentItem).map((component) => (
-                    <EditableComponent
-                      key={(component as MgnlContent)['@name'] as string}
-                      content={component as MgnlContent}
-                    />
-                  ))}
-                </EditableArea>
+                <div key={index} className='h-full'>
+                  <EditableArea
+                    content={currentItem}
+                    key={index}
+                    className={cn('h-full')}
+                  >
+                    {getComponents(currentItem).map((component) => (
+                      <EditableComponent
+                        key={(component as MgnlContent)['@name'] as string}
+                        content={component as MgnlContent}
+                      />
+                    ))}
+                  </EditableArea>
+                </div>
               );
             }
             return null;
