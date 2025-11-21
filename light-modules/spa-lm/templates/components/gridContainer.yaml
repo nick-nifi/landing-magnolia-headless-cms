@@ -1,0 +1,15 @@
+title: Grid Container
+dialog: spa-lm:components/gridContainer
+areas:
+  item1: &id0001
+    title: Items
+    availableComponents:
+      contentB1:
+        id: spa-lm:components/contentB1
+      flexibleC1:
+        id: spa-lm:components/flexibleC1
+
+  item2: *id0001
+  item3: *id0001
+  item4: *id0001
+  item5: *id0001

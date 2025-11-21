@@ -26,6 +26,8 @@ areas:
         id: spa-lm:components/contentB1
       homeCarousel:
         id: spa-lm:components/homeCarousel
+      gridContainer:
+        id: spa-lm:components/gridContainer
     # autoGeneration:
     #   content:
     #     text:

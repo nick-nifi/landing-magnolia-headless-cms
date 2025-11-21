@@ -1,3 +1,4 @@
+import GridContainerComponent from './app/templates/components/GridContainer'
 import HomeCarouselComponent from './app/templates/components/HomeCarousel'
 import ContentB1Component from './app/templates/components/ContentB1'
 import ButtonComponent from './app/templates/components/Button'
@@ -29,6 +30,7 @@ export const config: MagnoliaConfig = {
     "spa-lm:components/breadcrumb": BreadcrumbComponent,
     "spa-lm:components/button": ButtonComponent,
     "spa-lm:components/contentB1": ContentB1Component,
-    "spa-lm:components/homeCarousel": HomeCarouselComponent
+    "spa-lm:components/homeCarousel": HomeCarouselComponent,
+    "spa-lm:components/gridContainer": GridContainerComponent
   },
 };

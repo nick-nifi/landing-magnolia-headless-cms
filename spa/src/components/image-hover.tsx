@@ -15,7 +15,7 @@ export default function ImageHover({
   return (
     <div
       className={cn(
-        'group relative block overflow-hidden z-50',
+        'group relative block overflow-hidden',
         imageContainerClass
       )}
     >
@@ -24,7 +24,7 @@ export default function ImageHover({
         src={src}
         alt={alt}
         className={cn(
-          'object-cover transition-transform duration-500 group-hover:scale-105 z-10',
+          'object-cover transition-transform duration-500 group-hover:scale-105',
           className
         )}
         {...restProps}
