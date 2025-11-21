@@ -89,23 +89,24 @@ const GridContainer: React.FC<IGridContainerProps> = ({
         >
           {Array.from({ length: count }).map((_, index) => {
             const currentItem = _items[index];
-            return (
-              <div
-                key={`item-${index}`}
-                className={`items-center justify-center`}
-              >
-                {currentItem && (
-                  <EditableArea content={currentItem}>
-                    {getComponents(currentItem).map((component) => (
-                      <EditableComponent
-                        key={(component as MgnlContent)['@name'] as string}
-                        content={component as MgnlContent}
-                      />
-                    ))}
-                  </EditableArea>
-                )}
-              </div>
-            );
+
+            if (currentItem) {
+              return (
+                <EditableArea
+                  content={currentItem}
+                  key={index}
+                  className={cn('h-full')}
+                >
+                  {getComponents(currentItem).map((component) => (
+                    <EditableComponent
+                      key={(component as MgnlContent)['@name'] as string}
+                      content={component as MgnlContent}
+                    />
+                  ))}
+                </EditableArea>
+              );
+            }
+            return null;
           })}
         </div>
       </div>

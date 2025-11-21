@@ -193,3 +193,13 @@ and: "spa-lm:components/gridContainer": GridContainerComponent
 to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
 [CreateComponentPlugin@1.3.0] 2025-11-21T17:58:25.800+07:00 info: No target area specified; will default to 'main'
 [CreateComponentPlugin@1.3.0] 2025-11-21T17:58:25.800+07:00 info: Availability for spa-lm:components/gridContainer added into /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/pages/basic.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: Using light module "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm" set by global argument in mgnl.config.js
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: Starting @magnolia/cli-react-prototypes
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: Name "flexibleC5" will be used instead of provided "FlexibleC5" for files created in light-module folder
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: Using prototype "card" set by command option
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: File "flexibleC5.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/dialogs/components/flexibleC5.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: File "flexibleC5.yaml" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/light-modules/spa-lm/templates/components/flexibleC5.yaml
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: File "FlexibleC5.tsx" created at: /Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/app/templates/components/FlexibleC5.tsx
+[CreateComponentPlugin@1.3.0] 2025-11-21T19:05:41.783+07:00 info: Added: import FlexibleC5Component from './app/templates/components/FlexibleC5'
+and: "spa-lm:components/flexibleC5": FlexibleC5Component
+to component mappings file: "/Volumes/WD Blue SN580 1TB Media/working/uobkh/landing-magnolia-headless-cms/spa/src/magnolia.config.ts"
