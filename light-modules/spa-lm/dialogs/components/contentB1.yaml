@@ -12,8 +12,18 @@ form:
       colors: 02373F
       fontSizes: 'Small/0.75rem;Default/1rem;Big/1.5rem'
       label: Description
-      required: true
+      required: false
       i18n: true
+    buttonLabel: 
+      $type: textField
+      label: Button Label
+      i18n: true
+      required: false
+    buttonUrl:
+      $type: linkField
+      label: Button Url
+      required: false
+
     imageChooser:
       $type: switchableField
       label: Image

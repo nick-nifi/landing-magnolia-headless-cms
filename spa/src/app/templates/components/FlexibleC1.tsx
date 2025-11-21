@@ -40,27 +40,25 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
     get(imageChooser, 'image.metadata.caption');
 
   const renderContent = () => (
-    <Card>
-      <Card className='gap-0 h-full flex-1'>
-        <CardContent className='p-5 flex flex-1 flex-col'>
-          <Typography variant={'h4'} weight={'medium'} className='mb-4'>
-            {title}
-          </Typography>
-          <Typography variant={'body-large'} weight={'light'}>
-            <span
-              dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
-            />
-          </Typography>
-        </CardContent>
-        <ImageHover
-          src={imgSrc}
-          alt={imageAlt || ''}
-          fill
-          unoptimized
-          className='object-cover'
-          imageContainerClass='aspect-53/32'
-        />
-      </Card>
+    <Card className='gap-0 h-full flex-1'>
+      <CardContent className='p-5 flex flex-1 flex-col'>
+        <Typography variant={'h4'} weight={'medium'} className='mb-4'>
+          {title}
+        </Typography>
+        <Typography variant={'body-large'} weight={'light'}>
+          <span
+            dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
+          />
+        </Typography>
+      </CardContent>
+      <ImageHover
+        src={imgSrc}
+        alt={imageAlt || ''}
+        fill
+        unoptimized
+        className='object-cover'
+        imageContainerClass='aspect-53/32'
+      />
     </Card>
   );
 
