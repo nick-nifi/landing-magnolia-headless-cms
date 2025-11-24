@@ -1,0 +1,110 @@
+label: Typography
+form:
+  properties:
+    text:
+      $type: textField
+      label: Text
+      required: true
+      i18n: true
+    variant:
+      $type: comboBoxField
+      label: Variant
+      required: true
+      defaultValue: body-small
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: hero-heading
+            label: Hero Heading
+            value: hero-heading
+          - name: hero-small-heading
+            label: Hero Small Heading
+            value: hero-small-heading
+          - name: h1
+            label: Heading 1
+            value: h1
+          - name: h2
+            label: Heading 2
+            value: h2
+          - name: h3
+            label: Heading 3
+            value: h3
+          - name: h4
+            label: Heading 4
+            value: h4
+          - name: h5
+            label: Heading 5
+            value: h5
+          - name: body-large
+            label: Body Large
+            value: body-large
+          - name: body-small
+            label: Body Small
+            value: body-small
+          - name: link
+            label: Link
+            value: link
+    weight:
+      $type: comboBoxField
+      label: Weight
+      required: true
+      defaultValue: regular
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: light
+            label: Light
+            value: light
+          - name: regular
+            label: Regular
+            value: regular
+          - name: medium
+            label: Medium
+            value: medium
+          - name: semibold
+            label: Semibold
+            value: semibold
+          - name: bold
+            label: Bold
+            value: bold
+    as:
+      $type: comboBoxField
+      label: HTML Tag (Optional)
+      description: Override the default HTML tag for the selected variant.
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: h1
+            label: h1
+            value: h1
+          - name: h2
+            label: h2
+            value: h2
+          - name: h3
+            label: h3
+            value: h3
+          - name: h4
+            label: h4
+            value: h4
+          - name: h5
+            label: h5
+            value: h5
+          - name: p
+            label: p
+            value: p
+          - name: span
+            label: span
+            value: span
+          - name: div
+            label: div
+            value: div
+    link:
+      $type: linkField
+      label: Link
+      description: Only used when Variant is set to 'Link'
+      required: false
+    customCss:
+      $type: textField
+      label: Custom CSS
+      description: Add Tailwind CSS classes here (e.g. text-red-500 mt-4)
+      required: false

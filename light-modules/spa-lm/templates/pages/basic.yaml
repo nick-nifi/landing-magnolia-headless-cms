@@ -12,6 +12,8 @@ areas:
     availableComponents:
       Text:
         id: spa-lm:components/text
+      Typography:
+        id: spa-lm:components/typography
       TextImage:
         id: spa-lm:components/textImage
       LinkList:
