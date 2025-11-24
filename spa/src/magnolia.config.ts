@@ -1,3 +1,5 @@
+import NLocationComponent from './app/templates/components/NLocation'
+import HeaderA4Component from './app/templates/components/HeaderA4'
 import FlexibleC2Component from './app/templates/components/FlexibleC2'
 import FlexibleC5Component from './app/templates/components/FlexibleC5'
 import GridContainerComponent from './app/templates/components/GridContainer'
@@ -35,6 +37,8 @@ export const config: MagnoliaConfig = {
     "spa-lm:components/homeCarousel": HomeCarouselComponent,
     "spa-lm:components/gridContainer": GridContainerComponent,
     "spa-lm:components/flexibleC5": FlexibleC5Component,
-    "spa-lm:components/flexibleC2": FlexibleC2Component
+    "spa-lm:components/flexibleC2": FlexibleC2Component,
+    "spa-lm:components/headerA4": HeaderA4Component,
+    "spa-lm:components/nLocation": NLocationComponent
   },
 };
