@@ -61,21 +61,76 @@ form:
               i18n: true
               $type: textField
               label: Image Alt Text
+    ctaChooser:
+      $type: switchableField
+      label: Call To Action
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noCta
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noCta
+              label: No Call To Action
+              value: noCta
+            - name: withCta
+              label: With Call To Action
+              value: withCta
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noCta
+          properties: {}
+        - name: withCta
+          properties:
+            ctaText:
+              $type: textField
+              required: true
+              label: Call To Action - Text
+              i18n: true
+            ctaLink:
+              $type: switchableField
+              i18n: true
+              label: Call To Action - Link
+              field:
+                $type: comboBoxField
+                defaultValue: internalPageLink
+                required: true
+                datasource:
+                  $type: optionListDatasource
+                  options:
+                    - name: internalPageLink
+                      label: Internal Page Link
+                      value: internalPageLink
+                    - name: externalPageLink
+                      label: External Page Link
+                      value: externalPageLink
+              itemProvider:
+                $type: jcrChildNodeProvider
+              forms:
+                - name: internalPageLink
+                  properties:
+                    internalLink:
+                      i18n: true
+                      required: true
+                      $type: pageLinkField
+                      label: Internal Page Link
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: externalPageLink
+                  properties:
+                    externalLink:
+                      i18n: true
+                      required: true
+                      $type: textField
+                      label: External Page Link
+                      validators:
+                        urlValidator:
+                          $type: regexpValidator
+                          pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                          errorMessage: Please enter a valid URL
     tag:
       $type: textField
       label: Tag
       i18n: true
-    link:
-      $type: compositeField
-      label: Link
-      i18n: true
-      properties:
-        link:
-          $type: linkField
-          label: Link
-          required: true
-        label:
-          $type: textField
-          label: Label
-          required: true
-          i18n: true
