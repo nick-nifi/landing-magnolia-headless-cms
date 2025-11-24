@@ -1,3 +1,4 @@
+import HeaderA3Component from './app/templates/components/HeaderA3'
 import NLocationComponent from './app/templates/components/NLocation'
 import HeaderA4Component from './app/templates/components/HeaderA4'
 import FlexibleC2Component from './app/templates/components/FlexibleC2'
@@ -39,6 +40,7 @@ export const config: MagnoliaConfig = {
     "spa-lm:components/flexibleC5": FlexibleC5Component,
     "spa-lm:components/flexibleC2": FlexibleC2Component,
     "spa-lm:components/headerA4": HeaderA4Component,
-    "spa-lm:components/nLocation": NLocationComponent
+    "spa-lm:components/nLocation": NLocationComponent,
+    "spa-lm:components/headerA3": HeaderA3Component
   },
 };
