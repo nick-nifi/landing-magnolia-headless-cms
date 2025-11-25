@@ -44,6 +44,8 @@ areas:
         id: spa-lm:components/grid
       gridCol:
         id: spa-lm:components/gridCol
+      accordion:
+        id: spa-lm:components/accordion
     # autoGeneration:
     #   content:
     #     text:

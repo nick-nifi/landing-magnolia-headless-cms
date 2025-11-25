@@ -4,6 +4,8 @@ areas:
   content:
     title: Content
     availableComponents:
+      accordion:
+        id: spa-lm:components/accordion
       typography:
         id: spa-lm:components/typography
       grid:

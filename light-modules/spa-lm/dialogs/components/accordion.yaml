@@ -1,0 +1,33 @@
+label: accordion
+form:
+  properties:
+    accordion:
+      i18n: true
+      $type: jcrMultiField
+      label: Accordion
+      required: true
+      field:
+        $type: compositeField
+        label: Accordion Item
+        properties:
+          title:
+            $type: textField
+            label: Title
+            required: true
+            i18n: true
+          description:
+            $type: textField
+            label: Description
+            required: false
+            i18n: true
+          content:
+            $type: richTextField
+            label: Content
+            i18n: true
+            required: false
+            colors: 02373F
+            fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+          expanded:
+            $type: checkBoxField
+            label: Default Expansion
+            buttonLabel: Expand this item by default
