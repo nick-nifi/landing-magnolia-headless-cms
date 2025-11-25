@@ -6,6 +6,8 @@ areas:
     availableComponents:
       typography:
         id: spa-lm:components/typography
+      listD1:
+        id: spa-lm:components/listD1
       contentB1:
         id: spa-lm:components/contentB1
       flexibleC1:

@@ -9,7 +9,9 @@ interface ISectionProps {
 const Section: React.FC<ISectionProps> = ({ content }) => {
   return (
     <section className='py-12 md:py-16 lg:py-28'>
-      {content && <EditableArea content={content} />}
+      <div className='container mx-auto px-2 lg:px-0'>
+        {content && <EditableArea content={content} />}
+      </div>
     </section>
   );
 };

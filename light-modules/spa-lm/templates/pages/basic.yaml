@@ -38,6 +38,8 @@ areas:
         id: spa-lm:components/headerA3
       section:
         id: spa-lm:components/section
+      listD1:
+        id: spa-lm:components/listD1
     # autoGeneration:
     #   content:
     #     text:

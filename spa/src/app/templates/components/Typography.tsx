@@ -3,7 +3,7 @@ import { Typography as TypographyComponent } from '@/components/typography';
 import { environment } from '../../../environments/environment';
 
 interface ITypographyProps {
-  text: string;
+  children?: React.ReactNode;
   variant:
     | 'hero-heading'
     | 'hero-small-heading'
@@ -15,7 +15,7 @@ interface ITypographyProps {
     | 'body-large'
     | 'body-small'
     | 'link';
-  weight: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
+  weight?: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
   as?: any;
   link?: {
     '@link': string;
@@ -24,9 +24,9 @@ interface ITypographyProps {
 }
 
 const Typography: React.FC<ITypographyProps> = ({
-  text,
+  children,
   variant,
-  weight,
+  weight = 'light',
   as,
   link,
   customCss,
@@ -50,7 +50,7 @@ const Typography: React.FC<ITypographyProps> = ({
       className={customCss}
       {...(variant === 'link' ? { href } : {})}
     >
-      {text}
+      {children}
     </TypographyComponent>
   );
 };
