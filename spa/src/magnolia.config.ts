@@ -1,4 +1,5 @@
 import HeaderA3Component from './app/templates/components/HeaderA3';
+import SectionComponent from './app/templates/components/Section';
 import NLocationComponent from './app/templates/components/NLocation';
 import HeaderA4Component from './app/templates/components/HeaderA4';
 import FlexibleC2Component from './app/templates/components/FlexibleC2';
@@ -23,6 +24,7 @@ import Basic from './app/templates/pages/Basic';
 
 export const config: MagnoliaConfig = {
   componentMappings: {
+    'spa-lm:components/section': SectionComponent,
     'spa-lm:pages/basic': Basic,
 
     'spa-lm:components/text': Text,
