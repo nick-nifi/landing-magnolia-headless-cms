@@ -15,7 +15,7 @@ interface ITypographyProps {
     | 'body-large'
     | 'body-small'
     | 'link';
-  weight: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
+  weight?: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
   as?: any;
   link?: {
     '@link': string;
@@ -26,7 +26,7 @@ interface ITypographyProps {
 const Typography: React.FC<ITypographyProps> = ({
   text,
   variant,
-  weight,
+  weight = 'light',
   as,
   link,
   customCss,

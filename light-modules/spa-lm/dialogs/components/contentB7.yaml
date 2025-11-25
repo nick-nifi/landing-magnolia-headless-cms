@@ -1,0 +1,8 @@
+label: contentB7
+form:
+  properties:
+    text:
+      $type: textField
+      label: Text
+      required: true
+      i18n: true

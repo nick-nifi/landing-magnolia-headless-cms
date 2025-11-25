@@ -1,0 +1,31 @@
+label: listD1
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    description:
+      $type: richTextField
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+      label: Description
+      required: false
+    variants:
+      $type: switchableField
+      label: Variants
+      field:
+        $type: comboBoxField
+        defaultValue: primary
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: primary
+              label: Primary
+              value: primary
+            - name: secondary
+              label: Secondary
+              value: secondary

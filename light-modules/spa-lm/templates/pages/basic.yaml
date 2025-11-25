@@ -36,6 +36,18 @@ areas:
         id: spa-lm:components/nLocation
       headerA3:
         id: spa-lm:components/headerA3
+      section:
+        id: spa-lm:components/section
+      listD1:
+        id: spa-lm:components/listD1
+      grid:
+        id: spa-lm:components/grid
+      gridCol:
+        id: spa-lm:components/gridCol
+      accordion:
+        id: spa-lm:components/accordion
+      contentB7:
+        id: spa-lm:components/contentB7
     # autoGeneration:
     #   content:
     #     text:

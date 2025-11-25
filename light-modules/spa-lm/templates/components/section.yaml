@@ -1,11 +1,19 @@
 title: Section
-dialog: spa-lm:components/section
+
 areas:
   content:
     title: Content
     availableComponents:
-      gridContainer:
-        id: spa-lm:components/gridContainer
+      accordion:
+        id: spa-lm:components/accordion
+      typography:
+        id: spa-lm:components/typography
+      grid:
+        id: spa-lm:components/grid
+      gridCol:
+        id: spa-lm:components/gridCol
+      listD1:
+        id: spa-lm:components/listD1
       contentB1:
         id: spa-lm:components/contentB1
       flexibleC1:

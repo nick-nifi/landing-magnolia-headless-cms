@@ -1,0 +1,19 @@
+title: grid
+dialog: spa-lm:components/grid
+areas:
+  row1: &gridRow
+    title: Row
+    availableComponents:
+      gridCol:
+        id: spa-lm:components/gridCol
+  row2: *gridRow
+  row3: *gridRow
+  row4: *gridRow
+  row5: *gridRow
+  row6: *gridRow
+  row7: *gridRow
+  row8: *gridRow
+  row9: *gridRow
+  row10: *gridRow
+  row11: *gridRow
+  row12: *gridRow
