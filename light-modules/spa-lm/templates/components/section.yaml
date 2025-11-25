@@ -6,6 +6,10 @@ areas:
     availableComponents:
       typography:
         id: spa-lm:components/typography
+      grid:
+        id: spa-lm:components/grid
+      gridCol:
+        id: spa-lm:components/gridCol
       listD1:
         id: spa-lm:components/listD1
       contentB1:

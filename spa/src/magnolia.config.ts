@@ -1,3 +1,5 @@
+import GridColComponent from './app/templates/components/GridCol'
+import GridComponent from './app/templates/components/Grid'
 import ListD1Component from './app/templates/components/ListD1'
 import HeaderA3Component from './app/templates/components/HeaderA3';
 import SectionComponent from './app/templates/components/Section';
@@ -47,6 +49,8 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/headerA4': HeaderA4Component,
     'spa-lm:components/nLocation': NLocationComponent,
     'spa-lm:components/headerA3': HeaderA3Component,
-    "spa-lm:components/listD1": ListD1Component
+    "spa-lm:components/listD1": ListD1Component,
+    "spa-lm:components/grid": GridComponent,
+    "spa-lm:components/gridCol": GridColComponent
   },
 };
