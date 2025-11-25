@@ -1,3 +1,4 @@
+import ContentB7Component from './app/templates/components/ContentB7'
 import AccordionComponent from './app/templates/components/Accordion';
 import GridColComponent from './app/templates/components/GridCol';
 import GridComponent from './app/templates/components/Grid';
@@ -54,5 +55,6 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/grid': GridComponent,
     'spa-lm:components/gridCol': GridColComponent,
     'spa-lm:components/accordion': AccordionComponent,
+    "spa-lm:components/contentB7": ContentB7Component
   },
 };
