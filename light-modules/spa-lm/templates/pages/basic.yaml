@@ -12,6 +12,8 @@ areas:
     availableComponents:
       Text:
         id: spa-lm:components/text
+      Typography:
+        id: spa-lm:components/typography
       TextImage:
         id: spa-lm:components/textImage
       LinkList:
@@ -28,6 +30,12 @@ areas:
         id: spa-lm:components/homeCarousel
       gridContainer:
         id: spa-lm:components/gridContainer
+      headerA4:
+        id: spa-lm:components/headerA4
+      nLocation:
+        id: spa-lm:components/nLocation
+      headerA3:
+        id: spa-lm:components/headerA3
     # autoGeneration:
     #   content:
     #     text:
