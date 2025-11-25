@@ -1,11 +1,11 @@
 title: Section
-dialog: spa-lm:components/section
+
 areas:
   content:
     title: Content
     availableComponents:
-      gridContainer:
-        id: spa-lm:components/gridContainer
+      typography:
+        id: spa-lm:components/typography
       contentB1:
         id: spa-lm:components/contentB1
       flexibleC1:

@@ -36,6 +36,8 @@ areas:
         id: spa-lm:components/nLocation
       headerA3:
         id: spa-lm:components/headerA3
+      section:
+        id: spa-lm:components/section
     # autoGeneration:
     #   content:
     #     text:
