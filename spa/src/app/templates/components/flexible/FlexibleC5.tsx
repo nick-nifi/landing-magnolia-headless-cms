@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { decodeIfEscaped } from '../../services/content-service';
+import { decodeIfEscaped } from '../../../services/content-service';
 import { Card, CardContent } from '@/components/ui/card';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';

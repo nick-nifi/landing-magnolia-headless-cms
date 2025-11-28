@@ -2,7 +2,7 @@ import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
 import Image from 'next/image';
 import React from 'react';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';

@@ -5,8 +5,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { environment } from '../../../environments/environment';
-import { decodeIfEscaped } from '../../services/content-service';
+import { environment } from '../../../../environments/environment';
+import { decodeIfEscaped } from '../../../services/content-service';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
