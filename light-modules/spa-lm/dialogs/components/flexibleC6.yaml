@@ -1,0 +1,80 @@
+label: flexibleC6
+form:
+  properties:
+    title: 
+      $type: textField
+      label: Section Title
+      required: true
+      i18n: true
+    featureTiles:
+      $type: jcrMultiField
+      label: Feature Tiles
+      required: true
+      i18n: true
+      field:
+        $type: compositeField
+        label: Feature Tile
+        properties:
+          tileTitle:
+            $type: textField
+            label: Tile Title
+            required: true
+            i18n: true
+          tileDescription:
+            $type: richTextField
+            label: Tile Description
+            required: true
+            i18n: true
+            colors: 02373F
+            fontSizes: 'Small/0.75rem;Default/1rem;Big/1.5rem'
+          buttonLink:
+            $type: switchableField
+            i18n: true
+            label: Button Link
+            field:
+              $type: comboBoxField
+              defaultValue: internalPageLink
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: internalPageLink
+                    label: Internal Page Link
+                    value: internalPageLink
+                  - name: externalPageLink
+                    label: External Page Link
+                    value: externalPageLink
+            itemProvider:
+              $type: jcrChildNodeProvider
+            forms:
+              - name: internalPageLink
+                properties:
+                  buttonText:
+                    $type: textField
+                    label: Button Text
+                    required: true
+                    i18n: true
+                  internalLink:
+                    i18n: true
+                    required: true
+                    $type: pageLinkField
+                    label: Internal Page Link
+                    converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+              - name: externalPageLink
+                properties:
+                  buttonText:
+                    $type: textField
+                    label: Button Text
+                    required: true
+                    i18n: true
+                  externalLink:
+                    i18n: true
+                    required: true
+                    $type: textField
+                    label: External Page Link
+                    validators:
+                      urlValidator:
+                        $type: regexpValidator
+                        pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                        errorMessage: Please enter a valid URL
+

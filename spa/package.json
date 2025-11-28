@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "PORT=8181 next dev",
+    "dev": "next dev -p 8181",
     "prebuild": "npm run lint",
     "build": "next build",
     "start": "PORT=8181 next start",
