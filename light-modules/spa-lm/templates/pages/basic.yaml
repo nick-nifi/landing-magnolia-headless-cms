@@ -46,6 +46,8 @@ areas:
         id: spa-lm:components/flexiblec6
       grid:
         id: spa-lm:components/grid
+      flexibleC3:
+        id: spa-lm:components/flexibleC3
     # autoGeneration:
     #   content:
     #     text:

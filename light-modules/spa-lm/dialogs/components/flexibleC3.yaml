@@ -1,0 +1,132 @@
+label: flexibleC3
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    description:
+      $type: richTextField
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+      label: Description
+      required: false
+
+    imageChooser:
+      $type: switchableField
+      label: Image
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: image
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: image
+              label: Internal Image
+              value: image
+            - name: externalImage
+              label: External Image
+              value: externalImage
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: image
+          properties:
+            image:
+              i18n: true
+              required: true
+              $type: damLinkField
+              label: Internal Image Link
+            imageAlt:
+              i18n: true
+              $type: textField
+              label: Image Alt Text
+        - name: externalImage
+          properties:
+            externalImage:
+              i18n: true
+              required: true
+              $type: textField
+              label: External Image Link
+              validators:
+                imageUrlValidator:
+                  $type: regexpValidator
+                  pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                  errorMessage: Enter a valid Image URL
+            externalImageAlt:
+              i18n: true
+              $type: textField
+              label: Image Alt Text
+    ctaChooser:
+      $type: switchableField
+      label: Call To Action
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noCta
+        required: false
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noCta
+              label: No Call To Action
+              value: noCta
+            - name: withCta
+              label: With Call To Action
+              value: withCta
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noCta
+          properties: {}
+        - name: withCta
+          properties:
+            ctaText:
+              $type: textField
+              required: true
+              label: Call To Action - Text
+              i18n: true
+            ctaLink:
+              $type: switchableField
+              i18n: true
+              label: Call To Action - Link
+              field:
+                $type: comboBoxField
+                defaultValue: internalPageLink
+                required: true
+                datasource:
+                  $type: optionListDatasource
+                  options:
+                    - name: internalPageLink
+                      label: Internal Page Link
+                      value: internalPageLink
+                    - name: externalPageLink
+                      label: External Page Link
+                      value: externalPageLink
+              itemProvider:
+                $type: jcrChildNodeProvider
+              forms:
+                - name: internalPageLink
+                  properties:
+                    internalLink:
+                      i18n: true
+                      required: true
+                      $type: pageLinkField
+                      label: Internal Page Link
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: externalPageLink
+                  properties:
+                    externalLink:
+                      i18n: true
+                      required: true
+                      $type: textField
+                      label: External Page Link
+                      validators:
+                        urlValidator:
+                          $type: regexpValidator
+                          pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                          errorMessage: Please enter a valid URL

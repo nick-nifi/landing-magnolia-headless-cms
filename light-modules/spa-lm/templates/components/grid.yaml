@@ -6,9 +6,18 @@ areas:
     availableComponents:
       grid:
         id: spa-lm:components/grid
+      flexibleC3:
+        id: spa-lm:components/flexibleC3
       flexibleC6:
         id: spa-lm:components/flexiblec6
   item2: *id0001
   item3: *id0001
   item4: *id0001
   item5: *id0001
+  item6: *id0001
+  item7: *id0001
+  item8: *id0001
+  item9: *id0001
+  item10: *id0001
+  item11: *id0001
+  item12: *id0001
