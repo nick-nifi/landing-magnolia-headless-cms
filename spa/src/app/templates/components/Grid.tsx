@@ -1,118 +1,194 @@
-import { EditableArea } from '@magnolia/react-editor';
+import React from 'react';
+import { EditableArea, EditableComponent } from '@magnolia/react-editor';
 import { MgnlContent } from '@magnolia/frontend-helpers-base';
 import { cn } from '@/lib/utils';
 
-interface GridProps {
-  cols?: { field: string } | string;
-  rows?: { field: string } | string;
-  gutter?: string;
-  customCss?: string;
-  row1?: MgnlContent;
-  row2?: MgnlContent;
-  row3?: MgnlContent;
-  row4?: MgnlContent;
-  row5?: MgnlContent;
-  row6?: MgnlContent;
-  row7?: MgnlContent;
-  row8?: MgnlContent;
-  row9?: MgnlContent;
-  row10?: MgnlContent;
-  row11?: MgnlContent;
-  row12?: MgnlContent;
+export type Screen = 'mobile' | 'tablet' | 'desktop';
+
+export interface GridNode {
+  '@id': string;
+  '@nodes'?: string[];
+  // You can extend this with content for each grid item
+  title?: string;
+  content?: string;
 }
 
-const Grid = ({
-  cols = '12',
-  rows = '1',
-  gutter = '4',
-  customCss = '',
-  row1,
-  row2,
-  row3,
-  row4,
-  row5,
-  row6,
-  row7,
-  row8,
-  row9,
-  row10,
-  row11,
-  row12,
-}: GridProps) => {
-  // Extract values from switchableField structure
-  const colsValue = (
-    typeof cols === 'object' && cols?.field ? cols.field : cols
-  ) as string;
-  const rowsValue = (
-    typeof rows === 'object' && rows?.field ? rows.field : rows
-  ) as string;
+export interface MultiFieldNode {
+  screen: Screen;
+  value: string;
+}
 
-  // Map cols to Tailwind grid-cols classes
-  const colsClass =
-    {
-      '1': 'grid-cols-1',
-      '2': 'grid-cols-2',
-      '3': 'grid-cols-3',
-      '4': 'grid-cols-4',
-      '5': 'grid-cols-5',
-      '6': 'grid-cols-6',
-      '7': 'grid-cols-7',
-      '8': 'grid-cols-8',
-      '9': 'grid-cols-9',
-      '10': 'grid-cols-10',
-      '11': 'grid-cols-11',
-      '12': 'grid-cols-12',
-    }[colsValue] || 'grid-cols-12';
+export interface MultiField {
+  '@nodes': string[];
+  [key: string]: MultiFieldNode | string[];
+}
 
-  // Map rows to Tailwind grid-rows classes
-  const rowsClass =
-    {
-      '1': 'grid-rows-1',
-      '2': 'grid-rows-2',
-      '3': 'grid-rows-3',
-      '4': 'grid-rows-4',
-      '5': 'grid-rows-5',
-      '6': 'grid-rows-6',
-      '7': 'grid-rows-7',
-      '8': 'grid-rows-8',
-      '9': 'grid-rows-9',
-      '10': 'grid-rows-10',
-      '11': 'grid-rows-11',
-      '12': 'grid-rows-12',
-    }[rowsValue] || 'grid-rows-1';
+export interface GridProps {
+  x_gap: MultiField;
+  y_gap: MultiField;
+  cols: MultiField;
+  items: string; // number of items selected
+  [key: string]: GridNode | MultiField | string | undefined; // for item1, item2, ...
+}
 
-  // Map gutter to Tailwind gap classes
-  const gapClass = gutter ? `gap-${gutter}` : 'gap-4';
+interface IGridProps {
+  x_gap: MultiField;
+  y_gap: MultiField;
+  cols: MultiField;
+  items: string; // number of items selected
+  item1?: MgnlContent;
+  item2?: MgnlContent;
+  item3?: MgnlContent;
+  item4?: MgnlContent;
+  item5?: MgnlContent;
+  item6?: MgnlContent;
+  item7?: MgnlContent;
+  item8?: MgnlContent;
+  item9?: MgnlContent;
+  item10?: MgnlContent;
+  item11?: MgnlContent;
+  item12?: MgnlContent;
+}
 
-  // Get all row areas
-  const rowAreas = [
-    row1,
-    row2,
-    row3,
-    row4,
-    row5,
-    row6,
-    row7,
-    row8,
-    row9,
-    row10,
-    row11,
-    row12,
+const Grid: React.FC<IGridProps> = ({
+  cols,
+  item1,
+  item10,
+  item11,
+  item12,
+  item2,
+  item3,
+  item4,
+  item5,
+  item6,
+  item7,
+  item8,
+  item9,
+  x_gap,
+  y_gap,
+  items: noOfItems,
+}) => {
+  const _noOfItems = parseInt(noOfItems, 10);
+
+  const getComponents = (content: MgnlContent | undefined) => {
+    return content?.['@nodes']?.map((nodeName) => content[nodeName]) || [];
+  };
+
+  const classGridCols = buildGridCols(cols);
+  const classGridX = buildXGap(x_gap);
+  const classGridY = buildYGap(y_gap);
+
+  const items = [
+    item1,
+    item2,
+    item3,
+    item4,
+    item5,
+    item6,
+    item7,
+    item8,
+    item9,
+    item10,
+    item11,
+    item12,
   ];
 
-  // Get the number of rows to render
-  const rowCount = parseInt(rowsValue, 10) || 1;
-
   return (
-    <div className={cn('grid', colsClass, rowsClass, gapClass, customCss)}>
-      {Array.from({ length: rowCount }).map((_, index) => {
-        const currentRow = rowAreas[index];
-        return currentRow ? (
-          <EditableArea key={`row-${index}`} content={currentRow} />
-        ) : null;
+    <div className={cn('grid', classGridX, classGridY, classGridCols)}>
+      {Array.from({ length: _noOfItems }).map((_, index) => {
+        const currentItem = items[index];
+        return (
+          <div key={`grid-item-${index}`} className='h-full'>
+            <EditableArea
+              key={`grid-item-${index}`}
+              content={currentItem}
+              className={'h-full'}
+            >
+              {getComponents(currentItem).map((component) => (
+                <EditableComponent
+                  key={(component as MgnlContent)['@name'] as string}
+                  content={component as MgnlContent}
+                />
+              ))}
+            </EditableArea>
+          </div>
+        );
       })}
     </div>
   );
 };
+
+function buildXGap(xGap: MultiField) {
+  const nodeKeys = xGap['@nodes'] || [];
+
+  const defaultValues = nodeKeys.map((key) => {
+    const node = xGap[key] as MultiFieldNode;
+    return [node.screen, node.value];
+  });
+
+  return defaultValues
+    .map(([screen, value]) => {
+      switch (screen) {
+        case 'mobile':
+          return `gap-x-${value}`;
+        case 'tablet':
+          return `md:gap-x-${value}`;
+        case 'desktop':
+          return `lg:gap-x-${value}`;
+
+        default:
+          return '';
+      }
+    })
+    .join(' ');
+}
+
+function buildYGap(yGap: MultiField) {
+  const nodeKeys = yGap['@nodes'] || [];
+
+  const defaultValues = nodeKeys.map((key) => {
+    const node = yGap[key] as MultiFieldNode;
+    return [node.screen, node.value];
+  });
+
+  return defaultValues.map(([screen, value]) => {
+    switch (screen) {
+      case 'mobile':
+        return `gap-y-${value}`;
+      case 'tablet':
+        return `md:gap-y-${value}`;
+      case 'desktop':
+        return `lg:gap-y-${value}`;
+
+      default:
+        return '';
+    }
+  });
+}
+
+function buildGridCols(cols: MultiField) {
+  const nodeKeys = cols['@nodes'] || [];
+
+  const defaultValues = nodeKeys.map((key) => {
+    const node = cols[key] as MultiFieldNode;
+    return [node.screen, node.value];
+  });
+
+  return defaultValues
+    .map(([screen, value]) => {
+      switch (screen) {
+        case 'mobile':
+          return `sm:grid-cols-${value}`;
+        case 'tablet':
+          return `md:grid-cols-${value}`;
+        case 'desktop':
+          return `lg:grid-cols-${value}`;
+
+        default:
+          return '';
+      }
+    })
+    .join(' ');
+}
 
 export default Grid;

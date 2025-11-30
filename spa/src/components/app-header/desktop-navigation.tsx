@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import * as React from 'react';
 
 // import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -11,42 +12,39 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-
-import Image from 'next/image';
 import { Grid } from '../grid';
 import { Typography } from '../typography';
 import FeatureListItem from './feature-list-item';
 import { menuItems } from './menu-config';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export function NavigationMenuDemo() {
   // const isMobile = useIsMobile();
+  const pathname = usePathname();
 
   return (
     <NavigationMenu defaultValue='home'>
       <NavigationMenuList className='flex-wrap hidden lg:flex'>
         {menuItems.map((item) => {
-          // Kiểm tra xem link có active không
-          // const isActive =
-          //   item.type === "link"
-          //     ? pathname === item.href
-          //     : pathname.startsWith(item.pathCheckPrefix);
+          // Determine if the mega menu item is active based on the current pathname
+          const isActive =
+            item.type === 'megaMenu' &&
+            pathname.startsWith(item.pathCheckPrefix ?? '');
 
-          // if (item.type === "link") {
-          //   return (
-          //     <NavigationMenuItem key={item.title}>
-          //       <Link href={item.href} legacyBehavior passHref>
-          //         <NavigationMenuLink active={isActive}>
-          //           {item.title}
-          //         </NavigationMenuLink>
-          //       </Link>
-          //     </NavigationMenuItem>
-          //   );
-          // }
-
+          // Render mega menu items with active styling on the trigger
           if (item.type === 'megaMenu') {
             return (
               <NavigationMenuItem key={item.title}>
-                <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+                <NavigationMenuTrigger
+                  className={
+                    isActive
+                      ? 'text-primary border-b border-b-4 border-primary'
+                      : ''
+                  }
+                >
+                  {item.title}
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className='w-screen border-t'>
                     <Grid cols={4} gap={0}>
@@ -99,7 +97,6 @@ export function NavigationMenuDemo() {
                           >
                             Featured
                           </Typography>
-
                           <div className='flex flex-col gap-6'>
                             {item.content.featured.items.map(
                               (featureItem, idx) => (
@@ -124,23 +121,3 @@ export function NavigationMenuDemo() {
     </NavigationMenu>
   );
 }
-
-// function ListItem({
-//   title,
-//   children,
-//   href,
-//   ...props
-// }: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
-//   return (
-//     <li {...props}>
-//       <NavigationMenuLink asChild>
-//         <Link href={href}>
-//           <div className='text-sm leading-none font-medium'>{title}</div>
-//           <p className='text-muted-foreground line-clamp-2 text-sm leading-snug'>
-//             {children}
-//           </p>
-//         </Link>
-//       </NavigationMenuLink>
-//     </li>
-//   );
-// }

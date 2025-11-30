@@ -1,19 +1,23 @@
 title: grid
 dialog: spa-lm:components/grid
 areas:
-  row1: &gridRow
-    title: Row
+  item1: &id0001
+    title: Items
     availableComponents:
-      gridCol:
-        id: spa-lm:components/gridCol
-  row2: *gridRow
-  row3: *gridRow
-  row4: *gridRow
-  row5: *gridRow
-  row6: *gridRow
-  row7: *gridRow
-  row8: *gridRow
-  row9: *gridRow
-  row10: *gridRow
-  row11: *gridRow
-  row12: *gridRow
+      grid:
+        id: spa-lm:components/grid
+      flexibleC3:
+        id: spa-lm:components/flexibleC3
+      flexibleC6:
+        id: spa-lm:components/flexiblec6
+  item2: *id0001
+  item3: *id0001
+  item4: *id0001
+  item5: *id0001
+  item6: *id0001
+  item7: *id0001
+  item8: *id0001
+  item9: *id0001
+  item10: *id0001
+  item11: *id0001
+  item12: *id0001

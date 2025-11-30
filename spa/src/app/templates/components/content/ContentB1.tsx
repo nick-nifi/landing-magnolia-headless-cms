@@ -7,6 +7,7 @@ import { decodeIfEscaped } from '@/app/services/content-service';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -24,6 +25,7 @@ interface IContentB1Props {
   imageChooser?: ImageChooser;
   buttonLabel?: string;
   buttonUrl?: string;
+  customClass?: string;
 }
 
 const ContentB1: React.FC<IContentB1Props> = ({
@@ -32,6 +34,7 @@ const ContentB1: React.FC<IContentB1Props> = ({
   imageChooser,
   buttonLabel,
   buttonUrl,
+  customClass = '',
 }) => {
   let imageSrc = '';
   let imageAlt = 'Image';
@@ -73,7 +76,7 @@ const ContentB1: React.FC<IContentB1Props> = ({
   return (
     <section
       data-name='content-b1'
-      className='py-12 lg:py-16 bg-muted-foreground'
+      className={cn('py-12 lg:py-16 bg-muted-foreground', customClass)}
     >
       <div className='container mx-auto px-2 lg:px-0'>
         <Grid cols={1} mdCols={2} className='gap-12 lg:gap-16'>
@@ -98,7 +101,7 @@ const ContentB1: React.FC<IContentB1Props> = ({
             <div>{renderButton()}</div>
           </Grid>
           <Grid>
-            <div className='relative w-full h-full sm:min-h-[250px]'>
+            <div className='relative w-full h-full' style={{ minHeight: 200 }}>
               <Image
                 src={imageSrc || ''}
                 alt={imageAlt || ''}

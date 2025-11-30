@@ -58,6 +58,11 @@ export default {
       aspectRatio: {
         '13/8': '13 / 8',
         '53/32': '53 / 32',
+        '3/2': '3 / 2',
+        '4/1': '4 / 1',
+        '2/1': '2 / 1',
+        '71/30': '71 / 30',
+        '110/41': '110 / 41',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -85,6 +90,22 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      zIndex: {
+        0: '0',
+        10: '10',
+        20: '20',
+        30: '30',
+        40: '40',
+        50: '50',
+        60: '60',
+        70: '70',
+        80: '80',
+        90: '90',
+      },
+      minHeight: {
+        250: '250px',
+        80: '20rem',
       },
     },
   },

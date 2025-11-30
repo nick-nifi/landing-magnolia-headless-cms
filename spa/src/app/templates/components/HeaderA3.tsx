@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef, useState } from 'react';
 import { environment } from '../../../environments/environment';
 import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
@@ -7,6 +8,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { decodeIfEscaped } from '@/app/services/content-service';
+import HeaderMaskGroup from './header-mask-group';
+import { cn } from '@/lib/utils';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -44,28 +47,13 @@ const HeaderA3: React.FC<IHeaderA3Props> = ({
   ctaChooser,
   height,
 }) => {
-  // let imageSrc = '';
-  // let imageAlt = 'Image';
-  // if (
-  //   imageChooser &&
-  //   imageChooser.field &&
-  //   (imageChooser.image || imageChooser.externalImage)
-  // ) {
-  //   if (imageChooser.field === 'image' && imageChooser.image) {
-  //     imageSrc = `${environment.damRawBase}${imageChooser.image['@link']}`;
-  //     imageAlt = imageChooser.imageAlt || 'Image';
-  //   } else if (
-  //     imageChooser.field === 'externalImage' &&
-  //     imageChooser.externalImage
-  //   ) {
-  //     imageSrc = imageChooser.externalImage;
-  //     imageAlt = imageChooser.externalImageAlt || 'Image';
-  //   }
-  // }
-
   let ctaText = '';
   let linkHref = '';
   let isExternal = false;
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const [sectionWidth, setSectionWidth] = useState(0);
+  const [sectionHeight, setSectionHeight] = useState(0);
 
   if (ctaChooser && ctaChooser.field === 'withCta') {
     ctaText = ctaChooser.ctaText || '';
@@ -92,15 +80,38 @@ const HeaderA3: React.FC<IHeaderA3Props> = ({
 
   const heightClass = height ? height : 'h-screen';
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (sectionRef.current) {
+        setSectionWidth(sectionRef.current.offsetWidth);
+        setSectionHeight(sectionRef.current.offsetHeight);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <section
-      className={`relative ${heightClass} text-white`}
+      ref={sectionRef}
+      className={cn('relative flex items-center', heightClass, 'text-white')}
       style={{
         background:
           'linear-gradient(90deg, hsl(var(--color-uobkh-red)) 0%, hsl(var(--color-uobkh-peach-red)) 63%)',
       }}
     >
-      <div className='container mx-auto px-2 lg:px-0 flex items-center justify-center h-full'>
+      <HeaderMaskGroup
+        width={sectionWidth}
+        height={sectionHeight}
+        className='absolute top-0 left-0 w-full h-full pointer-events-none z-10 opacity-50'
+      />
+      <div className='container mx-auto px-2 lg:px-0 flex items-center justify-center h-full relative z-20'>
         <Grid cols={1} mdCols={2} className='w-full' gap={4}>
           <Grid>
             <div>

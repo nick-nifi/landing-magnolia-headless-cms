@@ -28,8 +28,6 @@ areas:
         id: spa-lm:components/contentB1
       homeCarousel:
         id: spa-lm:components/homeCarousel
-      gridContainer:
-        id: spa-lm:components/gridContainer
       headerA4:
         id: spa-lm:components/headerA4
       nLocation:
@@ -40,14 +38,16 @@ areas:
         id: spa-lm:components/section
       listD1:
         id: spa-lm:components/listD1
-      grid:
-        id: spa-lm:components/grid
-      gridCol:
-        id: spa-lm:components/gridCol
       accordion:
         id: spa-lm:components/accordion
       contentB7:
         id: spa-lm:components/contentB7
+      flexiblec6:
+        id: spa-lm:components/flexiblec6
+      grid:
+        id: spa-lm:components/grid
+      flexibleC3:
+        id: spa-lm:components/flexibleC3
     # autoGeneration:
     #   content:
     #     text:

@@ -1,4 +1,4 @@
-label: contentB1
+label: flexibleC3
 form:
   properties:
     title:
@@ -12,11 +12,6 @@ form:
       colors: 02373F
       fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
       label: Description
-      required: false
-
-    customClass:
-      $type: textField
-      label: Custom CSS Class
       required: false
 
     imageChooser:
@@ -73,7 +68,7 @@ form:
       field:
         $type: comboBoxField
         defaultValue: noCta
-        required: true
+        required: false
         datasource:
           $type: optionListDatasource
           options:
