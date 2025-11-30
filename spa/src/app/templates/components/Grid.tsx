@@ -98,8 +98,12 @@ const Grid: React.FC<IGridProps> = ({
       {Array.from({ length: _noOfItems }).map((_, index) => {
         const currentItem = items[index];
         return (
-          <div key={`grid-item-${index}`}>
-            <EditableArea key={`grid-item-${index}`} content={currentItem}>
+          <div key={`grid-item-${index}`} className='h-full'>
+            <EditableArea
+              key={`grid-item-${index}`}
+              content={currentItem}
+              className={'h-full'}
+            >
               {getComponents(currentItem).map((component) => (
                 <EditableComponent
                   key={(component as MgnlContent)['@name'] as string}

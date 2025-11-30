@@ -92,7 +92,7 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
   }
 
   return (
-    <Card className='shadow-lg gap-0'>
+    <Card className='shadow-lg gap-0 h-full'>
       {imageSrc && (
         <div className='relative aspect-71/30 lg:aspect-110/41'>
           <Image src={imageSrc} alt={imageAlt} fill className='object-cover' />
