@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef, useState } from 'react';
 import { environment } from '../../../environments/environment';
 import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
@@ -6,6 +7,8 @@ import { Typography } from '@/components/typography';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import HeaderMaskGroup from './header-mask-group';
+import { cn } from '@/lib/utils';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -34,7 +37,7 @@ interface IHeaderA4Props {
   description: string;
   imageChooser?: ImageChooser;
   ctaChooser?: CtaChooser;
-  height?: 'h-screen' | 'h-[75vh]' | 'h-[50vh]' | 'h-96' | 'h-80' | 'h-64';
+  height?: 'h-screen' | 'h-[75vh' | 'h-[50vh]' | 'h-96' | 'h-80' | 'h-64';
 }
 
 const HeaderA4: React.FC<IHeaderA4Props> = ({
@@ -43,24 +46,25 @@ const HeaderA4: React.FC<IHeaderA4Props> = ({
   ctaChooser,
   height,
 }) => {
-  // let imageSrc = '';
-  // let imageAlt = 'Image';
-  // if (
-  //   imageChooser &&
-  //   imageChooser.field &&
-  //   (imageChooser.image || imageChooser.externalImage)
-  // ) {
-  //   if (imageChooser.field === 'image' && imageChooser.image) {
-  //     imageSrc = `${environment.damRawBase}${imageChooser.image['@link']}`;
-  //     imageAlt = imageChooser.imageAlt || 'Image';
-  //   } else if (
-  //     imageChooser.field === 'externalImage' &&
-  //     imageChooser.externalImage
-  //   ) {
-  //     imageSrc = imageChooser.externalImage;
-  //     imageAlt = imageChooser.externalImageAlt || 'Image';
-  //   }
-  // }
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [sectionWidth, setSectionWidth] = useState(0);
+  const [sectionHeight, setSectionHeight] = useState(0);
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (sectionRef.current) {
+        setSectionWidth(sectionRef.current.offsetWidth);
+        setSectionHeight(sectionRef.current.offsetHeight);
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
 
   let ctaText = '';
   let linkHref = '';
@@ -92,8 +96,16 @@ const HeaderA4: React.FC<IHeaderA4Props> = ({
   const heightClass = height ? height : 'h-screen';
 
   return (
-    <section className={`relative ${heightClass} bg-ring`}>
-      <div className='container mx-auto px-2 lg:px-0 flex items-center justify-center h-full'>
+    <section
+      ref={sectionRef}
+      className={cn('relative flex items-center bg-ring', heightClass)}
+    >
+      <HeaderMaskGroup
+        width={sectionWidth}
+        height={sectionHeight}
+        className='absolute top-0 left-0 w-full h-full pointer-events-none z-10'
+      />
+      <div className='container mx-auto px-2 lg:px-0 flex items-center justify-center h-full relative z-20'>
         <Grid cols={1} mdCols={2} className='w-full' gap={4}>
           <Grid>
             <div>
@@ -129,38 +141,6 @@ const HeaderA4: React.FC<IHeaderA4Props> = ({
           </Grid>
         </Grid>
       </div>
-      {/* {imageSrc && (
-        <div className='absolute inset-0'>
-          <img
-            src={imageSrc}
-            alt={imageAlt}
-            className='w-full h-full object-cover'
-          />
-          <div className='absolute inset-0 bg-black opacity-50'></div>
-        </div>
-      )} */}
-      {/* <div className='relative z-10 text-center px-4'>
-        {title && (
-          <h1 className='text-4xl md:text-6xl font-bold mb-4'>{title}</h1>
-        )}
-        {description && (
-          <p className='text-lg md:text-2xl mb-6'>{description}</p>
-        )}
-        {ctaChooser &&
-          ctaChooser.field === 'withCta' &&
-          ctaText &&
-          linkHref && (
-            <a
-              href={linkHref}
-              {...(isExternal
-                ? { target: '_blank', rel: 'noopener noreferrer' }
-                : {})}
-              className='inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded'
-            >
-              {ctaText}
-            </a>
-          )}
-      </div> */}
     </section>
   );
 };

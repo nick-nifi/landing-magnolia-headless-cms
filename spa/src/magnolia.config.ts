@@ -9,7 +9,7 @@ import NLocationComponent from './app/templates/components/NLocation';
 import HeaderA4Component from './app/templates/components/HeaderA4';
 import FlexibleC2Component from './app/templates/components/flexible/FlexibleC2';
 import FlexibleC5Component from './app/templates/components/flexible/FlexibleC5';
-import FlexibleC6Component from './app/templates/components/FlexibleC6';
+// import FlexibleC6Component from './app/templates/components/FlexibleC6';
 import GridContainerComponent from './app/templates/components/GridContainer';
 import HomeCarouselComponent from './app/templates/components/HomeCarousel';
 import ContentB1Component from './app/templates/components/content/ContentB1';
@@ -48,7 +48,7 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/homeCarousel': HomeCarouselComponent,
     'spa-lm:components/gridContainer': GridContainerComponent,
     'spa-lm:components/flexibleC5': FlexibleC5Component,
-    'spa-lm:components/flexibleC6': FlexibleC6Component,
+    // 'spa-lm:components/flexibleC6': FlexibleC6Component,
     'spa-lm:components/flexibleC2': FlexibleC2Component,
     'spa-lm:components/typography': Typography,
     'spa-lm:components/headerA4': HeaderA4Component,
