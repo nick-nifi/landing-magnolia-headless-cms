@@ -29,3 +29,5 @@ downloads
 /**/cache/**/*.index
 /**/dist
 /**/mgnl.error.log
+
+./mgnl.error.log
