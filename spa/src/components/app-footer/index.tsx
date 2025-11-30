@@ -1,50 +1,58 @@
 import Link from 'next/link';
-
+import { Typography } from '../typography';
 import Image from 'next/image';
 import FormSubscrible from './form-subscrible';
-import { Typography } from '../typography';
 
 const footerLinks = {
   'Investment services': [
-    { title: 'Online trading', href: '#' },
-    { title: 'Retail brokerage', href: '#' },
-    { title: 'Private wealth management', href: '#' },
-    { title: 'Investment banking services', href: '#' },
-    { title: 'Institutional partnerships', href: '#' },
+    { title: 'Online trading', href: '/services/online-trading' },
+    { title: 'Retail brokerage', href: '/services/retail-brokerage' },
+    { title: 'Private wealth management', href: '/services/wealth-management' },
+    {
+      title: 'Investment banking services',
+      href: '/services/investment-banking',
+    },
+    {
+      title: 'Institutional partnerships',
+      href: '/services/institutional-partnerships',
+    },
   ],
   Research: [
-    { title: 'CIO Insights', href: '#' },
-    { title: 'Major markets', href: '#' },
-    { title: 'Sectors', href: '#' },
-    { title: 'Companies', href: '#' },
+    { title: 'CIO Insights', href: '/research/cio-insights' },
+    { title: 'Major markets', href: '/research/major-markets' },
+    { title: 'Sectors', href: '/research/sectors' },
+    { title: 'Companies', href: '/research/companies' },
   ],
   'Investor relations': [
-    { title: 'Announcements', href: '#' },
-    { title: 'Financial highlights', href: '#' },
-    { title: 'Annual reports', href: '#' },
+    { title: 'Announcements', href: '/investor-relations/announcements' },
+    {
+      title: 'Financial highlights',
+      href: '/investor-relations/financial-highlights',
+    },
+    { title: 'Annual reports', href: '/investor-relations/annual-reports' },
   ],
   About: [
-    { title: 'Why UOBKH', href: '#' },
-    { title: 'Leadership', href: '#' },
-    { title: 'Careers', href: '#' },
+    { title: 'Why UOBKH', href: '/about/why-uobkh' },
+    { title: 'Leadership', href: '/about/leadership' },
+    { title: 'Careers', href: '/about/careers' },
   ],
-  Contact: [{ title: 'Locations', href: '#' }],
+  Contact: [{ title: 'Locations', href: '/contact/locations' }],
 };
 
 export default function AppFooter() {
   return (
     <footer className=''>
       <div className='relative container mx-auto lg:mt-60'>
-        <div className='w-full shadow-xs flex flex-col lg:flex-row border w-full bg-white relative lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2'>
-          <div className='relative aspect-3/2 lg:aspect-2/1 lg:min-w-[360px] min-h-64 lg:min-h-32'>
+        <div className='w-full shadow-xs flex flex-col lg:flex-row w-full bg-white relative lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2'>
+          <div className='relative aspect-3/2 md:aspect-4/1 lg:aspect-2/1 lg:min-w-[360px]'>
             <Image
               src='/assets/footer-bg.png'
               alt='lorem'
-              className='object-cover w-full h-full'
+              className='object-cover w-full h-full '
               fill
             />
           </div>
-          <div className='px-4 py-9 lg:py-8 lg:px-40 flex flex-1 flex-col'>
+          <div className='px-4 py-9 lg:py-8 lg:px-40 flex flex-1 flex-col border'>
             <Typography
               variant='h2'
               className='text-primary mb-5 block'
