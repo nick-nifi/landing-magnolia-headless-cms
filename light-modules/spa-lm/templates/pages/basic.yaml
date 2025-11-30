@@ -48,6 +48,8 @@ areas:
         id: spa-lm:components/accordion
       contentB7:
         id: spa-lm:components/contentB7
+      flexiblec6:
+        id: spa-lm:components/flexiblec6
     # autoGeneration:
     #   content:
     #     text:

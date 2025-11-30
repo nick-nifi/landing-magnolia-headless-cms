@@ -6,6 +6,8 @@ areas:
     availableComponents:
       flexibleC1:
         id: spa-lm:components/flexibleC1
+      flexibleC6:
+        id: spa-lm:components/flexiblec6
 
   item2: *id0001
   item3: *id0001
