@@ -1,12 +1,10 @@
-import Flexiblec6Component from './app/templates/components/Flexiblec6'
+import Flexiblec6Component from './app/templates/components/Flexiblec6';
 import { MagnoliaConfig } from '@magnolia/react-editor';
 import AccordionComponent from './app/templates/components/Accordion';
 import BreadcrumbComponent from './app/templates/components/Breadcrumb';
 import ButtonComponent from './app/templates/components/Button';
 import ContainerComponent from './app/templates/components/Container';
 import GridComponent from './app/templates/components/Grid';
-import GridColComponent from './app/templates/components/GridCol';
-import GridContainerComponent from './app/templates/components/GridContainer';
 import HeaderA3Component from './app/templates/components/HeaderA3';
 import HeaderA4Component from './app/templates/components/HeaderA4';
 import HomeCarouselComponent from './app/templates/components/HomeCarousel';
@@ -41,8 +39,6 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/flexibleC2': FlexibleC2Component,
     'spa-lm:components/flexibleC5': FlexibleC5Component,
     'spa-lm:components/grid': GridComponent,
-    'spa-lm:components/gridCol': GridColComponent,
-    'spa-lm:components/gridContainer': GridContainerComponent,
     'spa-lm:components/headerA3': HeaderA3Component,
     'spa-lm:components/headerA4': HeaderA4Component,
     'spa-lm:components/homeCarousel': HomeCarouselComponent,
@@ -56,6 +52,6 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/text': Text,
     'spa-lm:components/textImage': TextImage,
     'spa-lm:components/typography': Typography,
-    "spa-lm:components/flexiblec6": Flexiblec6Component
+    'spa-lm:components/flexiblec6': Flexiblec6Component,
   },
 };
