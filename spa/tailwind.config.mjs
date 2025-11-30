@@ -58,6 +58,9 @@ export default {
       aspectRatio: {
         '13/8': '13 / 8',
         '53/32': '53 / 32',
+        '3/2': '3 / 2',
+        '4/1': '4 / 1',
+        '2/1': '2 / 1',
       },
       borderRadius: {
         lg: 'var(--radius)',
