@@ -98,6 +98,10 @@ export default {
         80: '80',
         90: '90',
       },
+      minHeight: {
+        250: '250px',
+        80: '20rem',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

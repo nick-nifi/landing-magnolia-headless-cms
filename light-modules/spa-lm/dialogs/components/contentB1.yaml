@@ -14,14 +14,9 @@ form:
       label: Description
       required: false
       i18n: true
-    buttonLabel: 
+    customClass:
       $type: textField
-      label: Button Label
-      i18n: true
-      required: false
-    buttonUrl:
-      $type: linkField
-      label: Button Url
+      label: Custom CSS Class
       required: false
 
     imageChooser:
