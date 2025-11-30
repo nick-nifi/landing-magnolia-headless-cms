@@ -103,7 +103,7 @@ const HeaderA4: React.FC<IHeaderA4Props> = ({
       <HeaderMaskGroup
         width={sectionWidth}
         height={sectionHeight}
-        className='absolute top-0 left-0 w-full h-full pointer-events-none z-10'
+        className='absolute top-0 left-0 w-full h-full pointer-events-none z-10 opacity-50'
       />
       <div className='container mx-auto px-2 lg:px-0 flex items-center justify-center h-full relative z-20'>
         <Grid cols={1} mdCols={2} className='w-full' gap={4}>
