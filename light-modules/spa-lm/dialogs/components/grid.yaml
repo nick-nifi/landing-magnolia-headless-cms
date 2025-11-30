@@ -1,0 +1,138 @@
+label: Grid
+form:
+  properties:
+    x-gap:
+      label: X Gap
+      i18n: true
+      $type: jcrMultiField
+      required: true
+      field:
+        $type: compositeField
+        label: X Gap Item
+        properties:
+          screen:
+            $type: comboBoxField
+            label: Screen
+            required: true
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: mobile
+                  label: Mobile
+                  value: mobile
+                - name: tablet
+                  label: Tablet
+                  value: tablet
+                - name: desktop
+                  label: Desktop
+                  value: desktop
+          value:
+            $type: textField
+            label: Gap Value
+            placeholder: e.g. 8 or 8px
+
+    y-gap:
+      label: Y Gap
+      i18n: true
+      $type: jcrMultiField
+      required: true
+      field:
+        $type: compositeField
+        label: Y Gap Item
+        properties:
+          screen:
+            $type: comboBoxField
+            label: Screen
+            required: true
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: mobile
+                  label: Mobile
+                  value: mobile
+                - name: tablet
+                  label: Tablet
+                  value: tablet
+                - name: desktop
+                  label: Desktop
+                  value: desktop
+          value:
+            $type: textField
+            label: Gap Value
+            placeholder: e.g. 8 or 8px
+
+    cols:
+      label: Columns
+      i18n: true
+      $type: jcrMultiField
+      required: true
+      field:
+        $type: compositeField
+        label: Columns per screen
+        properties:
+          screen:
+            $type: comboBoxField
+            label: Screen
+            required: true
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: mobile
+                  label: Mobile
+                  value: mobile
+                - name: tablet
+                  label: Tablet
+                  value: tablet
+                - name: desktop
+                  label: Desktop
+                  value: desktop
+          value:
+            $type: textField
+            label: Number of Columns
+            placeholder: e.g. 3
+
+    items:
+      label: Number of Items
+      $type: radioButtonGroupField
+      layout: horizontal
+      required: true
+      defaultValue: 3
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: one
+            label: 1
+            value: 1
+          - name: two
+            label: 2
+            value: 2
+          - name: three
+            label: 3
+            value: 3
+          - name: four
+            label: 4
+            value: 4
+          - name: five
+            label: 5
+            value: 5
+          - name: six
+            label: 6
+            value: 6
+          - name: seven
+            label: 7
+            value: 7
+          - name: eight
+            label: 8
+            value: 8
+          - name: nine
+            label: 9
+            value: 9
+          - name: ten
+            label: 10
+            value: 10
+          - name: eleven
+            label: 11
+            value: 11
+          - name: twelve
+            label: 12
+            value: 12

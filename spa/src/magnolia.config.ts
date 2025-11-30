@@ -23,6 +23,7 @@ import FlexibleC1Component from './app/templates/components/flexible/FlexibleC1'
 import FlexibleC2Component from './app/templates/components/flexible/FlexibleC2';
 import FlexibleC5Component from './app/templates/components/flexible/FlexibleC5';
 import Basic from './app/templates/pages/Basic';
+import Grid from './app/templates/components/Grid';
 
 export const config: MagnoliaConfig = {
   componentMappings: {
@@ -51,5 +52,6 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/textImage': TextImage,
     'spa-lm:components/typography': Typography,
     'spa-lm:components/flexiblec6': Flexiblec6Component,
+    'spa-lm:components/grid': Grid,
   },
 };

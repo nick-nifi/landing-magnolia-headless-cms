@@ -1,0 +1,14 @@
+title: grid
+dialog: spa-lm:components/grid
+areas:
+  item1: &id0001
+    title: Items
+    availableComponents:
+      grid:
+        id: spa-lm:components/grid
+      flexibleC6:
+        id: spa-lm:components/flexiblec6
+  item2: *id0001
+  item3: *id0001
+  item4: *id0001
+  item5: *id0001
