@@ -23,3 +23,5 @@ areas:
         id: spa-lm:components/flexibleC5
       listD5:
         id: spa-lm:components/listD5
+      timelineL1:
+        id: spa-lm:components/timelineL1
