@@ -5,7 +5,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import { environment } from '@/environments/environment';
+
+interface CtaLink {
+  field?: 'internalPageLink' | 'externalPageLink';
+  internalLink?: string;
+  externalLink?: string;
+}
+
+interface CtaChooser {
+  field?: 'noCta' | 'withCta';
+  ctaText?: string;
+  ctaLink?: CtaLink;
+}
 
 interface Link {
   link: {
@@ -22,6 +35,7 @@ interface IFlexibleC5Props {
   description: string;
   schedule?: string;
   link?: Link;
+  ctaChooser?: CtaChooser;
 }
 
 const FlexibleC5: React.FC<IFlexibleC5Props> = ({
@@ -29,7 +43,36 @@ const FlexibleC5: React.FC<IFlexibleC5Props> = ({
   description,
   schedule,
   link,
+  ctaChooser,
 }) => {
+  let ctaText = '';
+  let linkHref = '';
+  let isExternal = false;
+
+  if (ctaChooser && ctaChooser.field === 'withCta') {
+    ctaText = ctaChooser.ctaText || '';
+
+    const ctaLink = ctaChooser.ctaLink;
+
+    if (ctaLink) {
+      if (ctaLink.field === 'internalPageLink' && ctaLink.internalLink) {
+        const origin =
+          typeof window !== 'undefined' ? window.location.origin : '';
+        let link = ctaLink.internalLink;
+        if (link.startsWith(environment.appBase)) {
+          link = link.slice(environment.appBase.length);
+          if (!link.startsWith('/')) {
+            link = '/' + link;
+          }
+        }
+        linkHref = `${origin}${link}`;
+      } else if (ctaLink.field === 'externalPageLink' && ctaLink.externalLink) {
+        linkHref = ctaLink.externalLink;
+        isExternal = true;
+      }
+    }
+  }
+
   return (
     <Card className='shadow-lg h-full'>
       <CardContent className='gap-0 flex flex-col flex-1 justify-between'>
@@ -52,13 +95,18 @@ const FlexibleC5: React.FC<IFlexibleC5Props> = ({
           )}
         </div>
 
-        <div>
-          <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
-            <Link href={(link?.link['@path'] as string) || '#'} target='_blank'>
-              {link?.label} <ArrowRight />
-            </Link>
-          </Button>
-        </div>
+        {ctaChooser &&
+          ctaChooser.field === 'withCta' &&
+          ctaText &&
+          linkHref && (
+            <div>
+              <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
+                <Link href={linkHref} target='_blank'>
+                  {ctaText} {isExternal ? <ExternalLink /> : <ArrowRight />}
+                </Link>
+              </Button>
+            </div>
+          )}
       </CardContent>
     </Card>
   );
