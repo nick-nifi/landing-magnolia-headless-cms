@@ -1,0 +1,69 @@
+label: downloadF
+form:
+  properties:
+    date:
+      $type: textField
+      label: Date
+      required: true
+      i18n: true
+    description:
+      $type: textField
+      label: Description
+      required: true
+      i18n: true
+    downloadLink:
+      $type: switchableField
+      i18n: true
+      label: Download Link
+      field:
+        $type: comboBoxField
+        defaultValue: noLink
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noLink
+              label: No Link
+              value: noLink
+            - name: internalPageLink
+              label: Internal Page Link
+              value: internalPageLink
+            - name: externalPageLink
+              label: External Page Link
+              value: externalPageLink
+            - name: fileLink
+              label: File Link
+              value: fileLink
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noLink
+          properties: {}
+        - name: internalPageLink
+          properties:
+            internalLink:
+              i18n: true
+              required: true
+              $type: pageLinkField
+              label: Internal Page Link
+              converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+        - name: externalPageLink
+          properties:
+            externalLink:
+              i18n: true
+              required: true
+              $type: textField
+              label: External Page Link
+              validators:
+                urlValidator:
+                  $type: regexpValidator
+                  pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                  errorMessage: Please enter a valid URL
+        - name: fileLink
+          properties:
+            file:
+              i18n: true
+              required: true
+              $type: damLinkField
+              label: File Link
+

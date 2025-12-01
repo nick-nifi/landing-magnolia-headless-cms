@@ -1,0 +1,14 @@
+title: linkContainer
+dialog: spa-lm:components/linkContainer
+areas:
+  item1: &id0001
+    title: Items
+    availableComponents:
+      stepsK:
+        id: spa-lm:components/stepsK
+
+  item2: *id0001
+  item3: *id0001
+  item4: *id0001
+  item5: *id0001
+

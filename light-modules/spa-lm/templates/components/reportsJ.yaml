@@ -1,0 +1,14 @@
+title: reportsJ
+dialog: spa-lm:components/reportsJ
+areas:
+  reports:
+    title: Reports
+    availableComponents:
+      reportJ:
+        id: spa-lm:components/reportJ
+  pagination:
+    title: Pagination
+    availableComponents:
+      paginationJ:
+        id: spa-lm:components/paginationJ
+

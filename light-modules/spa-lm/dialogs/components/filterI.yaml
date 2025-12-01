@@ -1,0 +1,114 @@
+label: filterI
+form:
+  properties:
+    placeholder:
+      $type: textField
+      label: Placeholder Text
+      required: true
+      i18n: true
+      defaultValue: Select location
+    locations:
+      $type: listField
+      label: Locations
+      required: true
+      itemProvider:
+        $type: jcrChildNodeProvider
+      form:
+        properties:
+          locationName:
+            $type: textField
+            label: Location Name
+            required: true
+            i18n: true
+          locationLink:
+            $type: switchableField
+            i18n: true
+            label: Location Link (Optional)
+            field:
+              $type: comboBoxField
+              defaultValue: noLink
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: noLink
+                    label: No Link
+                    value: noLink
+                  - name: internalPageLink
+                    label: Internal Page Link
+                    value: internalPageLink
+                  - name: externalPageLink
+                    label: External Page Link
+                    value: externalPageLink
+            itemProvider:
+              $type: jcrChildNodeProvider
+            forms:
+              - name: noLink
+                properties: {}
+              - name: internalPageLink
+                properties:
+                  internalLink:
+                    i18n: true
+                    required: true
+                    $type: pageLinkField
+                    label: Internal Page Link
+                    converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+              - name: externalPageLink
+                properties:
+                  externalLink:
+                    i18n: true
+                    required: true
+                    $type: textField
+                    label: External Page Link
+                    validators:
+                      urlValidator:
+                        $type: regexpValidator
+                        pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                        errorMessage: Please enter a valid URL
+    buttonText:
+      $type: textField
+      label: Button Text
+      required: true
+      i18n: true
+      defaultValue: Go
+    buttonLink:
+      $type: switchableField
+      i18n: true
+      label: Button Link
+      field:
+        $type: comboBoxField
+        defaultValue: internalPageLink
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: internalPageLink
+              label: Internal Page Link
+              value: internalPageLink
+            - name: externalPageLink
+              label: External Page Link
+              value: externalPageLink
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: internalPageLink
+          properties:
+            internalLink:
+              i18n: true
+              required: true
+              $type: pageLinkField
+              label: Internal Page Link
+              converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+        - name: externalPageLink
+          properties:
+            externalLink:
+              i18n: true
+              required: true
+              $type: textField
+              label: External Page Link
+              validators:
+                urlValidator:
+                  $type: regexpValidator
+                  pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                  errorMessage: Please enter a valid URL
+
