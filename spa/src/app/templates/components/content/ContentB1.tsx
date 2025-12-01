@@ -1,8 +1,8 @@
 import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -102,11 +102,10 @@ const ContentB1: React.FC<IContentB1Props> = ({
           </Grid>
           <Grid>
             <div className='relative w-full h-full' style={{ minHeight: 200 }}>
-              <Image
-                src={imageSrc || ''}
-                alt={imageAlt || ''}
+              <SafeImage
+                src={imageSrc}
+                alt={imageAlt}
                 fill
-                unoptimized
                 className='object-cover object-center'
               />
             </div>

@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/safe-image";
 import Link from "next/link";
 
 export interface C2CardProps {
@@ -23,7 +23,7 @@ export default function C2Card({
   return (
     <Card className="gap-0">
       <div className="relative aspect-9/5">
-        <Image src={thumb} alt={thumb} fill className="object-cover" />
+        <SafeImage src={thumb} alt={thumb} fill className="object-cover" />
         {tag && (
           <Badge className="absolute left-0 bottom-0" variant={"secondary"}>
             {tag}

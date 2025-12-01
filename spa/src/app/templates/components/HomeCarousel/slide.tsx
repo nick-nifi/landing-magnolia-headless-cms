@@ -3,7 +3,6 @@
 
 import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
-import Image from 'next/image';
 
 interface CarouselImage {
   imageSrc: string;
@@ -14,12 +13,23 @@ interface CarouselImage {
 
 export interface SlideProps extends CarouselImage {}
 
+const isValidImageSrc = (src: string | undefined | null): boolean => {
+  if (!src || typeof src !== 'string' || src.trim() === '') return false;
+  // Check if it's a valid URL or relative path
+  if (src.startsWith('/') || src.startsWith('http://') || src.startsWith('https://')) {
+    return true;
+  }
+  return false;
+};
+
 export default function Slide({
   description,
   imageAlt,
   imageSrc,
   title,
 }: SlideProps) {
+  const validImageSrc = isValidImageSrc(imageSrc);
+
   return (
     <div className='h-screen relative lg:h-[600px]'>
       <div
@@ -33,20 +43,21 @@ export default function Slide({
         `}
         style={{ zIndex: 5 }}
       />
-      <div
-        className='absolute top-0 left-0 z-3 w-full h-full'
-        style={{ zIndex: 3 }}
-      >
-        <div className='relative w-full h-full'>
-          <Image
-            src={imageSrc || ''}
-            alt={imageAlt || ''}
-            fill
-            className='object-cover z-1'
-            unoptimized
-          />
+      {validImageSrc && (
+        <div
+          className='absolute top-0 left-0 z-3 w-full h-full'
+          style={{ zIndex: 3 }}
+        >
+          <div className='relative w-full h-full'>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={imageSrc}
+              alt={imageAlt ?? ''}
+              className='w-full h-full object-cover z-1'
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* {media && (
         <div className='absolute top-0 left-0 z-3 w-full h-full'>

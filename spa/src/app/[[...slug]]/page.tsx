@@ -1,20 +1,20 @@
 export const dynamic = 'force-dynamic'; // Ensures SSR with no cache
 
 import {
-  fetchPageContent,
-  fetchPageNav,
-  fetchTemplateAnnotations,
-} from '@/app/services/magnolia-service';
-import AppHeader from '@/components/app-header';
-import { environment } from '@/environments/environment';
-import { config } from '@/magnolia.config';
-import {
-  EditorContextService,
   IMagnoliaContext,
+  EditorContextService,
   MgnlContent,
   MgnlTemplateAnnotations,
 } from '@magnolia/frontend-helpers-base';
 import { EditablePage } from '@magnolia/react-editor';
+import { config } from '@/magnolia.config';
+import {
+  fetchPageContent,
+  fetchPageNav,
+  fetchTemplateAnnotations,
+} from '@/app/services/magnolia-service';
+import Navigation from '@/app/components/Navigation';
+import { environment } from '@/environments/environment';
 
 console.log('[SSR] Page module loaded (not triggered on every request)'); // eslint-disable-line
 
@@ -115,15 +115,14 @@ export default async function Page(pageProps: {
         props.magnoliaContext?.isMagnoliaEdit ? 'disable-a-pointer-events' : ''
       }
     >
-      {/* {props.pagenav && (
+      {props.pagenav && (
         <Navigation
           content={props.pagenav}
           nodeName={environment.appBase}
           currentLanguage={props.magnoliaContext?.currentLanguage || 'en'}
           isMagnoliaEdit={props.magnoliaContext?.isMagnoliaEdit || false}
         />
-      )} */}
-      {props.pagenav && <AppHeader />}
+      )}
       {props.page && (
         <EditablePage
           templateAnnotations={props.templateAnnotations || {}}

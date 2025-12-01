@@ -20,7 +20,7 @@ export function useDisclosure(
 ): UseDisclosureReturnValue {
   const [opened, setOpened] = useState(initialState);
 
-  const open = useCallback(() => {
+       const open = useCallback(() => {
     setOpened((isOpened) => {
       if (!isOpened) {
         options.onOpen?.();

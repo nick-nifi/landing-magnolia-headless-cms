@@ -6,7 +6,7 @@ import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 
 interface CtaLink {
   field?: 'internalPageLink' | 'externalPageLink';
@@ -95,7 +95,7 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
     <Card className='shadow-lg gap-0 h-full'>
       {imageSrc && (
         <div className='relative aspect-71/30 lg:aspect-110/41'>
-          <Image src={imageSrc} alt={imageAlt} fill className='object-cover' />
+          <SafeImage src={imageSrc} alt={imageAlt} fill className='object-cover' />
         </div>
       )}
       <CardContent className='flex flex-col flex-1 justify-between items-start'>

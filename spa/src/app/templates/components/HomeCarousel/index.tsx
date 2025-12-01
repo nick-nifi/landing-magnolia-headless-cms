@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import {
   Carousel,
   CarouselContent,

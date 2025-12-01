@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/typography";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/safe-image";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import confirmIcon from "../public/assets/confirm.png";
@@ -103,12 +103,11 @@ function Contents({ onCancel, onConfirm }: DisclaimerProps) {
               className="border-accent text-accent flex items-center gap-2.5"
             >
               Confirm
-              <Image
-                src={confirmIcon}
+              <SafeImage
+                src={confirmIcon.src}
                 alt="confirm"
-                width={13}
-                height={9}
                 className="w-3.25 h-2.125"
+                style={{ width: 13, height: 9 }}
               />
             </Button>
           </div>

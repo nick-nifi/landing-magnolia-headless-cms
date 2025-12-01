@@ -2,7 +2,7 @@ import { Typography } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/safe-image";
 import Link from "next/link";
 
 export interface C3CardProps {
@@ -20,7 +20,7 @@ export default function C3Card({
   return (
     <Card className="shadow-lg gap-0">
       <div className="relative aspect-71/30 lg:aspect-110/41">
-        <Image src={thumb} alt={title} fill className="object-cover" />
+        <SafeImage src={thumb} alt={title} fill className="object-cover" />
       </div>
       <CardContent className="flex flex-col flex-1 justify-between items-start">
         <div className="mb-6">

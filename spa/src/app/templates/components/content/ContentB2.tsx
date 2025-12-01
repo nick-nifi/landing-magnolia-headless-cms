@@ -1,11 +1,11 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -117,24 +117,18 @@ const ContentB2: React.FC<IContentB2Props> = ({
         <div className='flex flex-row items-center self-stretch'>
           <div className='h-full min-h-[314px] relative shrink-0 w-[550px]'>
             <div aria-hidden='true' className='absolute inset-0 pointer-events-none'>
-              {imageSrc && (
-                <Image
-                  src={imageSrc}
-                  alt={getImageAlt(imageChooser)}
-                  fill
-                  unoptimized
-                  className='absolute max-w-none object-center object-cover size-full'
-                />
-              )}
-              {overlayImageSrc && (
-                <Image
-                  src={overlayImageSrc}
-                  alt={getImageAlt(overlayImageChooser)}
-                  fill
-                  unoptimized
-                  className='absolute max-w-none object-center object-cover size-full'
-                />
-              )}
+              <SafeImage
+                src={imageSrc}
+                alt={getImageAlt(imageChooser)}
+                fill
+                className='absolute max-w-none object-center object-cover size-full'
+              />
+              <SafeImage
+                src={overlayImageSrc}
+                alt={getImageAlt(overlayImageChooser)}
+                fill
+                className='absolute max-w-none object-center object-cover size-full'
+              />
             </div>
           </div>
         </div>

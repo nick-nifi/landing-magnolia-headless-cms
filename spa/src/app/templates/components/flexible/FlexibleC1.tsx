@@ -6,7 +6,7 @@ import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
 import React from 'react';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';

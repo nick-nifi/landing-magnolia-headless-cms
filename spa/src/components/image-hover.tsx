@@ -1,16 +1,21 @@
 'use client';
 import { cn } from '@/lib/utils';
-import Image, { ImageProps } from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 
-interface ImageHoverProps extends ImageProps {
+interface ImageHoverProps {
+  src?: string | null;
+  alt?: string;
+  fill?: boolean;
+  className?: string;
   imageContainerClass?: string;
+  unoptimized?: boolean;
 }
 export default function ImageHover({
   imageContainerClass,
   alt = '',
   className,
   src,
-  ...restProps
+  fill = false,
 }: ImageHoverProps) {
   return (
     <div
@@ -20,14 +25,14 @@ export default function ImageHover({
       )}
     >
       {/* Image */}
-      <Image
+      <SafeImage
         src={src}
         alt={alt}
+        fill={fill}
         className={cn(
           'object-cover transition-transform duration-500 group-hover:scale-105',
           className
         )}
-        {...restProps}
       />
 
       {/* Overlay */}
