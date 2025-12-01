@@ -1,0 +1,6 @@
+label: Text
+form:
+  properties:
+    customClass:
+      label: Custom Class
+      $type: textField

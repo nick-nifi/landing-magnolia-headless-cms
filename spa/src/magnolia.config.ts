@@ -1,3 +1,4 @@
+import TimelineL1Component from './app/templates/components/TimelineL1'
 import CardZ1Component from './app/templates/components/CardZ1'
 import ListD5Component from './app/templates/components/ListD5'
 import FastfactTileComponent from './app/templates/components/FastfactTile'
@@ -60,7 +61,7 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/typography': Typography,
     "spa-lm:components/fastfactTile": FastfactTileComponent,
     "spa-lm:components/listD5": ListD5Component,
-    "spa-lm:components/cardZ1": CardZ1Component
-    
+    "spa-lm:components/cardZ1": CardZ1Component,
+    "spa-lm:components/timelineL1": TimelineL1Component
   },
 };
