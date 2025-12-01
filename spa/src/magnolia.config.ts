@@ -1,3 +1,4 @@
+import FastfactTileComponent from './app/templates/components/FastfactTile'
 import FlexibleC3Component from './app/templates/components/FlexibleC3';
 import Flexiblec6Component from './app/templates/components/Flexiblec6';
 import { MagnoliaConfig } from '@magnolia/react-editor';
@@ -55,5 +56,6 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/text': Text,
     'spa-lm:components/textImage': TextImage,
     'spa-lm:components/typography': Typography,
+    "spa-lm:components/fastfactTile": FastfactTileComponent
   },
 };

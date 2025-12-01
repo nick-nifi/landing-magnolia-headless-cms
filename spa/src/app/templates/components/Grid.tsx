@@ -48,6 +48,7 @@ interface IGridProps {
   item10?: MgnlContent;
   item11?: MgnlContent;
   item12?: MgnlContent;
+  customClass?: string;
 }
 
 const Grid: React.FC<IGridProps> = ({
@@ -67,6 +68,7 @@ const Grid: React.FC<IGridProps> = ({
   x_gap,
   y_gap,
   items: noOfItems,
+  customClass,
 }) => {
   const _noOfItems = parseInt(noOfItems, 10);
 
@@ -94,7 +96,9 @@ const Grid: React.FC<IGridProps> = ({
   ];
 
   return (
-    <div className={cn('grid', classGridX, classGridY, classGridCols)}>
+    <div
+      className={cn('grid', classGridX, classGridY, classGridCols, customClass)}
+    >
       {Array.from({ length: _noOfItems }).map((_, index) => {
         const currentItem = items[index];
         return (

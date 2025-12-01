@@ -10,6 +10,8 @@ areas:
         id: spa-lm:components/flexibleC3
       flexibleC6:
         id: spa-lm:components/flexiblec6
+      fastfactTile:
+        id: spa-lm:components/fastfactTile
   item2: *id0001
   item3: *id0001
   item4: *id0001

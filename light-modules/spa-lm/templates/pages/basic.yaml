@@ -48,6 +48,8 @@ areas:
         id: spa-lm:components/grid
       flexibleC3:
         id: spa-lm:components/flexibleC3
+      fastfactTile:
+        id: spa-lm:components/fastfactTile
     # autoGeneration:
     #   content:
     #     text:
