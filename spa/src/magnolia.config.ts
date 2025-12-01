@@ -1,3 +1,4 @@
+import CardZ1Component from './app/templates/components/CardZ1'
 import ListD5Component from './app/templates/components/ListD5'
 import FastfactTileComponent from './app/templates/components/FastfactTile'
 import FlexibleC3Component from './app/templates/components/FlexibleC3';
@@ -58,6 +59,8 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/textImage': TextImage,
     'spa-lm:components/typography': Typography,
     "spa-lm:components/fastfactTile": FastfactTileComponent,
-    "spa-lm:components/listD5": ListD5Component
+    "spa-lm:components/listD5": ListD5Component,
+    "spa-lm:components/cardZ1": CardZ1Component
+    
   },
 };

@@ -1,0 +1,55 @@
+label: cardZ1
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    description:
+      $type: richTextField
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+      label: Description
+      required: true
+    selectField:
+      $type: comboBoxField
+      label: Select Option
+      required: true
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: honour
+            label: Honour
+            value: honour
+          - name: hk
+            label: HK
+            value: hk
+          - name: sg
+            label: SG
+            value: sg
+          - name: id
+            label: ID
+            value: id
+          - name: my
+            label: MY
+            value: my
+          - name: th
+            label: TH
+            value: th
+          - name: enterprise
+            label: Enterprise
+            value: enterprise
+          - name: united
+            label: United
+            value: united
+          - name: committed
+            label: Committed
+            value: committed
+          - name: line8
+            label: Line 8
+            value: line8
+          - name: handScrool
+            label: Hand Scroll
+            value: handScrool

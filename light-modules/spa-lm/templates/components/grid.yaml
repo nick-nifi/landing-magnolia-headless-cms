@@ -14,6 +14,8 @@ areas:
         id: spa-lm:components/fastfactTile
       listD1:
         id: spa-lm:components/listD1
+      cardZ1:
+        id: spa-lm:components/cardZ1
   item2: *id0001
   item3: *id0001
   item4: *id0001
