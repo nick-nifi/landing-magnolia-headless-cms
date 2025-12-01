@@ -1,7 +1,7 @@
-import React from 'react';
-import { EditableArea, EditableComponent } from '@magnolia/react-editor';
-import { MgnlContent } from '@magnolia/frontend-helpers-base';
 import { cn } from '@/lib/utils';
+import { MgnlContent } from '@magnolia/frontend-helpers-base';
+import { EditableArea, EditableComponent } from '@magnolia/react-editor';
+import React from 'react';
 
 export type Screen = 'mobile' | 'tablet' | 'desktop';
 
@@ -106,7 +106,9 @@ const Grid: React.FC<IGridProps> = ({
             <EditableArea
               key={`grid-item-${index}`}
               content={currentItem}
-              className={'h-full'}
+              // className={cn({
+              //   'h-full': !isPageEditor,
+              // })}
             >
               {getComponents(currentItem).map((component) => (
                 <EditableComponent

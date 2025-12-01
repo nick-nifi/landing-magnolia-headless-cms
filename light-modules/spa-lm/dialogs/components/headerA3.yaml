@@ -7,7 +7,7 @@ form:
       required: true
       i18n: true
     description:
-      $type: textField
+      $type: richTextField
       label: Description
       required: true
       i18n: true
