@@ -16,7 +16,7 @@ const CardZ1: React.FC<ICardZ1Props> = ({
   selectField: iconName,
 }) => {
   return (
-    <div className='p-5 border shadow-md flex flex-col lg:flex-row'>
+    <div className='p-5 border shadow-md flex flex-col lg:flex-row h-full'>
       {iconName && (
         <div className='w-[70px] h-[70px] lg:w-[98px] lg:h-[98px] flex items-center justify-center shrink-0'>
           <IconWrapper name={iconName} width={50} height={50} />

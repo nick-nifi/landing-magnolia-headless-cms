@@ -1,5 +1,9 @@
+import { environment } from '@/environments/environment';
 import { cn } from '@/lib/utils';
-import { MgnlContent } from '@magnolia/frontend-helpers-base';
+import {
+  EditorContextService,
+  MgnlContent,
+} from '@magnolia/frontend-helpers-base';
 import { EditableArea, EditableComponent } from '@magnolia/react-editor';
 import React from 'react';
 
@@ -95,6 +99,12 @@ const Grid: React.FC<IGridProps> = ({
     item12,
   ];
 
+  const magnoliaContext = EditorContextService.getMagnoliaContext(
+    '',
+    '',
+    environment.languages
+  );
+
   return (
     <div
       className={cn('grid', classGridX, classGridY, classGridCols, customClass)}
@@ -106,9 +116,9 @@ const Grid: React.FC<IGridProps> = ({
             <EditableArea
               key={`grid-item-${index}`}
               content={currentItem}
-              // className={cn({
-              //   'h-full': !isPageEditor,
-              // })}
+              className={cn({
+                'h-full': !magnoliaContext.isMagnoliaEdit,
+              })}
             >
               {getComponents(currentItem).map((component) => (
                 <EditableComponent

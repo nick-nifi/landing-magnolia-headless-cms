@@ -19,10 +19,6 @@ import { EditablePage } from '@magnolia/react-editor';
 console.log('[SSR] Page module loaded (not triggered on every request)'); // eslint-disable-line
 
 async function loadPageContent(uri: string, nodeName: string) {
-  console.log(
-    `[SSR] Loading page content for URI: ${uri} at ${new Date().toISOString()}`
-  ); // eslint-disable-line
-
   const props: {
     nodeName: string;
     page?: MgnlContent;
@@ -39,6 +35,7 @@ async function loadPageContent(uri: string, nodeName: string) {
     nodeName,
     environment.languages
   );
+
   props.magnoliaContext = magnoliaContext;
 
   const pageContent = await fetchPageContent(
