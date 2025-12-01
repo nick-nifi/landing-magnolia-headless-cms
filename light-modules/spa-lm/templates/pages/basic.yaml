@@ -50,6 +50,8 @@ areas:
         id: spa-lm:components/flexibleC3
       fastfactTile:
         id: spa-lm:components/fastfactTile
+      listD5:
+        id: spa-lm:components/listD5
     # autoGeneration:
     #   content:
     #     text:

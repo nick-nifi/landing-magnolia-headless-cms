@@ -20,3 +20,5 @@ areas:
         id: spa-lm:components/flexibleC2
       flexibleC5:
         id: spa-lm:components/flexibleC5
+      listD5:
+        id: spa-lm:components/listD5
