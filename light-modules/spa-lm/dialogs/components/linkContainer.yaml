@@ -1,0 +1,149 @@
+label: Link Container
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: false
+      i18n: true
+    container:
+      $type: switchableField
+      label: Container
+      field:
+        $type: comboBoxField
+        defaultValue: columns
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: columns
+              label: Columns
+              value: columns
+            - name: rows
+              label: Rows
+              value: rows
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: columns
+          properties:
+            count:
+              $type: radioButtonGroupField
+              layout: horizontal
+              label: Number of columns
+              defaultValue: 5
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: one
+                    label: 1
+                    value: 1
+                  - name: two
+                    label: 2
+                    value: 2
+                  - name: three
+                    label: 3
+                    value: 3
+                  - name: four
+                    label: 4
+                    value: 4
+                  - name: five
+                    label: 5
+                    value: 5
+        - name: rows
+          properties:
+            count:
+              $type: radioButtonGroupField
+              layout: horizontal
+              label: Number of rows
+              defaultValue: 5
+              required: true
+              datasource:
+                $type: optionListDatasource
+                options:
+                  - name: one
+                    label: 1
+                    value: 1
+                  - name: two
+                    label: 2
+                    value: 2
+                  - name: three
+                    label: 3
+                    value: 3
+                  - name: four
+                    label: 4
+                    value: 4
+                  - name: five
+                    label: 5
+                    value: 5
+    ctaChooser:
+      $type: switchableField
+      label: Call To Action
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noCta
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noCta
+              label: No Call To Action
+              value: noCta
+            - name: withCta
+              label: With Call To Action
+              value: withCta
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noCta
+          properties: {}
+        - name: withCta
+          properties:
+            ctaText:
+              $type: textField
+              required: true
+              label: Call To Action - Text
+              i18n: true
+            ctaLink:
+              $type: switchableField
+              i18n: true
+              label: Call To Action - Link
+              field:
+                $type: comboBoxField
+                defaultValue: internalPageLink
+                required: true
+                datasource:
+                  $type: optionListDatasource
+                  options:
+                    - name: internalPageLink
+                      label: Internal Page Link
+                      value: internalPageLink
+                    - name: externalPageLink
+                      label: External Page Link
+                      value: externalPageLink
+              itemProvider:
+                $type: jcrChildNodeProvider
+              forms:
+                - name: internalPageLink
+                  properties:
+                    internalLink:
+                      i18n: true
+                      required: true
+                      $type: pageLinkField
+                      label: Internal Page Link
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: externalPageLink
+                  properties:
+                    externalLink:
+                      i18n: true
+                      required: true
+                      $type: textField
+                      label: External Page Link
+                      validators:
+                        urlValidator:
+                          $type: regexpValidator
+                          pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                          errorMessage: Please enter a valid URL
+

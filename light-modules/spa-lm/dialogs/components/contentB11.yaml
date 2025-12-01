@@ -1,0 +1,369 @@
+label: contentB11
+form:
+  properties:
+    backButton:
+      $type: switchableField
+      label: Back Button
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noBackButton
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noBackButton
+              label: No Back Button
+              value: noBackButton
+            - name: withBackButton
+              label: With Back Button
+              value: withBackButton
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noBackButton
+          properties: {}
+        - name: withBackButton
+          properties:
+            backButtonText:
+              $type: textField
+              required: true
+              label: Back Button Text
+              i18n: true
+              defaultValue: Back
+            backButtonLink:
+              $type: switchableField
+              i18n: true
+              label: Back Button Link
+              field:
+                $type: comboBoxField
+                defaultValue: internalPageLink
+                required: true
+                datasource:
+                  $type: optionListDatasource
+                  options:
+                    - name: internalPageLink
+                      label: Internal Page Link
+                      value: internalPageLink
+                    - name: externalPageLink
+                      label: External Page Link
+                      value: externalPageLink
+              itemProvider:
+                $type: jcrChildNodeProvider
+              forms:
+                - name: internalPageLink
+                  properties:
+                    internalLink:
+                      i18n: true
+                      required: true
+                      $type: pageLinkField
+                      label: Internal Page Link
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: externalPageLink
+                  properties:
+                    externalLink:
+                      i18n: true
+                      required: true
+                      $type: textField
+                      label: External Page Link
+                      validators:
+                        urlValidator:
+                          $type: regexpValidator
+                          pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                          errorMessage: Please enter a valid URL
+
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+
+    date:
+      $type: textField
+      label: Date
+      required: true
+      i18n: true
+
+    location:
+      $type: textField
+      label: Location
+      required: true
+      i18n: true
+
+    shareSection:
+      $type: switchableField
+      label: Share Section
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noShare
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noShare
+              label: No Share Section
+              value: noShare
+            - name: withShare
+              label: With Share Section
+              value: withShare
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noShare
+          properties: {}
+        - name: withShare
+          properties:
+            emailLink:
+              $type: textField
+              label: Email Link
+              required: false
+              i18n: true
+            facebookLink:
+              $type: textField
+              label: Facebook Link
+              required: false
+              i18n: true
+            xLink:
+              $type: textField
+              label: X (Twitter) Link
+              required: false
+              i18n: true
+            linkedinLink:
+              $type: textField
+              label: LinkedIn Link
+              required: false
+              i18n: true
+
+    analystSection:
+      $type: switchableField
+      label: Analyst Section
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noAnalyst
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noAnalyst
+              label: No Analyst Section
+              value: noAnalyst
+            - name: withAnalyst
+              label: With Analyst Section
+              value: withAnalyst
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noAnalyst
+          properties: {}
+        - name: withAnalyst
+          properties:
+            analystName:
+              $type: textField
+              label: Analyst Name
+              required: true
+              i18n: true
+            analystEmail:
+              $type: textField
+              label: Analyst Email
+              required: true
+              i18n: true
+
+    subhead:
+      $type: textField
+      label: Subhead
+      required: false
+      i18n: true
+
+    highlights:
+      $type: richTextField
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+      label: Highlights
+      required: false
+
+    downloadText:
+      $type: textField
+      label: Download Text
+      required: false
+      i18n: true
+      defaultValue: Download the PDF to read the full report.
+
+    downloadButton:
+      $type: switchableField
+      label: Download Button
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noDownload
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noDownload
+              label: No Download Button
+              value: noDownload
+            - name: withDownload
+              label: With Download Button
+              value: withDownload
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noDownload
+          properties: {}
+        - name: withDownload
+          properties:
+            downloadButtonText:
+              $type: textField
+              required: true
+              label: Download Button Text
+              i18n: true
+              defaultValue: Download
+            downloadLink:
+              $type: switchableField
+              i18n: true
+              label: Download Link
+              field:
+                $type: comboBoxField
+                defaultValue: fileLink
+                required: true
+                datasource:
+                  $type: optionListDatasource
+                  options:
+                    - name: fileLink
+                      label: File Link
+                      value: fileLink
+                    - name: internalPageLink
+                      label: Internal Page Link
+                      value: internalPageLink
+                    - name: externalPageLink
+                      label: External Page Link
+                      value: externalPageLink
+              itemProvider:
+                $type: jcrChildNodeProvider
+              forms:
+                - name: fileLink
+                  properties:
+                    file:
+                      i18n: true
+                      required: true
+                      $type: damLinkField
+                      label: File
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: internalPageLink
+                  properties:
+                    internalLink:
+                      i18n: true
+                      required: true
+                      $type: pageLinkField
+                      label: Internal Page Link
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: externalPageLink
+                  properties:
+                    externalLink:
+                      i18n: true
+                      required: true
+                      $type: textField
+                      label: External Page Link
+                      validators:
+                        urlValidator:
+                          $type: regexpValidator
+                          pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                          errorMessage: Please enter a valid URL
+
+    rightSideImage:
+      $type: switchableField
+      label: Right Side Image
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: image
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: image
+              label: Internal Image
+              value: image
+            - name: externalImage
+              label: External Image
+              value: externalImage
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: image
+          properties:
+            image:
+              i18n: true
+              required: false
+              $type: damLinkField
+              label: Internal Image Link
+            imageAlt:
+              i18n: true
+              $type: textField
+              label: Image Alt Text
+        - name: externalImage
+          properties:
+            externalImage:
+              i18n: true
+              required: false
+              $type: textField
+              label: External Image Link
+              validators:
+                imageUrlValidator:
+                  $type: regexpValidator
+                  pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
+                  errorMessage: Enter a valid Image URL
+            externalImageAlt:
+              i18n: true
+              $type: textField
+              label: Image Alt Text
+
+    priceList:
+      $type: switchableField
+      label: Price List
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noPriceList
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noPriceList
+              label: No Price List
+              value: noPriceList
+            - name: withPriceList
+              label: With Price List
+              value: withPriceList
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noPriceList
+          properties: {}
+        - name: withPriceList
+          properties:
+            buyStatus:
+              $type: textField
+              label: Buy Status
+              required: true
+              i18n: true
+              defaultValue: BUY (MAINTAINED)
+            currentPrice:
+              $type: textField
+              label: Current Price
+              required: true
+              i18n: true
+            targetPrice:
+              $type: textField
+              label: Target Price
+              required: true
+              i18n: true
+            percentage:
+              $type: textField
+              label: Percentage
+              required: true
+              i18n: true
+

@@ -1,0 +1,28 @@
+label: filterJ
+form:
+  properties:
+    label:
+      $type: textField
+      label: Label
+      required: true
+      i18n: true
+    placeholder:
+      $type: textField
+      label: Placeholder
+      required: true
+      i18n: true
+      defaultValue: Select option
+    items:
+      $type: listField
+      label: Items
+      required: true
+      itemProvider:
+        $type: jcrChildNodeProvider
+      form:
+        properties:
+          value:
+            $type: textField
+            label: Value
+            required: true
+            i18n: true
+

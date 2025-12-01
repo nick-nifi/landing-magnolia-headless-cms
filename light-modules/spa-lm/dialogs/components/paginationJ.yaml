@@ -1,0 +1,42 @@
+label: paginationJ
+form:
+  properties:
+    showFirstPage:
+      $type: checkBoxField
+      label: Show First Page Button
+      defaultValue: true
+      i18n: true
+    showPreviousPage:
+      $type: checkBoxField
+      label: Show Previous Page Button
+      defaultValue: true
+      i18n: true
+    pages:
+      $type: listField
+      label: Pages
+      required: true
+      itemProvider:
+        $type: jcrChildNodeProvider
+      form:
+        properties:
+          pageNumber:
+            $type: textField
+            label: Page Number
+            required: true
+            i18n: true
+          isActive:
+            $type: checkBoxField
+            label: Is Active Page
+            defaultValue: false
+            i18n: true
+    showNextPage:
+      $type: checkBoxField
+      label: Show Next Page Button
+      defaultValue: true
+      i18n: true
+    showLastPage:
+      $type: checkBoxField
+      label: Show Last Page Button
+      defaultValue: true
+      i18n: true
+

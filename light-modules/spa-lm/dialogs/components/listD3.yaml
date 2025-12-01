@@ -1,0 +1,24 @@
+label: listD3
+form:
+  properties:
+    reportName:
+      $type: textField
+      label: Report Name
+      required: true
+      i18n: true
+    description:
+      $type: textField
+      label: Description
+      required: true
+      i18n: true
+    reportDate:
+      $type: textField
+      label: Report Date
+      required: true
+      i18n: true
+    length:
+      $type: textField
+      label: Length
+      required: true
+      i18n: true
+
