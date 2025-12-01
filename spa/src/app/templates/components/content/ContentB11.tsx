@@ -1,11 +1,11 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 
@@ -440,11 +440,10 @@ const ContentB11: React.FC<IContentB11Props> = ({
           {/* Image */}
           {rightImageSrc && (
             <div className='aspect-[474/327.561] relative w-full'>
-              <Image
+              <SafeImage
                 src={rightImageSrc}
                 alt={rightImageAlt}
                 fill
-                unoptimized
                 className='absolute max-w-none object-center object-cover pointer-events-none size-full'
               />
             </div>

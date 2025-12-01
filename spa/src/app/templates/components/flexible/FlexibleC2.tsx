@@ -3,9 +3,9 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import Link from 'next/link';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import { decodeIfEscaped } from '../../../services/content-service';
 
 interface ImageChooser {
@@ -18,14 +18,14 @@ interface ImageChooser {
   externalImageAlt?: string;
 }
 
-interface LinkItem {
-  link: {
-    '@link': string;
-    '@path': string;
-    '@uuid': string;
-    '@name': string;
+interface CtaChooser {
+  field?: 'noCta' | 'withCta';
+  ctaText?: string;
+  ctaLink?: {
+    field?: 'internalPageLink' | 'externalPageLink';
+    internalLink?: string;
+    externalLink?: string;
   };
-  label: string;
 }
 
 interface IFlexibleC2Props {
@@ -33,7 +33,7 @@ interface IFlexibleC2Props {
   description: string;
   imageChooser?: ImageChooser;
   tag?: string;
-  link?: LinkItem;
+  ctaChooser?: CtaChooser;
 }
 
 const FlexibleC2: React.FC<IFlexibleC2Props> = ({
@@ -41,7 +41,7 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
   description,
   imageChooser,
   tag,
-  link,
+  ctaChooser,
 }) => {
   let imageSrc = '';
   let imageAlt = 'Image';
@@ -63,15 +63,53 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
     }
   }
 
+  // Get CTA link - same logic as B2
+  const getCtaLink = (): string => {
+    if (!ctaChooser || ctaChooser.field !== 'withCta' || !ctaChooser.ctaLink) {
+      return '';
+    }
+    if (ctaChooser.ctaLink.field === 'externalPageLink') {
+      return ctaChooser.ctaLink.externalLink || '';
+    }
+    if (ctaChooser.ctaLink.field === 'internalPageLink') {
+      return ctaChooser.ctaLink.internalLink || '';
+    }
+    return '';
+  };
+
+  const ctaLink = getCtaLink();
+  const ctaText = ctaChooser?.field === 'withCta' ? ctaChooser.ctaText : '';
+
+  const renderButton = () => {
+    if (!ctaText) return null;
+
+    return (
+      <Button
+        variant={'link'}
+        className='text-[#c33b32] hover:text-[#c33b32]/80 h-auto px-0 pr-2.5 py-1.5 w-fit text-[20px] font-normal justify-start'
+        asChild={!!ctaLink}
+      >
+        {ctaLink ? (
+          <Link href={ctaLink} className='flex items-center gap-2.5'>
+            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+          </Link>
+        ) : (
+          <span className='flex items-center gap-2.5'>
+            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+          </span>
+        )}
+      </Button>
+    );
+  };
+
   return (
-    <Card className='gap-0 h-full'>
+    <Card className='gap-0 h-full flex flex-col'>
       <div className='relative w-full' style={{ aspectRatio: '9/5' }}>
-        <Image
+        <SafeImage
           src={imageSrc}
           alt={imageAlt}
           fill
           className='object-cover w-full h-full bg-gray-100'
-          unoptimized
         />
         {tag && (
           <Badge className='absolute left-0 bottom-0' variant={'secondary'}>
@@ -79,7 +117,7 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
           </Badge>
         )}
       </div>
-      <CardContent className='justify-between h-full flex flex-col'>
+      <CardContent className='flex-1 flex flex-col justify-between'>
         <div className='mb-6'>
           {title && (
             <Typography variant={'h4'} weight={'medium'} className='mb-4'>
@@ -96,15 +134,9 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
           )}
         </div>
 
-        {link && link.link && (
-          <div>
-            <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
-              <Link href={link?.link['@path'] || '#'} target='_blank'>
-                {link?.label} <ArrowRight />
-              </Link>
-            </Button>
-          </div>
-        )}
+        <div>
+          {renderButton()}
+        </div>
       </CardContent>
     </Card>
   );

@@ -12,6 +12,7 @@ form:
       colors: 02373F
       fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
       label: Description
+      required: false
 
     ctaChooser:
       $type: switchableField

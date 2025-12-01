@@ -1,11 +1,15 @@
-import { Typography } from '@/components/typography';
+import React from 'react';
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 interface ListItem {
   itemText: string;
+  '@name'?: string;
+  '@path'?: string;
+  '@id'?: string;
+  '@nodeType'?: string;
 }
 
 interface CtaChooser {
@@ -21,17 +25,39 @@ interface CtaChooser {
 interface IContentB3Props {
   title: string;
   description?: string;
-  listItems?: ListItem[];
+  listItems?: ListItem[] | Record<string, ListItem>;
   ctaChooser?: CtaChooser;
+  customClass?: string;
 }
+
+// Helper function to convert Magnolia object to array
+const getListItemsArray = (items: ListItem[] | Record<string, ListItem> | undefined): ListItem[] => {
+  if (!items) return [];
+  if (Array.isArray(items)) return items.filter(item => item && item.itemText);
+  
+  // Convert object to array, filtering out metadata keys and invalid items
+  return Object.entries(items)
+    .filter(([key, value]) => {
+      // Skip metadata keys
+      if (key.startsWith('@')) return false;
+      // Skip if value is not an object or doesn't have itemText
+      if (!value || typeof value !== 'object') return false;
+      if (!value.itemText) return false;
+      return true;
+    })
+    .map(([, value]) => value);
+};
 
 const ContentB3: React.FC<IContentB3Props> = ({
   title,
   description,
-  listItems = [],
+  listItems,
   ctaChooser,
+  customClass = '',
 }) => {
-  // Get CTA link
+  const items = getListItemsArray(listItems);
+
+  // Get CTA link - same logic as B1/B2
   const getCtaLink = (): string => {
     if (!ctaChooser || ctaChooser.field !== 'withCta' || !ctaChooser.ctaLink) {
       return '';
@@ -54,79 +80,70 @@ const ContentB3: React.FC<IContentB3Props> = ({
     return (
       <Button
         variant={'outline'}
-        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white'
+        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white h-[42px] px-2.5 py-1.5 w-fit text-[20px]'
         asChild={!!ctaLink}
       >
         {ctaLink ? (
-          <Link href={ctaLink}>
-            {ctaText} <ArrowRight className='rotate-90' />
+          <Link href={ctaLink} className='flex items-center gap-2.5'>
+            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
           </Link>
         ) : (
-          <>
-            {ctaText} <ArrowRight className='rotate-90' />
-          </>
+          <span className='flex items-center gap-2.5'>
+            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+          </span>
         )}
       </Button>
     );
   };
 
   return (
-    <div
+    <section
       data-name='B3 / Content'
-      className='flex flex-col gap-8 items-end max-w-[1280px] w-full'
+      className={cn('bg-white py-16 px-4 md:px-20 lg:px-[160px]', customClass)}
     >
-      <div className='flex gap-16 items-start w-full'>
-        {/* Left Content */}
-        <div className='flex flex-col gap-8 items-start w-[551px]'>
-          <div className='flex flex-col gap-8 items-start w-full'>
-            <div className='flex flex-col gap-4 items-start w-full'>
-              <div className='flex flex-col gap-6 items-start text-[#3f4c54] w-full'>
-                <Typography
-                  variant='h2'
-                  weight='light'
-                  className='text-[40px] leading-[1.2] tracking-[-0.4px]'
-                >
-                  {title}
-                </Typography>
-                {description && (
-                  <Typography
-                    variant='body-large'
-                    weight='light'
-                    className='text-[20px] leading-[1.5]'
-                  >
-                    {description}
-                  </Typography>
-                )}
+      <div className='flex flex-col gap-8 items-end max-w-[1280px] mx-auto w-full'>
+        <div className='flex flex-col lg:flex-row gap-8 lg:gap-16 items-start w-full'>
+          {/* Left Content - Title & Description */}
+          <div className='flex flex-col gap-8 w-full lg:w-[551px] lg:shrink-0'>
+            <div className='flex flex-col gap-8 w-full'>
+              <div className='flex flex-col gap-4 w-full'>
+                <div className='flex flex-col gap-6 text-[#3f4c54] w-full'>
+                  <h2 className='font-light text-3xl lg:text-[40px] leading-[1.2] tracking-[-0.4px]'>
+                    {title}
+                  </h2>
+                  {description && (
+                    <p className='font-light text-lg lg:text-[20px] leading-[1.5]'>
+                      {description}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Right List - Bullet Points */}
+          <div className='flex flex-col gap-2.5 w-full lg:w-[506px] lg:shrink-0 text-[#3f4c54] text-lg lg:text-[20px] tracking-[-0.2px]'>
+            {items.map((item, index) => (
+              <ul key={index} className='block w-full list-disc'>
+                <li className='ms-[30px]'>
+                  <span className='font-medium leading-[1.4]'>
+                    {item.itemText}
+                  </span>
+                </li>
+              </ul>
+            ))}
+          </div>
         </div>
 
-        {/* Right List */}
-        <div className='flex flex-col gap-[10px] items-start self-stretch shrink-0 text-[#3f4c54] text-[20px] tracking-[-0.2px] w-[506px]'>
-          {listItems.map((item, index) => (
-            <ul key={index} className='block relative shrink-0 w-full'>
-              <li className='ms-[30px]'>
-                <Typography
-                  variant='h5'
-                  weight='medium'
-                  className='leading-[1.4]'
-                >
-                  {item.itemText}
-                </Typography>
-              </li>
-            </ul>
-          ))}
-        </div>
+        {/* CTA Button - Optional, aligned right */}
+        {renderButton() && (
+          <div className='shrink-0'>
+            {renderButton()}
+          </div>
+        )}
       </div>
-
-      {/* CTA Button */}
-      {renderButton() && (
-        <div className='relative shrink-0'>{renderButton()}</div>
-      )}
-    </div>
+    </section>
   );
 };
 
 export default ContentB3;
-

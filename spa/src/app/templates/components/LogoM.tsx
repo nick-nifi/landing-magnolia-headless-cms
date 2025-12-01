@@ -1,7 +1,7 @@
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 
 interface ImageChooser {
@@ -51,11 +51,11 @@ const LogoM: React.FC<ILogoMProps> = ({ imageChooser }) => {
       className='h-[90px] relative shrink-0 w-[170px]'
     >
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-        <Image
+        <SafeImage
           src={imageSrc}
           alt={imageAlt}
           fill
-          unoptimized
+          objectFit='contain'
           className='object-contain object-center pointer-events-none'
         />
       </div>

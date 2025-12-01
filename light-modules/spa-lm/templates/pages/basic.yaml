@@ -26,6 +26,12 @@ areas:
         id: spa-lm:components/button
       contentB1:
         id: spa-lm:components/contentB1
+      contentB2:
+        id: spa-lm:components/contentB2
+      contentB3:
+        id: spa-lm:components/contentB3
+      contentB4:
+        id: spa-lm:components/contentB4
       homeCarousel:
         id: spa-lm:components/homeCarousel
       headerA4:
@@ -42,8 +48,8 @@ areas:
         id: spa-lm:components/accordion
       contentB7:
         id: spa-lm:components/contentB7
-      flexiblec6:
-        id: spa-lm:components/flexiblec6
+      flexibleC6:
+        id: spa-lm:components/flexibleC6
       grid:
         id: spa-lm:components/grid
       flexibleC3:

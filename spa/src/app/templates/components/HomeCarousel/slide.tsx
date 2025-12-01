@@ -3,7 +3,7 @@
 
 import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 
 interface CarouselImage {
   imageSrc: string;
@@ -38,12 +38,11 @@ export default function Slide({
         style={{ zIndex: 3 }}
       >
         <div className='relative w-full h-full'>
-          <Image
-            src={imageSrc || ''}
-            alt={imageAlt || ''}
+          <SafeImage
+            src={imageSrc}
+            alt={imageAlt}
             fill
             className='object-cover z-1'
-            unoptimized
           />
         </div>
       </div>

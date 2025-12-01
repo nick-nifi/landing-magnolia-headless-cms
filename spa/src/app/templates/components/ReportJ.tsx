@@ -1,10 +1,10 @@
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -134,24 +134,18 @@ const ReportJ: React.FC<IReportJProps> = ({
       <div className='flex flex-col gap-6 items-start relative shadow-[0px_12px_16px_-4px_rgba(0,0,0,0.08),0px_4px_6px_-2px_rgba(0,0,0,0.03)] w-full'>
         <div className='aspect-[360/510] relative shrink-0 w-full'>
           <div aria-hidden='true' className='absolute inset-0 pointer-events-none'>
-            {imageSrc && (
-              <Image
+            <SafeImage
                 src={imageSrc}
                 alt={getImageAlt(imageChooser)}
                 fill
-                unoptimized
                 className='absolute max-w-none object-center object-cover size-full'
               />
-            )}
-            {overlayImageSrc && (
-              <Image
+            <SafeImage
                 src={overlayImageSrc}
                 alt={getImageAlt(overlayImageChooser)}
                 fill
-                unoptimized
                 className='absolute max-w-none object-center object-cover size-full'
               />
-            )}
           </div>
         </div>
       </div>

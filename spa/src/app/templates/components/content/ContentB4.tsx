@@ -1,11 +1,11 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -118,30 +118,24 @@ const ContentB4: React.FC<IContentB4Props> = ({
         aria-hidden='true'
         className='absolute inset-0 pointer-events-none overflow-hidden'
       >
-        {backgroundImageSrc && (
           <div className='absolute inset-0 overflow-hidden'>
-            <Image
+          <SafeImage
               src={backgroundImageSrc}
               alt={getImageAlt(backgroundImageChooser)}
               fill
-              unoptimized
               className='absolute h-[144.46%] left-[-5.54%] max-w-none top-[-21.17%] w-[111.07%] object-cover'
             />
           </div>
-        )}
         {/* Dark overlay */}
         <div className='absolute bg-black/50 inset-0' />
-        {overlayImageSrc && (
           <div className='absolute inset-0 overflow-hidden'>
-            <Image
+          <SafeImage
               src={overlayImageSrc}
               alt={getImageAlt(overlayImageChooser)}
               fill
-              unoptimized
               className='absolute h-[128.45%] left-[-1.63%] max-w-none top-[-6.55%] w-[127.45%] object-cover'
             />
           </div>
-        )}
       </div>
 
       {/* Content Container */}

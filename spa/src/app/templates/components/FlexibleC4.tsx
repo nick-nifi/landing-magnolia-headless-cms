@@ -1,11 +1,11 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -114,12 +114,10 @@ const FlexibleC4: React.FC<IFlexibleC4Props> = ({
         {/* Image */}
         {imageSrc && (
           <div className='flex items-start relative self-stretch shrink-0 w-[215px]'>
-            <Image
+            <SafeImage
               src={imageSrc}
               alt={imageAlt}
-              width={215}
-              height={215}
-              unoptimized
+              fill
               className='absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full'
             />
           </div>
