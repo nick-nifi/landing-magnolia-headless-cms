@@ -42,7 +42,6 @@ const FlexibleC5: React.FC<IFlexibleC5Props> = ({
   title,
   description,
   schedule,
-  link,
   ctaChooser,
 }) => {
   let ctaText = '';
