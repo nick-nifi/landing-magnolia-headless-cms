@@ -1,0 +1,26 @@
+label: timelineL1
+form:
+  properties:
+    timelineItems:
+      $type: jcrMultiField
+      title: Timeline Items
+      label: Timeline Items
+      required: true
+      i18n: true
+      field:
+        $type: compositeField
+        label: Accordion Item
+        properties:
+          title:
+            $type: textField
+            label: Title
+            required: true
+            i18n: true
+          description:
+            $type: richTextField
+            i18n: true
+            colors: 02373F
+            fontSizes: 'Small/0.75rem;Default/1rem;Big/1.5rem'
+            label: Description
+            required: true
+            i18n: true

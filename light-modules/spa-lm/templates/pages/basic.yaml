@@ -48,6 +48,14 @@ areas:
         id: spa-lm:components/grid
       flexibleC3:
         id: spa-lm:components/flexibleC3
+      fastfactTile:
+        id: spa-lm:components/fastfactTile
+      listD5:
+        id: spa-lm:components/listD5
+      cardZ1:
+        id: spa-lm:components/cardZ1
+      timelineL1:
+        id: spa-lm:components/timelineL1
     # autoGeneration:
     #   content:
     #     text:

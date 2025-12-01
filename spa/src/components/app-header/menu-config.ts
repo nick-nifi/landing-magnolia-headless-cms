@@ -178,7 +178,7 @@ export const menuItems: MegaMenuItem[] = [
       },
       linkGroups: [
         {
-          links: [{ title: 'Locations', href: '/contact/locations' }],
+          links: [{ title: 'Locations', href: '/contacts/location' }],
         },
       ],
       featured: commonFeaturedSection, // Tái sử dụng

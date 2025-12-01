@@ -1,7 +1,11 @@
-import React from 'react';
-import { EditableArea, EditableComponent } from '@magnolia/react-editor';
-import { MgnlContent } from '@magnolia/frontend-helpers-base';
+import { environment } from '@/environments/environment';
 import { cn } from '@/lib/utils';
+import {
+  EditorContextService,
+  MgnlContent,
+} from '@magnolia/frontend-helpers-base';
+import { EditableArea, EditableComponent } from '@magnolia/react-editor';
+import React from 'react';
 
 export type Screen = 'mobile' | 'tablet' | 'desktop';
 
@@ -48,6 +52,7 @@ interface IGridProps {
   item10?: MgnlContent;
   item11?: MgnlContent;
   item12?: MgnlContent;
+  customClass?: string;
 }
 
 const Grid: React.FC<IGridProps> = ({
@@ -67,6 +72,7 @@ const Grid: React.FC<IGridProps> = ({
   x_gap,
   y_gap,
   items: noOfItems,
+  customClass,
 }) => {
   const _noOfItems = parseInt(noOfItems, 10);
 
@@ -93,8 +99,16 @@ const Grid: React.FC<IGridProps> = ({
     item12,
   ];
 
+  const magnoliaContext = EditorContextService.getMagnoliaContext(
+    '',
+    '',
+    environment.languages
+  );
+
   return (
-    <div className={cn('grid', classGridX, classGridY, classGridCols)}>
+    <div
+      className={cn('grid', classGridX, classGridY, classGridCols, customClass)}
+    >
       {Array.from({ length: _noOfItems }).map((_, index) => {
         const currentItem = items[index];
         return (
@@ -102,7 +116,9 @@ const Grid: React.FC<IGridProps> = ({
             <EditableArea
               key={`grid-item-${index}`}
               content={currentItem}
-              className={'h-full'}
+              className={cn({
+                'h-full': !magnoliaContext.isMagnoliaEdit,
+              })}
             >
               {getComponents(currentItem).map((component) => (
                 <EditableComponent

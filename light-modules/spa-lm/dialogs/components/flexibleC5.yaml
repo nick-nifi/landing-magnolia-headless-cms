@@ -1,24 +1,23 @@
 label: flexibleC5
 form:
   properties:
-    title: 
+    title:
       $type: textField
       label: Title
       required: true
       i18n: true
-    description: 
+    description:
       $type: richTextField
       i18n: true
       colors: 02373F
-      fontSizes: 'Small/0.75rem;Default/1rem;Big/1.5rem'
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
       label: Description
-      required: true
-      i18n: true
+
     schedule:
       $type: richTextField
       i18n: true
       colors: 02373F
-      fontSizes: 'Small/0.75rem;Default/1rem;Big/1.5rem'
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
       label: Schedule
       required: false
     ctaChooser:

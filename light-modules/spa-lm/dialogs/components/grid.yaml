@@ -30,7 +30,6 @@ form:
             $type: textField
             label: Gap Value
             placeholder: e.g. 8 or 8px
-
     y-gap:
       label: Y Gap
       i18n: true
@@ -136,3 +135,7 @@ form:
           - name: twelve
             label: 12
             value: 12
+    customClass:
+      label: Custom Class
+      i18n: true
+      $type: textField
