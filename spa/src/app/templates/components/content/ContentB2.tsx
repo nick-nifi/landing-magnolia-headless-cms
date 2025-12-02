@@ -1,13 +1,14 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -35,6 +36,7 @@ interface IContentB2Props {
   imageChooser?: ImageChooser;
   overlayImageChooser?: ImageChooser;
   ctaChooser?: CtaChooser;
+  customClass?: string;
 }
 
 const ContentB2: React.FC<IContentB2Props> = ({
@@ -43,6 +45,7 @@ const ContentB2: React.FC<IContentB2Props> = ({
   imageChooser,
   overlayImageChooser,
   ctaChooser,
+  customClass = '',
 }) => {
   // Get image source
   const getImageSrc = (imageChooser?: ImageChooser): string => {
@@ -91,84 +94,86 @@ const ContentB2: React.FC<IContentB2Props> = ({
     return (
       <Button
         variant={'outline'}
-        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white'
+        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white h-[42px] px-2.5 py-1.5 w-fit text-[20px]'
         asChild={!!ctaLink}
       >
         {ctaLink ? (
-          <Link href={ctaLink}>
-            {ctaText} <ArrowRight className='rotate-90' />
+          <Link href={ctaLink} className='flex items-center gap-2.5'>
+            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
           </Link>
         ) : (
-          <>
-            {ctaText} <ArrowRight className='rotate-90' />
-          </>
+          <span className='flex items-center gap-2.5'>
+            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+          </span>
         )}
       </Button>
     );
   };
 
   return (
-    <div
+    <section
       data-name='B2 / Content'
-      className='flex flex-col gap-20 items-start max-w-[1280px] w-full'
+      className={cn('bg-[#dbe0e4] py-16 px-4 md:px-20 lg:px-[160px]', customClass)}
     >
-      <div className='flex gap-16 items-center w-full'>
-        {/* Image Section */}
-        <div className='flex flex-row items-center self-stretch'>
-          <div className='h-full min-h-[314px] relative shrink-0 w-[550px]'>
-            <div aria-hidden='true' className='absolute inset-0 pointer-events-none'>
-              {imageSrc && (
-                <Image
-                  src={imageSrc}
-                  alt={getImageAlt(imageChooser)}
-                  fill
-                  unoptimized
-                  className='absolute max-w-none object-center object-cover size-full'
-                />
-              )}
-              {overlayImageSrc && (
-                <Image
-                  src={overlayImageSrc}
-                  alt={getImageAlt(overlayImageChooser)}
-                  fill
-                  unoptimized
-                  className='absolute max-w-none object-center object-cover size-full'
-                />
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Content Section */}
-        <div className='flex flex-col gap-8 items-start w-[489px]'>
-          <div className='flex flex-col gap-8 items-start w-full'>
-            <div className='flex flex-col gap-4 items-start w-full'>
-              <div className='flex flex-col gap-6 items-start text-[#3f4c54] w-full'>
-                <Typography
-                  variant='h2'
-                  weight='light'
-                  className='text-[40px] leading-[1.2] tracking-[-0.4px]'
-                >
-                  {title}
-                </Typography>
-                <Typography
-                  variant='body-large'
-                  weight='light'
-                  className='text-[20px] leading-[1.5]'
-                >
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: decodeIfEscaped(description),
-                    }}
+      <div className='flex flex-col gap-20 items-center max-w-[1280px] mx-auto w-full'>
+        <div className='flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-start lg:items-center w-full'>
+          {/* Left Image */}
+          <div className='flex flex-row items-center self-stretch w-full lg:w-auto'>
+            <div className='relative w-full lg:w-[550px] h-64 lg:h-full min-h-[314px] lg:shrink-0'>
+              <div aria-hidden='true' className='absolute inset-0 pointer-events-none overflow-hidden'>
+                {imageSrc && (
+                  <SafeImage
+                    src={imageSrc}
+                    alt={getImageAlt(imageChooser)}
+                    fill
+                    className='object-cover object-center'
                   />
-                </Typography>
+                )}
+                {overlayImageSrc && (
+                  <div className='absolute inset-0 overflow-hidden'>
+                    <SafeImage
+                      src={overlayImageSrc}
+                      alt={getImageAlt(overlayImageChooser)}
+                      fill
+                      className='object-cover object-center'
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
-          {renderButton()}
+
+          {/* Right Content */}
+          <div className='flex flex-col gap-8 w-full lg:w-[489px] lg:shrink-0'>
+            <div className='flex flex-col gap-8 w-full'>
+              <div className='flex flex-col gap-4 w-full'>
+                <div className='flex flex-col gap-6 text-[#3f4c54] w-full'>
+                  <Typography
+                    variant='h2'
+                    weight='light'
+                    className='text-3xl lg:text-[40px] leading-[1.2] tracking-[-0.4px]'
+                  >
+                    {title}
+                  </Typography>
+                  <Typography
+                    variant='body-large'
+                    weight='light'
+                    className='text-lg lg:text-[20px] leading-[1.5] [&_p]:mb-2.5 [&_p:last-child]:mb-0'
+                  >
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: decodeIfEscaped(description),
+                      }}
+                    />
+                  </Typography>
+                </div>
+              </div>
+            </div>
+            {renderButton()}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,8 +1,8 @@
 import { Grid } from '@/components/grid';
 import { Typography } from '@/components/typography';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
-import { environment } from '../../../environments/environment';
+import { environment } from '@/environments/environment';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -54,12 +54,12 @@ const FastfactTile: React.FC<IFastfactTileProps> = ({
       <Grid className='flex item-center justify-center md:justify-start pt-8 md:pt-0 md:pl-10'>
         {imageSrc && (
           <div className='w-[200px] overflow-hidden relative py-4'>
-            <Image
+            <SafeImage
               src={imageSrc}
               alt={imageAlt}
               className='w-full h-full object-contain object-center'
               fill
-              unoptimized
+              objectFit='contain'
             />
           </div>
         )}

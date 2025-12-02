@@ -12,12 +12,12 @@ form:
       required: false
       i18n: true
     listItems:
-      $type: listField
+      $type: jcrMultiField
       label: List Items
       required: true
-      itemProvider:
-        $type: jcrChildNodeProvider
-      form:
+      field:
+        $type: compositeField
+        label: Item
         properties:
           itemText:
             $type: textField
@@ -26,12 +26,12 @@ form:
             i18n: true
     ctaChooser:
       $type: switchableField
-      label: Call To Action
+      label: Call To Action (Optional)
       i18n: true
       field:
         $type: comboBoxField
         defaultValue: noCta
-        required: true
+        required: false
         datasource:
           $type: optionListDatasource
           options:
@@ -93,4 +93,3 @@ form:
                           $type: regexpValidator
                           pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
                           errorMessage: Please enter a valid URL
-
