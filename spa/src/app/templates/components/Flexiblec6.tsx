@@ -1,5 +1,4 @@
 import { Typography } from '@/components/typography';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
 import React from 'react';
@@ -23,13 +22,16 @@ interface IFlexiblec6Props {
   title: string;
   description: string;
   ctaChooser?: CtaChooser;
+  marginTop?: number | string;
 }
 
 const Flexiblec6: React.FC<IFlexiblec6Props> = ({
   title,
   description,
   ctaChooser,
+  marginTop = 0,
 }) => {
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   let ctaText = '';
   let linkHref = '';
   let isExternal = false;
@@ -59,41 +61,47 @@ const Flexiblec6: React.FC<IFlexiblec6Props> = ({
   }
 
   return (
-    <Card className='shadow-lg'>
-      <CardContent className='p-5 flex flex-col justify-between flex-1 gap-6'>
-        <div>
-          <Typography variant={'h4'} weight={'medium'} className='mb-4'>
+    <Card 
+      className='h-[220px] flex flex-col overflow-hidden border border-[#e6e7e8] shadow-md'
+      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
+    >
+      <CardContent className='p-5 flex flex-col overflow-hidden min-h-0 grow'>
+        <div className='overflow-hidden min-h-0'>
+          <Typography 
+            variant={'h4'} 
+            weight={'medium'} 
+            className='mb-2 line-clamp-3 text-[#3f4c54] text-[28px] leading-[1.2] tracking-[-0.28px]'
+          >
             {title}
           </Typography>
           {description && (
             <Typography
               variant={'body-large'}
+              className='line-clamp-2 text-[#3f4c54]'
               dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
             />
           )}
         </div>
-        <div>
+        <div className='mt-auto pt-3 shrink-0'>
           {ctaChooser &&
             ctaChooser.field === 'withCta' &&
             ctaText &&
             linkHref && (
-              <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
-                <Link
-                  href={linkHref}
-                  {...(isExternal
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
-                >
-                  {ctaText}
-                  <ExternalLink />
-                </Link>
-              </Button>
+              <Link
+                href={linkHref}
+                {...(isExternal
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+                className='inline-flex items-center gap-1.5 text-[#c33b32] text-[20px] font-normal hover:text-[#c33b32]/80'
+              >
+                {ctaText}
+                <ExternalLink className='w-4 h-4' />
+              </Link>
             )}
         </div>
       </CardContent>
     </Card>
   );
-  return <div className='w-full p-4'></div>;
 };
 
 export default Flexiblec6;

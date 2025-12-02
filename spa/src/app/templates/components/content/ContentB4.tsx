@@ -1,6 +1,5 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
-import { Button } from '@/components/ui/button';
 import { environment } from '@/environments/environment';
 import get from 'lodash/get';
 import has from 'lodash/has';
@@ -8,7 +7,6 @@ import Link from 'next/link';
 import { SafeImage } from '@/components/ui/safe-image';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -70,102 +68,110 @@ const ContentB4: React.FC<IContentB4Props> = ({
   const overlayImageSrc = getImageSrc(overlayImageChooser);
 
   // Get CTA link
-  const getCtaLink = (): string => {
+  const getCtaLink = (): { href: string; isExternal: boolean } => {
     if (!ctaChooser || ctaChooser.field !== 'withCta' || !ctaChooser.ctaLink) {
-      return '';
+      return { href: '', isExternal: false };
     }
     if (ctaChooser.ctaLink.field === 'externalPageLink') {
-      return ctaChooser.ctaLink.externalLink || '';
+      return { href: ctaChooser.ctaLink.externalLink || '', isExternal: true };
     }
     if (ctaChooser.ctaLink.field === 'internalPageLink') {
-      return ctaChooser.ctaLink.internalLink || '';
+      return { href: ctaChooser.ctaLink.internalLink || '', isExternal: false };
     }
-    return '';
+    return { href: '', isExternal: false };
   };
 
-  const ctaLink = getCtaLink();
+  const { href: ctaLink, isExternal } = getCtaLink();
   const ctaText = ctaChooser?.field === 'withCta' ? ctaChooser.ctaText : '';
 
   const renderButton = () => {
     if (!ctaText) return null;
 
-    return (
-      <Button
-        variant={'outline'}
-        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white'
-        asChild={!!ctaLink}
-      >
-        {ctaLink ? (
-          <Link href={ctaLink}>
-            {ctaText} <ArrowRight className='rotate-90' />
-          </Link>
-        ) : (
-          <>
-            {ctaText} <ArrowRight className='rotate-90' />
-          </>
-        )}
-      </Button>
+    const buttonContent = (
+      <>
+        <span className="leading-[1.5]">{ctaText}</span>
+        <ArrowRight className="w-[14.645px] h-[10.307px]" />
+      </>
     );
+
+    const buttonClassName =
+      'inline-flex items-center justify-center gap-2.5 w-fit h-[46px] px-2.5 py-1.5 border border-[#c33b32] text-[#c33b32] text-[20px] font-normal hover:bg-[#c33b32] hover:text-white transition-colors';
+
+    if (ctaLink) {
+      return (
+        <Link
+          href={ctaLink}
+          className={buttonClassName}
+          {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {buttonContent}
+        </Link>
+      );
+    }
+
+    return <button className={buttonClassName}>{buttonContent}</button>;
   };
 
   return (
     <section
-      data-name='B4 / Content / full image'
-      className='relative w-full flex items-center justify-center px-[160px] py-8'
+      data-name="B4 / Content / full image"
+      className="relative w-full flex items-center justify-center px-4 md:px-20 lg:px-[160px] py-8"
     >
       {/* Background Images */}
       <div
-        aria-hidden='true'
-        className='absolute inset-0 pointer-events-none overflow-hidden'
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none overflow-hidden"
       >
-          <div className='absolute inset-0 overflow-hidden'>
-          <SafeImage
+        {/* Base background image */}
+        {backgroundImageSrc && (
+          <div className="absolute inset-0 overflow-hidden">
+            <SafeImage
               src={backgroundImageSrc}
               alt={getImageAlt(backgroundImageChooser)}
               fill
-              className='absolute h-[144.46%] left-[-5.54%] max-w-none top-[-21.17%] w-[111.07%] object-cover'
+              className="object-cover"
             />
           </div>
+        )}
         {/* Dark overlay */}
-        <div className='absolute bg-black/50 inset-0' />
-          <div className='absolute inset-0 overflow-hidden'>
-          <SafeImage
+        <div className="absolute bg-black/50 inset-0" />
+        {/* Overlay image (faded/masked effect) */}
+        {overlayImageSrc && (
+          <div className="absolute inset-0 overflow-hidden">
+            <SafeImage
               src={overlayImageSrc}
               alt={getImageAlt(overlayImageChooser)}
               fill
-              className='absolute h-[128.45%] left-[-1.63%] max-w-none top-[-6.55%] w-[127.45%] object-cover'
+              className="object-cover"
             />
           </div>
+        )}
       </div>
 
       {/* Content Container */}
-      <div className='relative z-10 flex flex-col gap-20 items-start max-w-[1280px] w-[1120px] py-8'>
-        <div className='flex gap-20 items-end w-full'>
-          {/* Left Column */}
-          <div className='flex flex-col gap-8 w-[470px]'>
+      <div className="relative z-10 flex flex-col gap-20 items-start max-w-[1280px] w-full lg:w-[1120px] py-8">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start lg:items-end w-full">
+          {/* Left Column - Content */}
+          <div className="flex flex-col gap-8 w-full lg:w-[470px] shrink-0">
             <Typography
-              variant='h2'
-              weight='light'
-              className='text-[40px] leading-[1.2] tracking-[-0.4px]'
+              variant="h2"
+              weight="light"
+              className="text-[#3f4c54] text-[28px] lg:text-[40px] leading-[1.2] tracking-[-0.4px]"
             >
               {title}
             </Typography>
-            <Typography
-              variant='body-large'
-              weight='light'
-              className='text-[20px] leading-[1.5]'
-            >
-              <span
+            <div className="text-[#3f4c54] text-[18px] lg:text-[20px] font-light leading-[1.5]">
+              <div
                 dangerouslySetInnerHTML={{
                   __html: decodeIfEscaped(description),
                 }}
               />
-            </Typography>
+            </div>
             {renderButton()}
           </div>
 
-          {/* Right Column - Empty space for future content */}
-          <div className='h-[375px] w-[570px] shrink-0' />
+          {/* Right Column - Empty space for background image to show */}
+          <div className="hidden lg:block h-[375px] w-[570px] shrink-0" />
         </div>
       </div>
     </section>

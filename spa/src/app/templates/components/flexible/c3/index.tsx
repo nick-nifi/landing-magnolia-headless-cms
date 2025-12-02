@@ -20,7 +20,7 @@ export default function FlexibleC3({ title, items = [] }: FlexibleC3Props) {
       )}
 
       <div className="container mx-auto px-2 lg:px-0">
-        <Grid cols={1} mdCols={2} className="gap-6">
+        <Grid cols={1} mdCols={2} className="gap-6" items="stretch">
           {items.map((item, idx) => (
             <C3Card key={idx} {...item} />
           ))}

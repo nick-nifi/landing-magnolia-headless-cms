@@ -35,6 +35,7 @@ interface IFlexibleC3Props {
   description: string;
   imageChooser?: ImageChooser;
   ctaChooser?: CtaChooser;
+  marginTop?: number | string;
 }
 
 const FlexibleC3: React.FC<IFlexibleC3Props> = ({
@@ -42,7 +43,9 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
   description,
   imageChooser,
   ctaChooser,
+  marginTop = 0,
 }) => {
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   let imageSrc = '';
   let imageAlt = 'Image';
 
@@ -92,26 +95,30 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
   }
 
   return (
-    <Card className='shadow-lg gap-0 h-full'>
+    <Card 
+      className='shadow-md gap-0 h-[420px] flex flex-col overflow-hidden border border-[#e6e7e8]'
+      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
+    >
       {imageSrc && (
-        <div className='relative aspect-71/30 lg:aspect-110/41'>
+        <div className='relative h-[240px] shrink-0'>
           <SafeImage src={imageSrc} alt={imageAlt} fill className='object-cover' />
         </div>
       )}
-      <CardContent className='flex flex-col flex-1 justify-between items-start'>
-        <div>
-          <Typography variant={'h4'} weight={'medium'} className='mb-4'>
+      <CardContent className='flex flex-col items-start p-5 overflow-hidden min-h-0 grow'>
+        <div className='overflow-hidden min-h-0'>
+          <Typography variant={'h4'} weight={'medium'} className='mb-2 line-clamp-2'>
             {title}
           </Typography>
           {description && (
             <Typography
               variant={'body-large'}
               weight={'light'}
+              className='line-clamp-2'
               dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
             />
           )}
         </div>
-        <div>
+        <div className='mt-auto pt-2 shrink-0'>
           {ctaChooser &&
             ctaChooser.field === 'withCta' &&
             ctaText &&

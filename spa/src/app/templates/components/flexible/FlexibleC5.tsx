@@ -36,6 +36,7 @@ interface IFlexibleC5Props {
   schedule?: string;
   link?: Link;
   ctaChooser?: CtaChooser;
+  marginTop?: number | string;
 }
 
 const FlexibleC5: React.FC<IFlexibleC5Props> = ({
@@ -43,7 +44,9 @@ const FlexibleC5: React.FC<IFlexibleC5Props> = ({
   description,
   schedule,
   ctaChooser,
+  marginTop = 0,
 }) => {
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   let ctaText = '';
   let linkHref = '';
   let isExternal = false;
@@ -73,39 +76,49 @@ const FlexibleC5: React.FC<IFlexibleC5Props> = ({
   }
 
   return (
-    <Card className='shadow-lg h-full'>
-      <CardContent className='gap-0 flex flex-col flex-1 justify-between'>
-        <div className='mb-6'>
-          <Typography variant={'h4'} weight={'medium'} className='mb-4'>
+    <Card 
+      className='shadow-md h-[220px] flex flex-col overflow-hidden border border-[#e6e7e8]' 
+      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
+    >
+      <CardContent className='flex flex-col p-5 overflow-hidden min-h-0 grow'>
+        <div className='overflow-hidden min-h-0'>
+          <Typography variant={'h4'} weight={'medium'} className='mb-2 line-clamp-3'>
             {title}
           </Typography>
-          <Typography
-            variant={'body-large'}
-            weight={'light'}
-            className='mb-4'
-            dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
-          />
+          {description && (
+            <Typography
+              variant={'body-large'}
+              weight={'light'}
+              className='line-clamp-2'
+              dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
+            />
+          )}
           {schedule && (
             <Typography
               variant={'body-small'}
               weight={'semibold'}
+              className='mt-2'
               dangerouslySetInnerHTML={{ __html: decodeIfEscaped(schedule) }}
             />
           )}
         </div>
 
-        {ctaChooser &&
-          ctaChooser.field === 'withCta' &&
-          ctaText &&
-          linkHref && (
-            <div>
-              <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
-                <Link href={linkHref} target='_blank'>
-                  {ctaText} {isExternal ? <ExternalLink /> : <ArrowRight />}
+        <div className='mt-auto pt-3 shrink-0'>
+          {ctaChooser &&
+            ctaChooser.field === 'withCta' &&
+            ctaText &&
+            linkHref && (
+              <Button 
+                asChild 
+                variant={'link'} 
+                className='text-[#c33b32] hover:text-[#c33b32]/80 h-auto px-0 text-[20px] font-normal'
+              >
+                <Link href={linkHref} target={isExternal ? '_blank' : undefined}>
+                  {ctaText} <ArrowRight className='w-4 h-4' />
                 </Link>
               </Button>
-            </div>
-          )}
+            )}
+        </div>
       </CardContent>
     </Card>
   );
