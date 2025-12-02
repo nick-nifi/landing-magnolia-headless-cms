@@ -66,6 +66,8 @@ areas:
         id: spa-lm:components/filterI
       filterJ:
         id: spa-lm:components/filterJ
+      headerA5:
+        id: spa-lm:components/headerA5
     # autoGeneration:
     #   content:
     #     text:
