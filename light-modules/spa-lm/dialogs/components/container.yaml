@@ -6,6 +6,149 @@ form:
       label: Title
       required: false
       i18n: true
+    gap:
+      $type: comboBoxField
+      label: Gap (between columns/rows)
+      defaultValue: 20
+      required: false
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: none
+            label: None
+            value: 0
+          - name: small
+            label: Small (8px)
+            value: 8
+          - name: medium
+            label: Medium (16px)
+            value: 16
+          - name: large
+            label: Large (20px)
+            value: 20
+          - name: xlarge
+            label: XLarge (32px)
+            value: 32
+          - name: xxlarge
+            label: XXLarge (64px)
+            value: 64
+    childGap:
+      $type: comboBoxField
+      label: Child Gap (between child components)
+      defaultValue: 16
+      required: false
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: none
+            label: None
+            value: 0
+          - name: xsmall
+            label: XSmall (4px)
+            value: 4
+          - name: small
+            label: Small (8px)
+            value: 8
+          - name: medium
+            label: Medium (16px)
+            value: 16
+          - name: large
+            label: Large (24px)
+            value: 24
+          - name: xlarge
+            label: XLarge (32px)
+            value: 32
+          - name: xxlarge
+            label: XXLarge (48px)
+            value: 48
+    backgroundColor:
+      $type: textField
+      label: Background Color (e.g. #ffffff, #f5f5f5)
+      required: false
+      placeholder: "#ffffff"
+    paddingTop:
+      $type: textField
+      label: Padding Top (e.g. 20, 40, 60)
+      required: false
+      placeholder: "48"
+    paddingBottom:
+      $type: textField
+      label: Padding Bottom (e.g. 20, 40, 60)
+      required: false
+      placeholder: "48"
+    paddingLeft:
+      $type: textField
+      label: Padding Left (e.g. 20, 40, 60)
+      required: false
+      placeholder: "0"
+    paddingRight:
+      $type: textField
+      label: Padding Right (e.g. 20, 40, 60)
+      required: false
+      placeholder: "0"
+    ctaChooser:
+      $type: switchableField
+      label: Call To Action Button
+      field:
+        $type: comboBoxField
+        defaultValue: noCta
+        required: false
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noCta
+              label: No Button
+              value: noCta
+            - name: withCta
+              label: With Button
+              value: withCta
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noCta
+          properties: {}
+        - name: withCta
+          properties:
+            ctaText:
+              $type: textField
+              required: true
+              label: Button Text
+              i18n: true
+            ctaLink:
+              $type: switchableField
+              i18n: true
+              label: Button Link
+              field:
+                $type: comboBoxField
+                defaultValue: internalPageLink
+                required: true
+                datasource:
+                  $type: optionListDatasource
+                  options:
+                    - name: internalPageLink
+                      label: Internal Page Link
+                      value: internalPageLink
+                    - name: externalPageLink
+                      label: External Page Link
+                      value: externalPageLink
+              itemProvider:
+                $type: jcrChildNodeProvider
+              forms:
+                - name: internalPageLink
+                  properties:
+                    internalLink:
+                      i18n: true
+                      required: true
+                      $type: pageLinkField
+                      label: Internal Page Link
+                      converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+                - name: externalPageLink
+                  properties:
+                    externalLink:
+                      i18n: true
+                      required: true
+                      $type: textField
+                      label: External Page Link
     container:
       $type: switchableField
       label: Container

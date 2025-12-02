@@ -1,19 +1,27 @@
 label: filterI
 form:
   properties:
+    heading:
+      $type: textField
+      label: Heading
+      required: true
+      i18n: true
+      defaultValue: View all UOBKH research
+
     placeholder:
       $type: textField
       label: Placeholder Text
       required: true
       i18n: true
       defaultValue: Select location
+
     locations:
-      $type: listField
+      $type: jcrMultiField
       label: Locations
-      required: true
       itemProvider:
         $type: jcrChildNodeProvider
-      form:
+      field:
+        $type: compositeField
         properties:
           locationName:
             $type: textField
@@ -22,12 +30,13 @@ form:
             i18n: true
           locationLink:
             $type: switchableField
-            i18n: true
             label: Location Link (Optional)
+            i18n: true
             field:
               $type: comboBoxField
-              defaultValue: noLink
+              label: Link Type
               required: true
+              defaultValue: noLink
               datasource:
                 $type: optionListDatasource
                 options:
@@ -48,37 +57,40 @@ form:
               - name: internalPageLink
                 properties:
                   internalLink:
-                    i18n: true
-                    required: true
                     $type: pageLinkField
                     label: Internal Page Link
+                    required: true
+                    i18n: true
                     converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
               - name: externalPageLink
                 properties:
                   externalLink:
-                    i18n: true
-                    required: true
                     $type: textField
                     label: External Page Link
+                    required: true
+                    i18n: true
                     validators:
                       urlValidator:
                         $type: regexpValidator
                         pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
                         errorMessage: Please enter a valid URL
+
     buttonText:
       $type: textField
       label: Button Text
       required: true
       i18n: true
       defaultValue: Go
+
     buttonLink:
       $type: switchableField
-      i18n: true
       label: Button Link
+      i18n: true
       field:
         $type: comboBoxField
-        defaultValue: internalPageLink
+        label: Link Type
         required: true
+        defaultValue: internalPageLink
         datasource:
           $type: optionListDatasource
           options:
@@ -94,21 +106,20 @@ form:
         - name: internalPageLink
           properties:
             internalLink:
-              i18n: true
-              required: true
               $type: pageLinkField
               label: Internal Page Link
+              required: true
+              i18n: true
               converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
         - name: externalPageLink
           properties:
             externalLink:
-              i18n: true
-              required: true
               $type: textField
               label: External Page Link
+              required: true
+              i18n: true
               validators:
                 urlValidator:
                   $type: regexpValidator
                   pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
                   errorMessage: Please enter a valid URL
-
