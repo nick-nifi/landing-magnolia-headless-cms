@@ -43,7 +43,7 @@ export default function AppFooter() {
   return (
     <footer className=''>
       <div className='relative container mx-auto lg:mt-60'>
-        <div className='w-full shadow-xs flex flex-col lg:flex-row w-full bg-white relative lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2'>
+        <div className='w-full container shadow-xs flex flex-col lg:flex-row w-full relative lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2'>
           <div className='relative aspect-3/2 md:aspect-4/1 lg:aspect-2/1 lg:min-w-[360px]'>
             <Image
               src='/assets/footer-bg.png'
@@ -52,7 +52,7 @@ export default function AppFooter() {
               fill
             />
           </div>
-          <div className='px-4 py-9 lg:py-8 lg:px-40 flex flex-1 flex-col border'>
+          <div className='px-4 py-9 lg:py-8 lg:px-20 flex flex-1 flex-col border bg-white'>
             <Typography
               variant='h2'
               className='text-primary mb-5 block'
@@ -81,8 +81,8 @@ export default function AppFooter() {
           </div>
         </div>
       </div>
-      <div className='bg-primary lg:pt-60'>
-        <div className='mb-8 container mx-auto px-4 lg:px-0'>
+      <div className='bg-primary lg:pt-80'>
+        <div className='mb-8 container mx-auto'>
           {/* Top section: Links and Tagline */}
           <div className='grid grid-cols-1 gap-8 border-b border-white/20 pb-12 md:grid-cols-3 lg:grid-cols-4 pt-8 lg:pt-0'>
             {/* Link Columns */}
@@ -208,7 +208,7 @@ export default function AppFooter() {
           </div>
         </div>
 
-        <div className='container px-4 lg:px-0 mx-auto text-white pb-3'>
+        <div className='container mx-auto text-white pb-3'>
           <div className='flex flex-col lg:flex-row justify-between items-center gap-4'>
             <Typography variant={'body-small'} weight={'light'}>
               Copyright © 2025 UOB Kay Hian. All Rights Reserved. |{' '}
