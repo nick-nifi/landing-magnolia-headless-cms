@@ -301,6 +301,20 @@ export const icons = {
       />
     </svg>
   ),
+  arrowUp: (
+    <svg
+      width='18'
+      height='10'
+      viewBox='0 0 18 10'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        d='M17.3418 8.68652L8.8418 0.686523L0.341797 8.68652'
+        stroke='currentColor'
+      />
+    </svg>
+  ),
 };
 
 export type IconName = keyof typeof icons;

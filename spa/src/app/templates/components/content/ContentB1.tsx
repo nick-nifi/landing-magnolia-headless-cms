@@ -81,7 +81,8 @@ const ContentB1: React.FC<IContentB1Props> = ({
   };
 
   const ctaLink = getCtaLink();
-  const ctaText = ctaChooser?.field === 'withCta' ? ctaChooser.ctaText : buttonLabel;
+  const ctaText =
+    ctaChooser?.field === 'withCta' ? ctaChooser.ctaText : buttonLabel;
 
   const renderButton = () => {
     if (!ctaText) return null;
@@ -105,23 +106,22 @@ const ContentB1: React.FC<IContentB1Props> = ({
     );
   };
 
-
   return (
     <section
       data-name='B1 / Content'
-      className={cn('bg-white py-16 px-4 md:px-20 lg:px-[160px]', customClass)}
+      className={cn('bg-white py-16 px-4 md:px-20', customClass)}
     >
-      <div className='flex flex-col gap-20 items-center max-w-[1280px] mx-auto w-full'>
+      <div className='flex flex-col gap-20 items-center container mx-auto w-full'>
         <div className='flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center w-full'>
           {/* Left Content */}
-          <div className='flex flex-col gap-8 w-full lg:w-[506px] lg:shrink-0'>
+          <div className='flex flex-col gap-8 w-full lg:w-1/2 lg:shrink-0'>
             <div className='flex flex-col gap-8 w-full'>
               <div className='flex flex-col gap-4 w-full'>
                 <div className='flex flex-col gap-6 w-full'>
                   <h2 className='font-light text-3xl lg:text-[40px] leading-[1.2] tracking-[-0.4px] text-[#3f4c54]'>
                     {title}
                   </h2>
-                  <div 
+                  <div
                     className='text-lg lg:text-[20px] font-light text-[#3f4c54]
                     [&_p]:leading-[1.5] [&_p]:mb-2.5 [&_p:last-child]:mb-0
                     [&_strong]:font-medium [&_b]:font-medium
