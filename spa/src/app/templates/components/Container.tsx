@@ -122,16 +122,16 @@ const Container: React.FC<IContainerProps> = ({
         paddingRight: parsePadding(paddingRight),
       }}
     >
-      {title && (
-        <Typography
-          variant={'h2'}
-          className='mb-12 md:mb-16 lg:mb-20 text-center'
-          weight={'light'}
-        >
-          {title}
-        </Typography>
-      )}
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-5 md:px-10 lg:px-15'>
+        {title && (
+          <Typography
+            variant={'h2'}
+            className='mb-12 md:mb-16 lg:mb-20 text-center'
+            weight={'light'}
+          >
+            {title}
+          </Typography>
+        )}
         <div
           className={`flex ${isColumns ? 'flex-row flex-wrap' : 'flex-col'}`}
           style={{ gap: `${gapValue}px` }}
