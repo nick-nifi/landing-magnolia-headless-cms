@@ -35,6 +35,7 @@ import ContentB2Component from './app/templates/components/content/ContentB2';
 import ContentB3Component from './app/templates/components/content/ContentB3';
 import ContentB4Component from './app/templates/components/content/ContentB4';
 import ContentB7Component from './app/templates/components/content/ContentB7';
+import ContentB9Component from './app/templates/components/content/ContentB9';
 import FlexibleC1Component from './app/templates/components/flexible/FlexibleC1';
 import FlexibleC2Component from './app/templates/components/flexible/FlexibleC2';
 import FlexibleC4Component from './app/templates/components/FlexibleC4';
@@ -42,6 +43,8 @@ import FlexibleC5Component from './app/templates/components/flexible/FlexibleC5'
 import Basic from './app/templates/pages/Basic';
 import Grid from './app/templates/components/Grid';
 import FilterIComponent from './app/templates/components/FilterI';
+import SpecialMenuComponent from './app/templates/components/special-menu';
+import DownloadFComponent from './app/templates/components/DownloadF';
 
 export const config: MagnoliaConfig = {
   componentMappings: {
@@ -57,6 +60,7 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/contentB3': ContentB3Component,
     'spa-lm:components/contentB4': ContentB4Component,
     'spa-lm:components/contentB7': ContentB7Component,
+    'spa-lm:components/contentB9': ContentB9Component,
     'spa-lm:components/flexibleC1': FlexibleC1Component,
     'spa-lm:components/flexibleC2': FlexibleC2Component,
     'spa-lm:components/flexibleC4': FlexibleC4Component,
@@ -89,5 +93,7 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/filterI': FilterIComponent,
     'spa-lm:components/headerA5': HeaderA5Component,
     'spa-lm:components/annualReport': AnnualReportComponent,
+    "spa-lm:components/special-menu": SpecialMenuComponent,
+    "spa-lm:components/downloadF": DownloadFComponent
   },
 };

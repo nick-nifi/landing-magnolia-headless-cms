@@ -33,6 +33,7 @@ interface CtaChooser {
 interface IContentB2Props {
   title: string;
   description: string;
+  backgroundColor?: string;
   imageChooser?: ImageChooser;
   overlayImageChooser?: ImageChooser;
   ctaChooser?: CtaChooser;
@@ -42,6 +43,7 @@ interface IContentB2Props {
 const ContentB2: React.FC<IContentB2Props> = ({
   title,
   description,
+  backgroundColor,
   imageChooser,
   overlayImageChooser,
   ctaChooser,
@@ -113,7 +115,10 @@ const ContentB2: React.FC<IContentB2Props> = ({
   return (
     <section
       data-name='B2 / Content'
-      className={cn('bg-[#dbe0e4] py-16 px-4 md:px-20 lg:px-[160px]', customClass)}
+      className={cn('py-16 px-4 md:px-20 lg:px-[160px]', customClass)}
+      style={{
+        backgroundColor: backgroundColor || '#dbe0e4',
+      }}
     >
       <div className='flex flex-col gap-20 items-center max-w-[1280px] mx-auto w-full'>
         <div className='flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-start lg:items-center w-full'>

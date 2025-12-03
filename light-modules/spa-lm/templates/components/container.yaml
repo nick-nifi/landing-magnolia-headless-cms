@@ -36,6 +36,10 @@ areas:
         id: spa-lm:components/filterI
       filterJ:
         id: spa-lm:components/filterJ
+      specialMenu:
+        id: spa-lm:components/special-menu
+      downloadF:
+        id: spa-lm:components/downloadF
       
       
 

@@ -103,10 +103,10 @@ export const menuItems: MegaMenuItem[] = [
       linkGroups: [
         {
           links: [
-            { title: 'CIO insights', href: '/research/cio-insights' },
-            { title: 'Major markets', href: '/research/major-markets' },
-            { title: 'Sectors', href: '/research/sectors' },
-            { title: 'Companies', href: '/research/companies' },
+            { title: 'CIO insights', href: '/research/cio-insights?tab=1' },
+            { title: 'Major markets', href: '/research/major-markets?tab=2' },
+            { title: 'Sectors', href: '/research/sectors?tab=3' },
+            { title: 'Companies', href: '/research/companies?tab=4' },
           ],
         },
       ],

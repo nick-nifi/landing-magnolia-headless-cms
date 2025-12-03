@@ -14,6 +14,17 @@ form:
       label: Description
       required: false
 
+    backgroundColor:
+      $type: textField
+      label: Background Color (e.g. #dbe0e4, #ffffff)
+      required: false
+      placeholder: "#dbe0e4"
+      validators:
+        hexColorValidator:
+          $type: regexpValidator
+          pattern: ^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$
+          errorMessage: Enter a valid color in hex format
+
     imageChooser:
       $type: switchableField
       label: Image (Layer 1)

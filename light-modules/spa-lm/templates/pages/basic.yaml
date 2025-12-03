@@ -70,6 +70,10 @@ areas:
         id: spa-lm:components/headerA5
       annualReport:
         id: spa-lm:components/annualReport
+      specialMenu:
+        id: spa-lm:components/special-menu
+      downloadF:
+        id: spa-lm:components/downloadF
     # autoGeneration:
     #   content:
     #     text:
