@@ -40,19 +40,21 @@ export default function MobileNavigation() {
                 <AccordionItem
                   key={key}
                   value={key}
-                  className={cn('px-5 data-[state=open]:bg-white group')}
+                  className={cn('group data-[state=open]:bg-white')}
                 >
-                  <AccordionTrigger
+                  <div
                     className={cn(
-                      'border-b rounded-none',
-                      'group-data-[state=open]:border-b-primary'
+                      'border-b border-b data-[state=open]:border-b-primary'
                     )}
                   >
-                    <Typography variant={'body-small'} weight={'medium'}>
-                      {title}
-                    </Typography>
-                  </AccordionTrigger>
-                  <AccordionContent>
+                    <AccordionTrigger className={cn('rounded-none px-5')}>
+                      <Typography variant={'body-small'} weight={'medium'}>
+                        {title}
+                      </Typography>
+                    </AccordionTrigger>
+                  </div>
+
+                  <AccordionContent className='px-5'>
                     {content.linkGroups.map((linkGroup, index) => (
                       <div key={index}>
                         {linkGroup.links.map((link, index) => (
