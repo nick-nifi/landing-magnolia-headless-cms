@@ -66,6 +66,9 @@ export default {
       borderWidth: {
         10: '10px',
       },
+      width: {
+        '4/5': '80%',
+      },
       aspectRatio: {
         '13/8': '13 / 8',
         '53/32': '53 / 32',

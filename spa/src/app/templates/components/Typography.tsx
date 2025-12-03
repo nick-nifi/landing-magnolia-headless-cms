@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography as TypographyComponent } from '@/components/typography';
 import { environment } from '../../../environments/environment';
+import { cn } from '@/lib/utils';
 
 interface ITypographyProps {
   text: string;
@@ -47,7 +48,7 @@ const Typography: React.FC<ITypographyProps> = ({
       variant={variant}
       weight={weight}
       as={as}
-      className={customCss}
+      className={cn(customCss)}
       {...(variant === 'link' ? { href } : {})}
     >
       {text}
