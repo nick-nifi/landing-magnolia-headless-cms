@@ -49,6 +49,7 @@ export interface MegaMenuItem {
   // Dùng để kiểm tra active state cho tất cả các trang con
   pathCheckPrefix: string;
   content: MegaMenuContent;
+  key: string;
 }
 
 export const menuItems: MegaMenuItem[] = [
@@ -56,6 +57,7 @@ export const menuItems: MegaMenuItem[] = [
     type: 'megaMenu',
     title: 'Investment services',
     pathCheckPrefix: '/services',
+    key: 'investment-services',
     content: {
       intro: {
         title: 'Investment services',
@@ -90,6 +92,7 @@ export const menuItems: MegaMenuItem[] = [
     type: 'megaMenu',
     title: 'Research',
     pathCheckPrefix: '/research',
+    key: 'research',
     content: {
       intro: {
         title: 'Research',
@@ -114,6 +117,7 @@ export const menuItems: MegaMenuItem[] = [
     type: 'megaMenu',
     title: 'Investor relations',
     pathCheckPrefix: '/investor-relations',
+    key: 'investor-relations',
     content: {
       intro: {
         title: 'Investor relations',
@@ -146,6 +150,7 @@ export const menuItems: MegaMenuItem[] = [
     type: 'megaMenu',
     title: 'About',
     pathCheckPrefix: '/about',
+    key: 'about',
     content: {
       intro: {
         title: 'About',
@@ -169,6 +174,7 @@ export const menuItems: MegaMenuItem[] = [
     type: 'megaMenu',
     title: 'Contact',
     pathCheckPrefix: '/contact',
+    key: 'contact',
     content: {
       intro: {
         title: 'Contact',
