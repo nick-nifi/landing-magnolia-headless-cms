@@ -10,7 +10,7 @@ interface ISectionProps {
 
 const Section: React.FC<ISectionProps> = ({ content, customClass }) => {
   return (
-    <section className={cn('neo-container', customClass)}>
+    <section className={cn('container py-12 lg:py-28', customClass)}>
       {content && <EditableArea content={content} />}
     </section>
   );

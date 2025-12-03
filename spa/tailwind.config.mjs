@@ -4,6 +4,17 @@ export default {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1.25rem',
+          sm: '1.25rem',
+          md: '2.5rem',
+          lg: '10rem',
+          xl: '12rem',
+          '2xl': '14rem',
+        },
+      },
       fontFamily: {
         sans: ['var(--font-roboto)', 'sans-serif'],
         libre: ['var(--font-libre-baskerville)', 'sans-serif'],
@@ -107,6 +118,30 @@ export default {
       minHeight: {
         250: '250px',
         80: '20rem',
+      },
+      spacing: {
+        // Container widths
+        'container-large': '1280px',
+        'container-medium': '1024px',
+        'container-small': '768px',
+        // Page padding
+        'padding-global-desktop': '160px',
+        'padding-global-tablet': '40px',
+        'padding-global-mobile': '20px',
+        // Section padding
+        'padding-section-large': '112px',
+        'padding-section-medium': '64px',
+        'padding-section-small': '32px',
+        'padding-section-tiny': '20px',
+      },
+      maxWidth: {
+        xxlarge: '1280px',
+        xlarge: '1024px',
+        large: '768px',
+        medium: '560px',
+        small: '480px',
+        xsmall: '400px',
+        xxsmall: '320px',
       },
     },
   },

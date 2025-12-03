@@ -33,7 +33,8 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
   link,
   marginTop = 0,
 }) => {
-  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
+  const marginTopValue =
+    typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   const imgSrc = has(imageChooser, 'externalImage')
     ? get(imageChooser, 'externalImage')
     : `${environment.damRawBase}${get(imageChooser, "image['@link']")}`;
@@ -43,7 +44,10 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
     get(imageChooser, 'image.metadata.caption');
 
   const renderContent = () => (
-    <Card className='gap-0 h-full flex-1 shadow-md' style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}>
+    <Card
+      className='gap-0 h-full flex-1 shadow-md'
+      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
+    >
       <CardContent className='p-5 flex flex-1 flex-col'>
         <Typography variant={'h4'} weight={'medium'} className='mb-4'>
           {title}
@@ -58,9 +62,9 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
         src={imgSrc}
         alt={imageAlt || ''}
         fill
-        unoptimized
         className='object-cover'
         imageContainerClass='aspect-53/32'
+        unoptimized
       />
     </Card>
   );

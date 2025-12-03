@@ -109,7 +109,7 @@ const ContentB1: React.FC<IContentB1Props> = ({
   return (
     <section
       data-name='B1 / Content'
-      className={cn('bg-white py-16 px-4 md:px-20', customClass)}
+      className={cn('neo-container', customClass)}
     >
       <div className='flex flex-col gap-20 items-center container mx-auto w-full'>
         <div className='flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center w-full'>

@@ -27,6 +27,7 @@ export default function ImageHover({
           'object-cover transition-transform duration-500 group-hover:scale-105',
           className
         )}
+        loading='lazy'
         {...restProps}
       />
 

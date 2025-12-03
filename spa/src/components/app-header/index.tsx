@@ -10,7 +10,7 @@ export default function AppHeader() {
       <TopBar />
 
       <div className='pt-3 shadow-lg relative'>
-        <div className='container mx-auto flex justify-between items-center px-2 lg:px-0 relative'>
+        <div className='container py-0 flex justify-between items-center relative'>
           <Link href='/'>
             <Image
               src='/assets/uob-color-logo.png'

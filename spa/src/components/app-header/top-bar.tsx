@@ -34,8 +34,8 @@ const investedCountries: { src: IconName; name: string; code: string }[] = [
 
 export default function TopBar() {
   return (
-    <div className=' border-b'>
-      <div className='container mx-auto flex items-center justify-end'>
+    <div data-name='Topbar' className='border-b'>
+      <div className='container py-0 flex items-center justify-end'>
         <div className='flex py-3 gap-5'>
           <Typography
             className='text-primary lg:text-[12px] font-medium'
