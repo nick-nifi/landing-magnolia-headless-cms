@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { SafeImage } from '@/components/ui/safe-image';
 
 interface CtaLink {
@@ -45,7 +45,8 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
   ctaChooser,
   marginTop = 0,
 }) => {
-  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
+  const marginTopValue =
+    typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   let imageSrc = '';
   let imageAlt = 'Image';
 
@@ -95,18 +96,27 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
   }
 
   return (
-    <Card 
+    <Card
       className='shadow-md gap-0 h-[420px] flex flex-col overflow-hidden border border-[#e6e7e8]'
       style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
     >
       {imageSrc && (
         <div className='relative h-[240px] shrink-0'>
-          <SafeImage src={imageSrc} alt={imageAlt} fill className='object-cover' />
+          <SafeImage
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            className='object-cover'
+          />
         </div>
       )}
       <CardContent className='flex flex-col items-start p-5 overflow-hidden min-h-0 grow'>
         <div className='overflow-hidden min-h-0'>
-          <Typography variant={'h4'} weight={'medium'} className='mb-2 line-clamp-2'>
+          <Typography
+            variant={'h4'}
+            weight={'medium'}
+            className='mb-2 line-clamp-2'
+          >
             {title}
           </Typography>
           {description && (
@@ -131,7 +141,7 @@ const FlexibleC3: React.FC<IFlexibleC3Props> = ({
                     : {})}
                 >
                   {ctaText}
-                  <ArrowRight />
+                  {isExternal ? <ExternalLink /> : <ArrowRight />}
                 </Link>
               </Button>
             )}

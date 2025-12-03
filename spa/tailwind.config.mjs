@@ -119,21 +119,6 @@ export default {
         250: '250px',
         80: '20rem',
       },
-      spacing: {
-        // Container widths
-        'container-large': '1280px',
-        'container-medium': '1024px',
-        'container-small': '768px',
-        // Page padding
-        'padding-global-desktop': '160px',
-        'padding-global-tablet': '40px',
-        'padding-global-mobile': '20px',
-        // Section padding
-        'padding-section-large': '112px',
-        'padding-section-medium': '64px',
-        'padding-section-small': '32px',
-        'padding-section-tiny': '20px',
-      },
       maxWidth: {
         xxlarge: '1280px',
         xlarge: '1024px',

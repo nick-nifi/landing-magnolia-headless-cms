@@ -2,8 +2,6 @@ import { decodeIfEscaped } from '@/app/services/content-service';
 import ImageHover from '@/components/image-hover';
 import { Typography } from '@/components/typography';
 import { Card, CardContent } from '@/components/ui/card';
-import get from 'lodash/get';
-import has from 'lodash/has';
 import Link from 'next/link';
 import React from 'react';
 import { environment } from '../../../../environments/environment';
@@ -35,13 +33,28 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
 }) => {
   const marginTopValue =
     typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
-  const imgSrc = has(imageChooser, 'externalImage')
-    ? get(imageChooser, 'externalImage')
-    : `${environment.damRawBase}${get(imageChooser, "image['@link']")}`;
 
-  const imageAlt =
-    get(imageChooser, 'externalImageAlt') ||
-    get(imageChooser, 'image.metadata.caption');
+  let imageSrc = '';
+  let imageAlt = 'Image';
+  let isExternalImage = false;
+
+  if (
+    imageChooser &&
+    imageChooser.field &&
+    (imageChooser.image || imageChooser.externalImage)
+  ) {
+    if (imageChooser.field === 'image' && imageChooser.image) {
+      imageSrc = `${environment.damRawBase}${imageChooser.image['@link']}`;
+      imageAlt = imageChooser.imageAlt || 'Image';
+    } else if (
+      imageChooser.field === 'externalImage' &&
+      imageChooser.externalImage
+    ) {
+      imageSrc = imageChooser.externalImage;
+      imageAlt = imageChooser.externalImageAlt || 'Image';
+      isExternalImage = true;
+    }
+  }
 
   const renderContent = () => (
     <Card
@@ -59,12 +72,13 @@ const FlexibleC1: React.FC<IFlexibleC1Props> = ({
         </Typography>
       </CardContent>
       <ImageHover
-        src={imgSrc}
+        src={imageSrc}
         alt={imageAlt || ''}
         fill
         className='object-cover'
         imageContainerClass='aspect-53/32'
-        unoptimized
+        unoptimized={isExternalImage}
+        loading='lazy'
       />
     </Card>
   );

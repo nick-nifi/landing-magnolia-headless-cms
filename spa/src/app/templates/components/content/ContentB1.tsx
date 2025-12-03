@@ -1,11 +1,13 @@
-import { SafeImage } from '@/components/ui/safe-image';
-import React from 'react';
-import { environment } from '@/environments/environment';
 import { decodeIfEscaped } from '@/app/services/content-service';
-import { ArrowRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Grid } from '@/components/grid';
+import { Typography } from '@/components/typography';
 import { Button } from '@/components/ui/button';
+import { environment } from '@/environments/environment';
+import { cn } from '@/lib/utils';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -42,12 +44,11 @@ const ContentB1: React.FC<IContentB1Props> = ({
   description,
   imageChooser,
   ctaChooser,
-  buttonLabel,
-  buttonUrl,
   customClass = '',
 }) => {
   let imageSrc = '';
   let imageAlt = 'Image';
+  let isExternalImage = false;
 
   if (
     imageChooser &&
@@ -63,93 +64,92 @@ const ContentB1: React.FC<IContentB1Props> = ({
     ) {
       imageSrc = imageChooser.externalImage;
       imageAlt = imageChooser.externalImageAlt || 'Image';
+      isExternalImage = true;
     }
   }
 
-  // Get CTA link - same logic as B2
-  const getCtaLink = (): string => {
-    if (!ctaChooser || ctaChooser.field !== 'withCta' || !ctaChooser.ctaLink) {
-      return buttonUrl || '';
-    }
-    if (ctaChooser.ctaLink.field === 'externalPageLink') {
-      return ctaChooser.ctaLink.externalLink || '';
-    }
-    if (ctaChooser.ctaLink.field === 'internalPageLink') {
-      return ctaChooser.ctaLink.internalLink || '';
-    }
-    return '';
-  };
+  let ctaText = '';
+  let linkHref = '';
+  let isExternal = false;
 
-  const ctaLink = getCtaLink();
-  const ctaText =
-    ctaChooser?.field === 'withCta' ? ctaChooser.ctaText : buttonLabel;
+  if (ctaChooser && ctaChooser.field === 'withCta') {
+    ctaText = ctaChooser.ctaText || '';
 
-  const renderButton = () => {
-    if (!ctaText) return null;
+    const ctaLink = ctaChooser.ctaLink;
 
-    return (
-      <Button
-        variant={'outline'}
-        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white h-[42px] px-2.5 py-1.5 w-fit text-[20px]'
-        asChild={!!ctaLink}
-      >
-        {ctaLink ? (
-          <Link href={ctaLink} className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4' />
-          </Link>
-        ) : (
-          <span className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4' />
-          </span>
-        )}
-      </Button>
-    );
-  };
+    if (ctaLink) {
+      if (ctaLink.field === 'internalPageLink' && ctaLink.internalLink) {
+        const origin =
+          typeof window !== 'undefined' ? window.location.origin : '';
+        let link = ctaLink.internalLink;
+        if (link.startsWith(environment.appBase)) {
+          link = link.slice(environment.appBase.length);
+          if (!link.startsWith('/')) {
+            link = '/' + link;
+          }
+        }
+        linkHref = `${origin}${link}`;
+      } else if (ctaLink.field === 'externalPageLink' && ctaLink.externalLink) {
+        linkHref = ctaLink.externalLink;
+        isExternal = true;
+      }
+    }
+  }
 
   return (
     <section
       data-name='B1 / Content'
-      className={cn('neo-container', customClass)}
+      className={cn('md:py-16 py-12', customClass)}
     >
-      <div className='flex flex-col gap-20 items-center container mx-auto w-full'>
-        <div className='flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center w-full'>
-          {/* Left Content */}
-          <div className='flex flex-col gap-8 w-full lg:w-1/2 lg:shrink-0'>
-            <div className='flex flex-col gap-8 w-full'>
-              <div className='flex flex-col gap-4 w-full'>
-                <div className='flex flex-col gap-6 w-full'>
-                  <h2 className='font-light text-3xl lg:text-[40px] leading-[1.2] tracking-[-0.4px] text-[#3f4c54]'>
-                    {title}
-                  </h2>
-                  <div
-                    className='text-lg lg:text-[20px] font-light text-[#3f4c54]
-                    [&_p]:leading-[1.5] [&_p]:mb-2.5 [&_p:last-child]:mb-0
-                    [&_strong]:font-medium [&_b]:font-medium
-                    [&_span]:leading-[1.5]'
-                    dangerouslySetInnerHTML={{
-                      __html: decodeIfEscaped(description),
-                    }}
-                  />
-                </div>
-              </div>
+      <div className='container'>
+        <Grid cols={1} lgCols={2} className='lg:gap-16 gap-12'>
+          <Grid>
+            <div className='lg:mb-6'>
+              {title && (
+                <Typography variant='h2' weight={'light'} className='mb-5'>
+                  {title}
+                </Typography>
+              )}
+              {description && (
+                <Typography
+                  variant={'body-large'}
+                  weight={'light'}
+                  dangerouslySetInnerHTML={{
+                    __html: decodeIfEscaped(description),
+                  }}
+                />
+              )}
             </div>
-
-            {/* CTA Button */}
-            {renderButton()}
-          </div>
-
-          {/* Right Image */}
-          <div className='flex flex-row items-center self-stretch flex-1 w-full'>
-            <div className='relative w-full h-64 lg:h-full min-h-[314px]'>
-              <SafeImage
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                className='object-cover object-center'
-              />
+            <div>
+              {ctaChooser &&
+                ctaChooser.field === 'withCta' &&
+                ctaText &&
+                linkHref && (
+                  <Button asChild variant={'outline'}>
+                    <Link
+                      href={linkHref}
+                      {...(isExternal
+                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                        : {})}
+                    >
+                      {ctaText}
+                      {isExternal ? <ExternalLink /> : <ArrowRight />}
+                    </Link>
+                  </Button>
+                )}
             </div>
-          </div>
-        </div>
+          </Grid>
+          <Grid className='relative'>
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              className='min-h-[250px] object-cover'
+              unoptimized={isExternalImage}
+              loading='lazy'
+            />
+          </Grid>
+        </Grid>
       </div>
     </section>
   );
