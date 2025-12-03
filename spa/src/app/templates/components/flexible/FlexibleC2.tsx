@@ -2,10 +2,10 @@ import { Typography } from '@/components/typography';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
-import { SafeImage } from '@/components/ui/safe-image';
-import Link from 'next/link';
 import { environment } from '@/environments/environment';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { decodeIfEscaped } from '../../../services/content-service';
 
 interface ImageChooser {
@@ -43,11 +43,10 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
   imageChooser,
   tag,
   ctaChooser,
-  marginTop = 0,
 }) => {
-  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   let imageSrc = '';
   let imageAlt = 'Image';
+  let isExternalImage = false;
 
   if (
     imageChooser &&
@@ -63,59 +62,50 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
     ) {
       imageSrc = imageChooser.externalImage;
       imageAlt = imageChooser.externalImageAlt || 'Image';
+      isExternalImage = true;
     }
   }
 
-  // Get CTA link - same logic as B2
-  const getCtaLink = (): string => {
-    if (!ctaChooser || ctaChooser.field !== 'withCta' || !ctaChooser.ctaLink) {
-      return '';
-    }
-    if (ctaChooser.ctaLink.field === 'externalPageLink') {
-      return ctaChooser.ctaLink.externalLink || '';
-    }
-    if (ctaChooser.ctaLink.field === 'internalPageLink') {
-      return ctaChooser.ctaLink.internalLink || '';
-    }
-    return '';
-  };
+  let ctaText = '';
+  let linkHref = '';
+  let isExternal = false;
 
-  const ctaLink = getCtaLink();
-  const ctaText = ctaChooser?.field === 'withCta' ? ctaChooser.ctaText : '';
+  if (ctaChooser && ctaChooser.field === 'withCta') {
+    ctaText = ctaChooser.ctaText || '';
 
-  const renderButton = () => {
-    if (!ctaText) return null;
+    const ctaLink = ctaChooser.ctaLink;
 
-    return (
-      <Button
-        variant={'link'}
-        className='text-[#c33b32] hover:text-[#c33b32]/80 h-auto px-0 pr-2.5 py-1.5 w-fit text-[20px] font-normal justify-start'
-        asChild={!!ctaLink}
-      >
-        {ctaLink ? (
-          <Link href={ctaLink} className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4' />
-          </Link>
-        ) : (
-          <span className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4' />
-          </span>
-        )}
-      </Button>
-    );
-  };
+    if (ctaLink) {
+      if (ctaLink.field === 'internalPageLink' && ctaLink.internalLink) {
+        const origin =
+          typeof window !== 'undefined' ? window.location.origin : '';
+        let link = ctaLink.internalLink;
+        if (link.startsWith(environment.appBase)) {
+          link = link.slice(environment.appBase.length);
+          if (!link.startsWith('/')) {
+            link = '/' + link;
+          }
+        }
+        linkHref = `${origin}${link}`;
+      } else if (ctaLink.field === 'externalPageLink' && ctaLink.externalLink) {
+        linkHref = ctaLink.externalLink;
+        isExternal = true;
+      }
+    }
+  }
 
   return (
-    <Card 
-      className='gap-0 h-[420px] flex flex-col overflow-hidden border border-[#e6e7e8] shadow-md' 
-      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
+    <Card
+      className='gap-0 flex flex-col overflow-hidden border h-full shadow-md'
+      // style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
     >
       <div className='relative h-[200px] shrink-0'>
-        <SafeImage
+        <Image
           src={imageSrc}
           alt={imageAlt}
           fill
           className='object-cover w-full h-full bg-gray-100'
+          unoptimized={isExternalImage}
         />
         {tag && (
           <Badge className='absolute left-0 bottom-0' variant={'secondary'}>
@@ -123,10 +113,14 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
           </Badge>
         )}
       </div>
-      <CardContent className='flex flex-col p-5 overflow-hidden min-h-0 grow'>
+      <CardContent className='flex flex-col p-5 gap-6 grow'>
         <div className='overflow-hidden min-h-0'>
           {title && (
-            <Typography variant={'h4'} weight={'medium'} className='mb-2 line-clamp-2'>
+            <Typography
+              variant={'h4'}
+              weight={'medium'}
+              className='mb-2 line-clamp-2'
+            >
               {title}
             </Typography>
           )}
@@ -141,8 +135,23 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
           )}
         </div>
 
-        <div className='mt-auto pt-2 shrink-0'>
-          {renderButton()}
+        <div className='mt-auto shrink-0'>
+          {ctaChooser &&
+            ctaChooser.field === 'withCta' &&
+            ctaText &&
+            linkHref && (
+              <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
+                <Link
+                  href={linkHref}
+                  {...(isExternal
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
+                >
+                  {ctaText}
+                  {isExternal ? <ExternalLink /> : <ArrowRight />}
+                </Link>
+              </Button>
+            )}
         </div>
       </CardContent>
     </Card>

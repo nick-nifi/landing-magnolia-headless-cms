@@ -112,11 +112,7 @@ const FlexibleC5: React.FC<IFlexibleC5Props> = ({
             ctaChooser.field === 'withCta' &&
             ctaText &&
             linkHref && (
-              <Button
-                asChild
-                variant={'link'}
-                className='text-[#c33b32] hover:text-[#c33b32]/80 h-auto px-0 text-[20px] font-normal'
-              >
+              <Button asChild variant={'link'} style={{ paddingLeft: 0 }}>
                 <Link
                   href={linkHref}
                   target={isExternal ? '_blank' : undefined}
