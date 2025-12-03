@@ -1,3 +1,4 @@
+import AnnualReportComponent from './app/templates/components/AnnualReport';
 import HeaderA5Component from './app/templates/components/HeaderA5';
 import TimelineL1Component from './app/templates/components/TimelineL1';
 import CardZ1Component from './app/templates/components/CardZ1';
@@ -87,5 +88,6 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/timelineL1': TimelineL1Component,
     'spa-lm:components/filterI': FilterIComponent,
     'spa-lm:components/headerA5': HeaderA5Component,
+    'spa-lm:components/annualReport': AnnualReportComponent,
   },
 };
