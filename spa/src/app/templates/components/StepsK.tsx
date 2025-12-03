@@ -57,11 +57,11 @@ const StepsK: React.FC<StepsKProps> = ({
       >
         {ctaLink ? (
           <Link href={ctaLink}>
-            {ctaText} <ArrowRight className='rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </Link>
         ) : (
           <>
-            {ctaText} <ArrowRight className='rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </>
         )}
       </Button>

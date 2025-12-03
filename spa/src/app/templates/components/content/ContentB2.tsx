@@ -99,11 +99,11 @@ const ContentB2: React.FC<IContentB2Props> = ({
       >
         {ctaLink ? (
           <Link href={ctaLink} className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </Link>
         ) : (
           <span className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </span>
         )}
       </Button>

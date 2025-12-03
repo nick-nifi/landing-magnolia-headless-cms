@@ -62,6 +62,10 @@ areas:
         id: spa-lm:components/cardZ1
       timelineL1:
         id: spa-lm:components/timelineL1
+      filterI:
+        id: spa-lm:components/filterI
+      filterJ:
+        id: spa-lm:components/filterJ
     # autoGeneration:
     #   content:
     #     text:

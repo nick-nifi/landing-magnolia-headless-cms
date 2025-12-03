@@ -34,6 +34,7 @@ interface IFlexibleC4Props {
   description: string;
   imageChooser?: ImageChooser;
   ctaChooser?: CtaChooser;
+  marginTop?: number | string;
 }
 
 const FlexibleC4: React.FC<IFlexibleC4Props> = ({
@@ -41,7 +42,9 @@ const FlexibleC4: React.FC<IFlexibleC4Props> = ({
   description,
   imageChooser,
   ctaChooser,
+  marginTop = 0,
 }) => {
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   // Get image source
   const getImageSrc = (): string => {
     if (!imageChooser) return '';
@@ -94,11 +97,11 @@ const FlexibleC4: React.FC<IFlexibleC4Props> = ({
       >
         {ctaLink ? (
           <Link href={ctaLink}>
-            {ctaText} <ArrowRight className='rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </Link>
         ) : (
           <>
-            {ctaText} <ArrowRight className='rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </>
         )}
       </Button>
@@ -108,7 +111,8 @@ const FlexibleC4: React.FC<IFlexibleC4Props> = ({
   return (
     <div
       data-name='C4 / Feature tiles / Flexible'
-      className='bg-white border border-[#e6e7e8] flex items-start overflow-hidden relative w-full'
+      className='bg-white border border-[#e6e7e8] shadow-md flex items-start overflow-hidden relative w-full'
+      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
     >
       <div className='flex items-start w-full'>
         {/* Image */}

@@ -39,6 +39,7 @@ import FlexibleC4Component from './app/templates/components/FlexibleC4';
 import FlexibleC5Component from './app/templates/components/flexible/FlexibleC5';
 import Basic from './app/templates/pages/Basic';
 import Grid from './app/templates/components/Grid';
+import FilterIComponent from './app/templates/components/FilterI';
 
 export const config: MagnoliaConfig = {
   componentMappings: {
@@ -82,6 +83,7 @@ export const config: MagnoliaConfig = {
     "spa-lm:components/fastfactTile": FastfactTileComponent,
     "spa-lm:components/listD5": ListD5Component,
     "spa-lm:components/cardZ1": CardZ1Component,
-    "spa-lm:components/timelineL1": TimelineL1Component
+    "spa-lm:components/timelineL1": TimelineL1Component,
+    "spa-lm:components/filterI": FilterIComponent
   },
 };

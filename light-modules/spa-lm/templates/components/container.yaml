@@ -31,7 +31,11 @@ areas:
       stepsK:
         id: spa-lm:components/stepsK
       logoM:
-          id: spa-lm:components/logoM
+        id: spa-lm:components/logoM
+      filterI:
+        id: spa-lm:components/filterI
+      filterJ:
+        id: spa-lm:components/filterJ
       
       
 

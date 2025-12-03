@@ -34,6 +34,7 @@ interface IFlexibleC2Props {
   imageChooser?: ImageChooser;
   tag?: string;
   ctaChooser?: CtaChooser;
+  marginTop?: number | string;
 }
 
 const FlexibleC2: React.FC<IFlexibleC2Props> = ({
@@ -42,7 +43,9 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
   imageChooser,
   tag,
   ctaChooser,
+  marginTop = 0,
 }) => {
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
   let imageSrc = '';
   let imageAlt = 'Image';
 
@@ -91,11 +94,11 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
       >
         {ctaLink ? (
           <Link href={ctaLink} className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </Link>
         ) : (
           <span className='flex items-center gap-2.5'>
-            {ctaText} <ArrowRight className='w-4 h-4 rotate-90' />
+            {ctaText} <ArrowRight className='w-4 h-4' />
           </span>
         )}
       </Button>
@@ -103,8 +106,11 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
   };
 
   return (
-    <Card className='gap-0 h-full flex flex-col'>
-      <div className='relative w-full' style={{ aspectRatio: '9/5' }}>
+    <Card 
+      className='gap-0 h-[420px] flex flex-col overflow-hidden border border-[#e6e7e8] shadow-md' 
+      style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}
+    >
+      <div className='relative h-[200px] shrink-0'>
         <SafeImage
           src={imageSrc}
           alt={imageAlt}
@@ -117,10 +123,10 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
           </Badge>
         )}
       </div>
-      <CardContent className='flex-1 flex flex-col justify-between'>
-        <div className='mb-6'>
+      <CardContent className='flex flex-col p-5 overflow-hidden min-h-0 grow'>
+        <div className='overflow-hidden min-h-0'>
           {title && (
-            <Typography variant={'h4'} weight={'medium'} className='mb-4'>
+            <Typography variant={'h4'} weight={'medium'} className='mb-2 line-clamp-2'>
               {title}
             </Typography>
           )}
@@ -129,12 +135,13 @@ const FlexibleC2: React.FC<IFlexibleC2Props> = ({
             <Typography
               variant={'body-large'}
               weight={'light'}
+              className='line-clamp-2'
               dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
             />
           )}
         </div>
 
-        <div>
+        <div className='mt-auto pt-2 shrink-0'>
           {renderButton()}
         </div>
       </CardContent>

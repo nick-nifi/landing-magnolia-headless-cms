@@ -12,134 +12,118 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 interface LocationLink {
-  field?: 'noLink' | 'internalPageLink' | 'externalPageLink';
+  field?: string;
   internalLink?: string;
   externalLink?: string;
 }
 
 interface Location {
-  locationName: string;
+  locationName?: string;
   locationLink?: LocationLink;
 }
 
 interface ButtonLink {
-  field?: 'internalPageLink' | 'externalPageLink';
+  field?: string;
   internalLink?: string;
   externalLink?: string;
 }
 
 interface IFilterIProps {
-  placeholder: string;
-  locations?: Location[];
-  buttonText: string;
+  heading?: string;
+  placeholder?: string;
+  locations?: Location[] | Record<string, Location>;
+  buttonText?: string;
   buttonLink?: ButtonLink;
 }
 
 const FilterI: React.FC<IFilterIProps> = ({
-  placeholder,
-  locations = [],
-  buttonText,
+  heading = '',
+  placeholder = 'Select location',
+  locations,
+  buttonText = 'Go',
   buttonLink,
 }) => {
   const [selectedLocation, setSelectedLocation] = useState<string>('');
 
-  // Get location link
-  const getLocationLink = (location: Location): string => {
-    if (!location.locationLink || location.locationLink.field === 'noLink') {
-      return '';
-    }
-    if (location.locationLink.field === 'externalPageLink') {
-      return location.locationLink.externalLink || '';
-    }
-    if (location.locationLink.field === 'internalPageLink') {
-      return location.locationLink.internalLink || '';
-    }
-    return '';
-  };
-
-  // Get button link
-  const getButtonLink = (): string => {
-    if (!buttonLink) return '';
-    if (buttonLink.field === 'externalPageLink') {
-      return buttonLink.externalLink || '';
-    }
-    if (buttonLink.field === 'internalPageLink') {
-      return buttonLink.internalLink || '';
-    }
-    return '';
-  };
-
-  const buttonLinkUrl = getButtonLink();
-  const selectedLocationObj = locations.find(
-    (loc) => loc.locationName === selectedLocation
-  );
-  const locationLinkUrl = selectedLocationObj
-    ? getLocationLink(selectedLocationObj)
-    : '';
-
-  // Use location link if available, otherwise use button link
-  const finalLinkUrl = locationLinkUrl || buttonLinkUrl;
-
-  const handleButtonClick = () => {
-    if (locationLinkUrl) {
-      window.location.href = locationLinkUrl;
-    }
-  };
-
-  const renderButton = () => {
-    if (locationLinkUrl) {
-      return (
-        <Button
-          variant={'outline'}
-          className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white'
-          onClick={handleButtonClick}
-        >
-          {buttonText}
-        </Button>
+  // Convert locations to array (handle both array and object from Magnolia)
+  const getLocationsArray = (): Location[] => {
+    if (!locations) return [];
+    if (Array.isArray(locations)) return locations;
+    if (typeof locations === 'object') {
+      return Object.values(locations).filter(
+        (item): item is Location => item && typeof item === 'object'
       );
     }
-
-    return (
-      <Button
-        variant={'outline'}
-        className='border-[#c33b32] text-[#c33b32] hover:bg-[#c33b32] hover:text-white'
-        asChild={!!buttonLinkUrl}
-      >
-        {buttonLinkUrl ? (
-          <Link href={buttonLinkUrl}>{buttonText}</Link>
-        ) : (
-          <>{buttonText}</>
-        )}
-      </Button>
-    );
+    return [];
   };
 
-  return (
-    <div
-      data-name='I / Filter'
-      className='flex gap-[10px] items-end justify-center w-full'
-    >
-      {/* Select Dropdown */}
-      <div className='flex flex-col gap-3 items-start min-w-[325px]'>
-        <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-          <SelectTrigger className='bg-white border border-[#3f4c54] h-[42px] px-[9px] py-1 w-full text-[20px] text-[#3f4c54]'>
-            <SelectValue placeholder={placeholder} />
-          </SelectTrigger>
-          <SelectContent>
-            {locations.map((location, index) => (
-              <SelectItem key={index} value={location.locationName}>
-                {location.locationName}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
+  const locationsArray = getLocationsArray();
 
-      {/* Go Button */}
-      {renderButton()}
+  // Get button link URL
+  const getButtonLinkUrl = (): string => {
+    if (!buttonLink?.field) return '';
+    if (buttonLink.field === 'externalPageLink' && buttonLink.externalLink) {
+      return buttonLink.externalLink;
+    }
+    if (buttonLink.field === 'internalPageLink' && buttonLink.internalLink) {
+      return buttonLink.internalLink;
+    }
+    return '';
+  };
+
+  const buttonLinkUrl = getButtonLinkUrl();
+
+  return (
+    <div className='bg-[#dbe0e4] flex flex-col items-center py-[64px] px-[160px] w-full'>
+      <div className='flex flex-col items-center gap-[32px] w-full max-w-[1280px]'>
+        {/* Heading */}
+        {heading && (
+          <h2 className='font-light text-[40px] leading-[1.2] text-[#3f4c54] text-center tracking-[-0.4px] w-full max-w-[1024px]'>
+            {heading}
+          </h2>
+        )}
+
+        {/* Filter Row */}
+        <div className='flex gap-[10px] items-end justify-center w-full'>
+          {/* Dropdown */}
+          <div className='min-w-[325px] flex-1 max-w-[450px]'>
+            <div className='bg-white border border-[#3f4c54] h-[42px] flex items-center px-[9px]'>
+              <Select value={selectedLocation} onValueChange={setSelectedLocation} className='w-full'>
+                <SelectTrigger className='w-full bg-transparent border-none px-0 text-[20px] text-[#3f4c54] rounded-none focus:ring-0 focus:ring-offset-0'>
+                  <SelectValue placeholder={placeholder} />
+                </SelectTrigger>
+                <SelectContent className='bg-white border border-[#3f4c54] rounded-none'>
+                  {locationsArray.map((location, index) => (
+                    <SelectItem
+                      key={index}
+                      value={location.locationName || `location-${index}`}
+                      className='text-[20px] text-[#3f4c54]'
+                    >
+                      {location.locationName || ''}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Button */}
+          {buttonLinkUrl ? (
+            <Button
+              className='border border-[#c33b32] text-[#c33b32] h-[42px] px-[10px] text-[20px] font-normal hover:bg-[#c33b32] hover:text-white rounded-none bg-transparent'
+              asChild
+            >
+              <Link href={buttonLinkUrl}>{buttonText}</Link>
+            </Button>
+          ) : (
+            <Button className='border border-[#c33b32] text-[#c33b32] h-[42px] px-[10px] text-[20px] font-normal hover:bg-[#c33b32] hover:text-white rounded-none bg-transparent'>
+              {buttonText}
+            </Button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default FilterI;
-

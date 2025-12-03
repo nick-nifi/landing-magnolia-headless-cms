@@ -6,6 +6,35 @@ form:
       label: Title
       required: true
       i18n: true
+    marginTop:
+      $type: comboBoxField
+      label: Margin Top
+      defaultValue: 0
+      required: false
+      datasource:
+        $type: optionListDatasource
+        options:
+          - name: none
+            label: None
+            value: 0
+          - name: small
+            label: Small (16px)
+            value: 16
+          - name: medium
+            label: Medium (32px)
+            value: 32
+          - name: large
+            label: Large (48px)
+            value: 48
+          - name: xlarge
+            label: XLarge (64px)
+            value: 64
+          - name: xxlarge
+            label: XXLarge (80px)
+            value: 80
+          - name: xxxlarge
+            label: XXXLarge (112px)
+            value: 112
     description:
       $type: richTextField
       i18n: true
@@ -83,3 +112,4 @@ form:
                           $type: regexpValidator
                           pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
                           errorMessage: Please enter a valid URL
+
