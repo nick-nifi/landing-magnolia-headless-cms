@@ -1,34 +1,52 @@
-import { Grid } from "@/components/grid";
-import { Typography } from "@/components/typography";
-import C1Card, { C1CardProps } from "./c1-card";
+import C1Card from "./c1-card";
+import { environment } from "@/environments/environment";
+import get from "lodash/get";
+import has from "lodash/has";
+
+interface ImageChooser {
+  field?: 'image' | 'externalImage';
+  image?: {
+    '@link': string;
+  };
+  imageAlt?: string;
+  externalImage?: string;
+  externalImageAlt?: string;
+}
 
 interface FlexibleC1Props {
   title?: string;
-  items?: C1CardProps[];
+  description?: string;
+  imageChooser?: ImageChooser;
+  link?: string;
+  marginTop?: number | string;
 }
+
 export default function FlexibleC1({
   title = "",
-  items = [],
+  description = "",
+  imageChooser,
+  link = "#",
+  marginTop = 0,
 }: FlexibleC1Props) {
-  return (
-    <section data-name="flexible-c1" className="py-12 md:py-16 lg:py-28">
-      {title && (
-        <Typography
-          variant={"h2"}
-          className="mb-12 md:mb-16 lg:mb-20 text-center"
-          weight={"light"}
-        >
-          {title}
-        </Typography>
-      )}
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
+  
+  let thumb = '/assets/placeholder-img.png';
+  if (imageChooser) {
+    if (imageChooser.field === 'image' && imageChooser.image) {
+      thumb = `${environment.damRawBase}${imageChooser.image['@link']}`;
+    } else if (imageChooser.field === 'externalImage' && imageChooser.externalImage) {
+      thumb = imageChooser.externalImage;
+    }
+  }
 
-      <div className="container mx-auto px-2 lg:px-0">
-        <Grid cols={1} mdCols={2} lgCols={4}>
-          {items.map((item, idx) => (
-            <C1Card {...item} key={idx} />
-          ))}
-        </Grid>
-      </div>
-    </section>
+  return (
+    <div className="h-full" style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}>
+      <C1Card
+        title={title}
+        description={description}
+        thumb={thumb}
+        href={link}
+      />
+    </div>
   );
 }

@@ -1,34 +1,47 @@
-import { Typography } from "@/components/typography";
-import C6Card, { C6CardProps } from "./c6-card";
-import { Grid } from "@/components/grid";
+import C6Card from "./c6-card";
+
+interface CtaChooser {
+  field?: 'noCta' | 'withCta';
+  ctaText?: string;
+  ctaLink?: {
+    field?: 'internalPageLink' | 'externalPageLink';
+    internalLink?: string;
+    externalLink?: string;
+  };
+}
 
 interface FlexibleC6Props {
   title?: string;
-  items?: C6CardProps[];
+  description?: string;
+  ctaChooser?: CtaChooser;
+  marginTop?: number | string;
 }
-export default function FlexibleC6({ items = [], title }: FlexibleC6Props) {
-  return (
-    <section data-name="flexible-c6" className="py-12 md:py-16 xl:px-20">
-      {title && (
-        <Typography
-          variant={"h2"}
-          className="mb-12 md:mb-16 lg:mb-20 text-center"
-          weight={"light"}
-        >
-          {title}
-        </Typography>
-      )}
 
-      <div className="container mx-auto px-2 lg:px-0">
-        <Grid cols={1} mdCols={2} lgCols={3}>
-          {items.map((item, idx) => (
-            <Grid key={idx}>
-              <C6Card {...item} key={idx} />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
-    </section>
+export default function FlexibleC6({
+  title = "",
+  description = "",
+  ctaChooser,
+  marginTop = 0,
+}: FlexibleC6Props) {
+  const marginTopValue = typeof marginTop === 'string' ? parseInt(marginTop, 10) : marginTop;
+  
+  let href = '';
+  if (ctaChooser && ctaChooser.field === 'withCta' && ctaChooser.ctaLink) {
+    if (ctaChooser.ctaLink.field === 'externalPageLink') {
+      href = ctaChooser.ctaLink.externalLink || '';
+    } else if (ctaChooser.ctaLink.field === 'internalPageLink') {
+      href = ctaChooser.ctaLink.internalLink || '';
+    }
+  }
+
+  return (
+    <div className="h-full" style={{ marginTop: marginTopValue ? `${marginTopValue}px` : undefined }}>
+      <C6Card
+        title={title}
+        description={description}
+        href={href}
+      />
+    </div>
   );
 }
 

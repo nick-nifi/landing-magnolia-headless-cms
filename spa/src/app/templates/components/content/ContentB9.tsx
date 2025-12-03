@@ -1,6 +1,6 @@
-"use client";
+
 import { Typography } from "@/components/typography";
-import Image from "next/image";
+import { SafeImage } from "@/components/ui/safe-image";
 import { cn } from "@/lib/utils";
 import get from "lodash/get";
 import has from "lodash/has";
@@ -39,16 +39,13 @@ function ChartCard({ chartImageAlt = "Chart", chartImage }: ChartCardProps) {
     <div>
       {/* Chart Image - contains all information */}
       <div className="relative w-full aspect-auto">
-        <Image
+        <SafeImage
           src={chartImage}
           alt={chartImageAlt}
           width={0}
           height={0}
           sizes="100vw"
           className="w-full h-auto object-contain"
-          quality={100}
-          priority
-          unoptimized
         />
       </div>
     </div>

@@ -4,8 +4,12 @@ import TimelineL1Component from './app/templates/components/TimelineL1';
 import CardZ1Component from './app/templates/components/CardZ1';
 import ListD5Component from './app/templates/components/ListD5';
 import FastfactTileComponent from './app/templates/components/FastfactTile';
-import FlexibleC3Component from './app/templates/components/FlexibleC3';
-import Flexiblec6Component from './app/templates/components/Flexiblec6';
+import C1Component from './app/templates/components/flexible/c1';
+import C2Component from './app/templates/components/flexible/c2';
+import C3Component from './app/templates/components/flexible/c3';
+import C5Component from './app/templates/components/flexible/c5';
+import C6Component from './app/templates/components/flexible/c6';
+import C7Component from './app/templates/components/flexible/c7';
 import { MagnoliaConfig } from '@magnolia/react-editor';
 import AccordionComponent from './app/templates/components/Accordion';
 import BreadcrumbComponent from './app/templates/components/Breadcrumb';
@@ -36,10 +40,6 @@ import ContentB3Component from './app/templates/components/content/ContentB3';
 import ContentB4Component from './app/templates/components/content/ContentB4';
 import ContentB7Component from './app/templates/components/content/ContentB7';
 import ContentB9Component from './app/templates/components/content/ContentB9';
-import FlexibleC1Component from './app/templates/components/flexible/FlexibleC1';
-import FlexibleC2Component from './app/templates/components/flexible/FlexibleC2';
-import FlexibleC4Component from './app/templates/components/FlexibleC4';
-import FlexibleC5Component from './app/templates/components/flexible/FlexibleC5';
 import Basic from './app/templates/pages/Basic';
 import Grid from './app/templates/components/Grid';
 import FilterIComponent from './app/templates/components/FilterI';
@@ -50,7 +50,6 @@ export const config: MagnoliaConfig = {
   componentMappings: {
     'spa-lm:pages/basic': Basic,
 
-    'spa-lm:components/flexibleC3': FlexibleC3Component,
     'spa-lm:components/accordion': AccordionComponent,
     'spa-lm:components/breadcrumb': BreadcrumbComponent,
     'spa-lm:components/button': ButtonComponent,
@@ -61,11 +60,12 @@ export const config: MagnoliaConfig = {
     'spa-lm:components/contentB4': ContentB4Component,
     'spa-lm:components/contentB7': ContentB7Component,
     'spa-lm:components/contentB9': ContentB9Component,
-    'spa-lm:components/flexibleC1': FlexibleC1Component,
-    'spa-lm:components/flexibleC2': FlexibleC2Component,
-    'spa-lm:components/flexibleC4': FlexibleC4Component,
-    'spa-lm:components/flexibleC5': FlexibleC5Component,
-    'spa-lm:components/flexiblec6': Flexiblec6Component,
+    'spa-lm:components/flexibleC1': C1Component,
+    'spa-lm:components/flexibleC2': C2Component,
+    'spa-lm:components/flexibleC3': C3Component,
+    'spa-lm:components/flexibleC5': C5Component,
+    'spa-lm:components/flexiblec6': C6Component,
+    'spa-lm:components/flexibleC7': C7Component,
     'spa-lm:components/grid': Grid,
     'spa-lm:components/gridContainer': GridContainerComponent,
     'spa-lm:components/headerA3': HeaderA3Component,
