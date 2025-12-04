@@ -1,8 +1,9 @@
-import { environment } from '@/environments/environment';
-import get from 'lodash/get';
-import has from 'lodash/has';
-import { SafeImage } from '@/components/ui/safe-image';
-import React from 'react';
+
+import { SafeImage } from "@/components/ui/safe-image";
+import { cn } from "@/lib/utils";
+import { environment } from "@/environments/environment";
+import get from "lodash/get";
+import has from "lodash/has";
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -14,67 +15,55 @@ interface ImageChooser {
   externalImageAlt?: string;
 }
 
-interface IContentB10Props {
+interface ContentB10Props {
   imageChooser?: ImageChooser;
-  overlayImageChooser?: ImageChooser;
+  image?: string;
+  imageAlt?: string;
+  className?: string;
+  customClass?: string;
 }
 
-const ContentB10: React.FC<IContentB10Props> = ({
+export default function ContentB10({
   imageChooser,
-  overlayImageChooser,
-}) => {
-  // Get image source
-  const getImageSrc = (imageChooser?: ImageChooser): string => {
-    if (!imageChooser) return '';
-    if (has(imageChooser, 'externalImage')) {
-      return get(imageChooser, 'externalImage') || '';
-    }
-    if (has(imageChooser, "image['@link']")) {
-      return `${environment.damRawBase}${get(imageChooser, "image['@link']")}`;
-    }
-    return '';
-  };
+  image,
+  imageAlt = "Content image",
+  className,
+  customClass,
+}: ContentB10Props) {
+  // Get image from Magnolia or use image prop
+  let imageSrc = image || "/assets/placeholder-img.png";
+  let displayAlt = imageAlt;
 
-  const getImageAlt = (imageChooser?: ImageChooser): string => {
-    if (!imageChooser) return '';
-    return (
-      get(imageChooser, 'externalImageAlt') ||
-      get(imageChooser, 'imageAlt') ||
-      ''
-    );
-  };
-
-  const imageSrc = getImageSrc(imageChooser);
-  const overlayImageSrc = getImageSrc(overlayImageChooser);
+  if (imageChooser) {
+    if (imageChooser.field === 'image' && imageChooser.image) {
+      imageSrc = `${environment.damRawBase}${imageChooser.image['@link']}`;
+      displayAlt = imageChooser.imageAlt || imageAlt;
+    } else if (imageChooser.field === 'externalImage' && imageChooser.externalImage) {
+      imageSrc = imageChooser.externalImage;
+      displayAlt = imageChooser.externalImageAlt || imageAlt;
+    }
+  }
 
   return (
-    <div
-      data-name='B10 / Content'
-      className='bg-[#dbe0e4] flex flex-col gap-16 items-center justify-center w-full'
+    <section
+      data-name="content-b10"
+      style={{ backgroundColor: "#DBE0E4" }}
+      className={cn("bg-uobkh-steel-grey py-16 px-4 lg:px-40", className, customClass)}
     >
-      <div className='h-[772px] relative shrink-0 w-[738px]'>
-        <div aria-hidden='true' className='absolute inset-0 pointer-events-none'>
-          <SafeImage
-              src={imageSrc}
-              alt={getImageAlt(imageChooser)}
-              fill
-            objectFit='contain'
-              className='absolute max-w-none object-center object-contain size-full'
-            />
-            <div className='absolute inset-0 overflow-hidden'>
-            <SafeImage
-                src={overlayImageSrc}
-                alt={getImageAlt(overlayImageChooser)}
+      <div className="container mx-auto max-w-[1280px]">
+        <div className="flex flex-col gap-20 items-center justify-center w-full">
+          <div className="relative w-full max-w-[738px] flex justify-center items-center">
+            <div className="relative w-full aspect-[738/772]">
+              <SafeImage
+                src={imageSrc}
+                alt={displayAlt}
                 fill
-              objectFit='contain'
-                className='absolute h-[97.25%] left-0 max-w-none top-[1.37%] w-full object-contain'
+                className="object-contain object-center"
               />
             </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default ContentB10;
-
+}

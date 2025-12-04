@@ -1,36 +1,37 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
 
-interface IContentB7Props {
-  text: string;
+import { Typography } from "@/components/typography";
+import { cn } from "@/lib/utils";
+
+interface ContentB7Props {
+  content?: string;
+  text?: string;
+  className?: string;
   customClass?: string;
 }
 
-const ContentB7: React.FC<IContentB7Props> = ({ text, customClass = '' }) => {
+export default function ContentB7({ 
+  content, 
+  text, 
+  className,
+  customClass 
+}: ContentB7Props) {
+  // Use content from Magnolia or fallback to text prop
+  const displayText = content || text || '';
+
   return (
     <section
-      data-name='B7 / Content / Divider'
+      data-name="content-b7"
       className={cn(
-        'bg-[#dbe0e4] border-l-[10px] border-l-[#c33b32]',
+        "bg-muted-foreground py-16 md:py-18 lg:py-28 xl:px-20 w-full border-l border-l-10 border-primary",
+        className,
         customClass
       )}
     >
-      <div className='px-4 md:px-20 lg:px-[160px] py-16 lg:py-[112px]'>
-        <div className='flex flex-col gap-20 items-start justify-center max-w-[1280px] mx-auto w-full'>
-          <div className='flex gap-16 items-center w-full lg:w-[930px]'>
-            <div className='flex flex-col gap-8 w-full'>
-              <p 
-                className='font-serif italic text-2xl lg:text-[40px] leading-[1.5] tracking-[-0.4px] text-black'
-                style={{ fontFamily: "'Libre Baskerville', serif" }}
-              >
-                {text}
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="container mx-auto px-2 lg:px-0">
+        <Typography variant={"hero-small-heading"} weight={"regular"}>
+          {displayText}
+        </Typography>
       </div>
     </section>
   );
-};
-
-export default ContentB7;
+}

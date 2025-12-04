@@ -17,7 +17,7 @@ const ListD3: React.FC<IListD3Props> = ({
   return (
     <div
       data-name='D3 / List / Table'
-      className='bg-white border border-[#e6e7e8] border-l-[10px] box-border flex flex-col items-start px-8 py-0 relative w-full'
+      className='bg-white border border-[#e6e7e8] border-l-[10px] box-border flex flex-col items-start px-8 py-0 relative w-full shadow-md'
     >
       <div className='flex items-center justify-between w-full gap-4'>
         {/* Report Column */}

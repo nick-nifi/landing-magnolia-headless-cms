@@ -122,18 +122,18 @@ const Container: React.FC<IContainerProps> = ({
         paddingRight: parsePadding(paddingRight),
       }}
     >
-      {title && (
-        <Typography
-          variant={'h2'}
-          className='mb-12 md:mb-16 lg:mb-20 text-center'
-          weight={'light'}
-        >
-          {title}
-        </Typography>
-      )}
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-5 md:px-10 lg:px-15'>
+        {title && (
+          <Typography
+            variant={'h2'}
+            className='mb-12 md:mb-16 lg:mb-20 text-center'
+            weight={'light'}
+          >
+            {title}
+          </Typography>
+        )}
         <div
-          className={`flex ${isColumns ? 'flex-row flex-wrap' : 'flex-col'}`}
+          className={`flex ${isColumns ? 'flex-row flex-wrap items-stretch' : 'flex-col'}`}
           style={{ gap: `${gapValue}px` }}
         >
           {Array.from({ length: count }).map((_, index) => {
@@ -141,22 +141,21 @@ const Container: React.FC<IContainerProps> = ({
             return (
               <div
                 key={`${isColumns ? 'column' : 'row'}-${index}`}
-                className={`${isColumns ? getColumnClass(count) : 'w-full'}`}
+                className={`${isColumns ? getColumnClass(count) : 'w-full'} ${isColumns ? 'h-full' : ''}`}
                 style={isColumns ? { flex: `0 0 calc(${100 / count}% - ${((count - 1) * gapValue) / count}px)` } : undefined}
               >
                 {currentItem && (
-                
                     <EditableArea content={currentItem}>
-                        <div className='flex flex-col' style={{ gap: `${childGapValue}px` }}>
+                        <div className='flex flex-col h-full flex-1' style={{ gap: `${childGapValue}px` }}>
                       {getComponents(currentItem).map((component) => (
-                        <EditableComponent
-                          key={(component as MgnlContent)['@name'] as string}
-                          content={component as MgnlContent}
-                        />
+                        <div key={(component as MgnlContent)['@name'] as string} className={isColumns ? 'h-full' : ''}>
+                          <EditableComponent
+                            content={component as MgnlContent}
+                          />
+                        </div>
                       ))}
                        </div>
                     </EditableArea>
-                 
                 )}
               </div>
             );

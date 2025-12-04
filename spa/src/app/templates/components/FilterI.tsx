@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/select';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { ExternalLink } from 'lucide-react';
 
 interface LocationLink {
   field?: string;
@@ -113,11 +114,15 @@ const FilterI: React.FC<IFilterIProps> = ({
               className='border border-[#c33b32] text-[#c33b32] h-[42px] px-[10px] text-[20px] font-normal hover:bg-[#c33b32] hover:text-white rounded-none bg-transparent'
               asChild
             >
-              <Link href={buttonLinkUrl}>{buttonText}</Link>
+              <Link href={buttonLinkUrl} className='inline-flex items-center gap-2'>
+                {buttonText}
+                <ExternalLink className='w-4 h-4' />
+              </Link>
             </Button>
           ) : (
-            <Button className='border border-[#c33b32] text-[#c33b32] h-[42px] px-[10px] text-[20px] font-normal hover:bg-[#c33b32] hover:text-white rounded-none bg-transparent'>
+            <Button className='border border-[#c33b32] text-[#c33b32] h-[42px] px-[10px] text-[20px] font-normal hover:bg-[#c33b32] hover:text-white rounded-none bg-transparent inline-flex items-center gap-2'>
               {buttonText}
+              <ExternalLink className='w-4 h-4' />
             </Button>
           )}
         </div>
