@@ -1,0 +1,21 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: featureC5
+  autoCreate: true
+
+model:
+  nodeType: mt:featureC5
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href

@@ -1,0 +1,14 @@
+title: Select Home
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+dialog: pages:pages/select-home
+
+baseUrl: http://localhost:8181
+routeTemplate: "/{language}{{@path}}"
+
+areas:
+  footer:
+    title: Footer Area
+    inheritance:
+      enabled: true
+      components: all

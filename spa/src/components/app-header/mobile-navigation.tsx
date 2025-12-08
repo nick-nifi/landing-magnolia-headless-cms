@@ -28,7 +28,7 @@ export default function MobileNavigation() {
           'overlay bg-black/30 absolute top-full left-0 w-full transition-all ease-in-out duration-300',
           {
             'opacity-100 h-screen': showMenu,
-            'opacity-0 h-0': !showMenu,
+            'opacity-0 h-0 pointer-events-none': !showMenu,
           }
         )}
       >

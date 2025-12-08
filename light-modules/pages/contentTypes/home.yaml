@@ -1,0 +1,40 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: homes
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:home
+  properties:
+    - name: title
+    - name: description
+    - name: multiMarkets
+      type: multiMarket
+    - name: contentB1
+      type: reference:contentB1
+    - name: featureC5List
+      type: featureC5Item
+    - name: featureC2List
+      type: featureC2Item
+
+  subModels:
+    - name: multiMarket
+      properties:
+        - name: title
+        - name: multimarket
+          type: reference:featureC10
+          multiple: true
+    - name: featureC5Item
+      properties:
+        - name: title
+        - name: c5Items
+          type: reference:featureC5
+          multiple: true
+    - name: featureC2Item
+      properties:
+        - name: title
+        - name: c2Items
+          type: reference:featureC2
+          multiple: true
