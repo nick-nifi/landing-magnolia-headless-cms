@@ -4,6 +4,7 @@ import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
 import ContentB1 from './components/contentB1';
 import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
 import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
+import AppFooter from '@/components/app-footer';
 
 interface CtaChooser {
   label: string;
@@ -44,11 +45,12 @@ interface HomeResult extends MgnlContent {
 
 interface SelectHomePageProps {
   metadata: MgnlContent;
+  footer?: MgnlContent;
   title: string;
   home: string;
 }
 
-const SelectHomePage = async ({ home }: SelectHomePageProps) => {
+const SelectHomePage = async ({ home, footer }: SelectHomePageProps) => {
   const listResponse = await fetchPageContentByName(
     `http://localhost:8080/magnoliaAuthor/.rest/delivery/home/?@jcr:uuid=${home}`
   );
@@ -86,6 +88,8 @@ const SelectHomePage = async ({ home }: SelectHomePageProps) => {
           c2Items={pageContent.featureC2List.c2Items}
         />
       )}
+
+      {footer && <AppFooter />}
     </div>
   );
 };
