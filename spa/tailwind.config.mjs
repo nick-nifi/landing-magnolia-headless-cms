@@ -4,6 +4,9 @@ export default {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      container: {
+        center: true,
+      },
       fontFamily: {
         sans: ['var(--font-roboto)', 'sans-serif'],
         libre: ['var(--font-libre-baskerville)', 'sans-serif'],
