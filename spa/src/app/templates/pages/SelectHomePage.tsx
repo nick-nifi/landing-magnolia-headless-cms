@@ -3,6 +3,7 @@ import { MgnlContent } from '@magnolia/frontend-helpers-base';
 import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
 import ContentB1 from './components/contentB1';
 import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
+import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
 
 interface CtaChooser {
   label: string;
@@ -12,6 +13,7 @@ interface CtaChooser {
 
 interface FeatureC5 extends FeatureC5Item, MgnlContent {}
 interface FeatureC2 extends FeatureC2Item, MgnlContent {}
+interface FeatureC10 extends FeatureC10Item, MgnlContent {}
 
 interface ContentB1Data extends MgnlContent {
   title: string;
@@ -20,12 +22,6 @@ interface ContentB1Data extends MgnlContent {
     '@link': string;
   };
   ctaChooser?: CtaChooser;
-}
-
-interface FeatureC10 extends MgnlContent {
-  title: string;
-  image: string;
-  downloadLists: MgnlContent;
 }
 
 interface HomeResult extends MgnlContent {
@@ -61,6 +57,13 @@ const SelectHomePage = async ({ home }: SelectHomePageProps) => {
 
   return (
     <div className='SelectHomePage'>
+      {pageContent.multiMarkets && (
+        <FeatureC10List
+          title={pageContent.multiMarkets.title}
+          items={pageContent.multiMarkets.multimarket}
+        />
+      )}
+
       {pageContent.contentB1 && typeof pageContent.contentB1 === 'object' && (
         <ContentB1
           title={pageContent.contentB1.title}
@@ -83,8 +86,6 @@ const SelectHomePage = async ({ home }: SelectHomePageProps) => {
           c2Items={pageContent.featureC2List.c2Items}
         />
       )}
-
-      {/* Placeholder for MultiMarkets if needed later */}
     </div>
   );
 };
