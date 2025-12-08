@@ -1,0 +1,24 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: featureC2
+  autoCreate: true
+
+model:
+  nodeType: mt:featureC2
+  properties:
+    - name: image
+      type: asset
+    - name: tag
+    - name: title
+    - name: description
+      type: richText
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href

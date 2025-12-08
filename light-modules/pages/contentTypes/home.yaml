@@ -16,6 +16,8 @@ model:
       type: reference:contentB1
     - name: featureC5List
       type: featureC5Item
+    - name: featureC2List
+      type: featureC2Item
 
   subModels:
     - name: multiMarket
@@ -27,6 +29,12 @@ model:
     - name: featureC5Item
       properties:
         - name: title
-        - name: items
+        - name: c5Items
           type: reference:featureC5
+          multiple: true
+    - name: featureC2Item
+      properties:
+        - name: title
+        - name: c2Items
+          type: reference:featureC2
           multiple: true
