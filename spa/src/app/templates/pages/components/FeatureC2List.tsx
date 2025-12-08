@@ -36,7 +36,7 @@ interface FeatureC2ListProps {
 const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
   return (
     <section className='py-12 lg:py-16'>
-      <div className='container mx-auto px-4'>
+      <div className='container'>
         <div className='text-center mb-12 md:mb-16 lg:mb-20'>
           <Typography variant='h2' weight='light'>
             {title}
@@ -49,7 +49,10 @@ const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
               ? `${environment.damRawBase}/magnoliaAuthor/dam/${item.image}`
               : '';
             return (
-              <Card key={index} className='gap-0'>
+              <Card
+                key={index}
+                className='gap-0 border shadow-sm bg-card hover:shadow-md transition-shadow duration-200 flex flex-col h-full overflow-hidden'
+              >
                 <div className='relative aspect-9/5'>
                   <SafeImage
                     src={imageUrl}

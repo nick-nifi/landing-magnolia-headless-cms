@@ -1,13 +1,13 @@
 import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -31,8 +31,8 @@ interface FeatureC5ListProps {
 const FeatureC5List: React.FC<FeatureC5ListProps> = ({ title, c5Items }) => {
   return (
     <section className='py-12 lg:py-16'>
-      <div className='container mx-auto px-4'>
-        <div className='text-center mb-12'>
+      <div className='container'>
+        <div className='text-center mb-12 md:mb-16 lg:mb-20'>
           <Typography variant='h2' weight='light'>
             {title}
           </Typography>
@@ -42,29 +42,37 @@ const FeatureC5List: React.FC<FeatureC5ListProps> = ({ title, c5Items }) => {
           {c5Items?.map((item, index) => (
             <Card
               key={index}
-              className='border-none shadow-none bg-transparent'
+              className='gap-0 border shadow-sm bg-card hover:shadow-md transition-shadow duration-200 flex flex-col h-full overflow-hidden'
             >
-              <CardHeader className='p-0 mb-4'>
-                <CardTitle className='text-xl font-medium'>
+              <CardHeader className='pt-5'>
+                <Typography variant='h4' weight='medium'>
                   {item.title}
-                </CardTitle>
+                </Typography>
               </CardHeader>
-              <CardContent className='p-0 mb-6'>
-                <div
+              <CardContent className='gap-0 flex flex-col flex-1 justify-between pb-6'>
+                <Typography
+                  variant='body-large'
+                  weight='light'
                   dangerouslySetInnerHTML={{
                     __html: decodeIfEscaped(item.description),
                   }}
                 />
               </CardContent>
-              <CardFooter className='p-0'>
+              <CardFooter className='pb-6'>
                 {item.ctaChooser && (
-                  <Link
-                    href={item.ctaChooser.href || '#'}
-                    target={item.ctaChooser.isExternal ? '_blank' : undefined}
-                    className='text-primary hover:underline inline-flex items-center gap-2'
-                  >
-                    {item.ctaChooser.label} <ArrowRight className='w-4 h-4' />
-                  </Link>
+                  <Button asChild variant={'link'} style={{ paddingLeft: '0' }}>
+                    <Link
+                      href={item.ctaChooser.href || '#'}
+                      target={item.ctaChooser.isExternal ? '_blank' : undefined}
+                    >
+                      {item.ctaChooser.label}
+                      {item.ctaChooser.isExternal ? (
+                        <ExternalLink />
+                      ) : (
+                        <ArrowRight className='w-4 h-4' />
+                      )}
+                    </Link>
+                  </Button>
                 )}
               </CardFooter>
             </Card>
