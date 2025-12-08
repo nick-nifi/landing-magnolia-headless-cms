@@ -10,6 +10,7 @@ model:
   properties:
     - name: title
     - name: description
+    - name: multiMarketsTitle
     - name: multiMarkets
       multiple: true
       type: reference:featureC10

@@ -6,7 +6,7 @@ import {
 
 export async function fetchPageContent(
   magnoliaContext: IMagnoliaContext,
-  pageBase: string,
+  pageBase: string
 ): Promise<MgnlContent> {
   const pagesRes = await fetch(
     pageBase + magnoliaContext.nodePath + magnoliaContext.search
@@ -34,4 +34,9 @@ export async function fetchTemplateAnnotations(
     );
     return (await templateAnnotationsRes.json()) as MgnlTemplateAnnotations;
   }
+}
+
+export async function fetchPageContentByName(endpoint: string) {
+  const res = await fetch(endpoint);
+  return await res.json();
 }
