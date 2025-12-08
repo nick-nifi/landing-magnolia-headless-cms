@@ -10,10 +10,10 @@ model:
   properties:
     - name: title
     - name: description
-    - name: multiMarkets
-      type: multiMarket
     - name: heroList
       type: heroListItem
+    - name: multiMarkets
+      type: multiMarket
     - name: contentB1
       type: reference:contentB1
     - name: featureC5List
