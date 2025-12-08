@@ -14,6 +14,8 @@ model:
     - name: downloadLists
       type: downloadList
       multiple: true
+    - name: ctaChooser
+      type: ctaChooser
 
   subModels:
     - name: downloadList
@@ -21,3 +23,9 @@ model:
         - name: title
         - name: content
           type: richText
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href

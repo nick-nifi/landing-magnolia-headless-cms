@@ -4,7 +4,7 @@ depth: 10
 bypassWorkspaceAcls: true
 includeSystemProperties: false
 references:
-  - propertyName: multiMarkets
+  - propertyName: multimarket
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: featureC10

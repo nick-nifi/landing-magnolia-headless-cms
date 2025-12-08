@@ -10,7 +10,13 @@ model:
   properties:
     - name: title
     - name: description
-    - name: multiMarketsTitle
     - name: multiMarkets
-      multiple: true
-      type: reference:featureC10
+      type: multiMarket
+
+  subModels:
+    - name: multiMarket
+      properties:
+        - name: title
+        - name: multimarket
+          type: reference:featureC10
+          multiple: true
