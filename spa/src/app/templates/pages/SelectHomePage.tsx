@@ -1,8 +1,8 @@
 import { fetchPageContentByName } from '@/app/services/magnolia-service';
 import { MgnlContent } from '@magnolia/frontend-helpers-base';
-import FeatureC5List, { FeatureC5Item } from './components/featureC5List';
 import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
 import ContentB1 from './components/contentB1';
+import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
 
 interface CtaChooser {
   label: string;

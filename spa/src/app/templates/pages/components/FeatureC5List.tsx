@@ -1,4 +1,4 @@
-import React from 'react';
+import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import {
   Card,
@@ -7,9 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
 
 interface CtaChooser {
   label: string;
@@ -33,9 +33,6 @@ const FeatureC5List: React.FC<FeatureC5ListProps> = ({ title, c5Items }) => {
     <section className='py-12 lg:py-16'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-12'>
-          <div className='bg-primary/10 text-primary w-fit mx-auto px-4 py-1 rounded-full text-sm font-medium mb-4'>
-            Section Padding/padding-section-medium
-          </div>
           <Typography variant='h2' weight='light'>
             {title}
           </Typography>
@@ -54,8 +51,9 @@ const FeatureC5List: React.FC<FeatureC5ListProps> = ({ title, c5Items }) => {
               </CardHeader>
               <CardContent className='p-0 mb-6'>
                 <div
-                  className='text-muted-foreground'
-                  dangerouslySetInnerHTML={{ __html: item.description }}
+                  dangerouslySetInnerHTML={{
+                    __html: decodeIfEscaped(item.description),
+                  }}
                 />
               </CardContent>
               <CardFooter className='p-0'>

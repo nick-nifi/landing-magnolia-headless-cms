@@ -10,6 +10,7 @@ import { SafeImage } from '@/components/ui/safe-image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { environment } from '@/environments/environment';
+import { decodeIfEscaped } from '@/app/services/content-service';
 
 interface CtaChooser {
   label: string;
@@ -75,7 +76,9 @@ const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
                 <CardContent className='flex-grow'>
                   <div
                     className='text-muted-foreground text-sm line-clamp-3'
-                    dangerouslySetInnerHTML={{ __html: item.description }}
+                    dangerouslySetInnerHTML={{
+                      __html: decodeIfEscaped(item.description),
+                    }}
                   />
                 </CardContent>
                 <CardFooter className='pb-6'>

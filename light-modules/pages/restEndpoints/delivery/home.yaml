@@ -23,3 +23,12 @@ references:
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
+      nodeType: mt:contentB1
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver
+      nodeType: mt:featureC2
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver
+      nodeType: mt:featureC10

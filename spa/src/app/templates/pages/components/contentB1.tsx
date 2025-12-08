@@ -5,7 +5,7 @@ import { Typography } from '@/components/typography';
 import Link from 'next/link';
 import { environment } from '@/environments/environment';
 import { decodeIfEscaped } from '@/app/services/content-service';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ContentB1Props {
@@ -31,7 +31,58 @@ const ContentB1: React.FC<ContentB1Props> = ({
   className,
   customClass,
 }) => {
-  const imageUrl = image ? environment.damRawBase + image['@link'] : '';
+  const imageUrl = image
+    ? `${environment.damRawBase}/magnoliaAuthor/dam/${image}`
+    : '';
+
+  return (
+    <section
+      data-name='content-b1'
+      className={cn('bg-muted-foreground py-12 lg:py-16')}
+    >
+      <div className='container'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center lg:gap-16'>
+          <div>
+            <div className='mb-6 lg:mb-8'>
+              <Typography variant='h2' weight='light' className='mb-6'>
+                {title}
+              </Typography>
+              <Typography
+                variant={'body-large'}
+                weight={'light'}
+                dangerouslySetInnerHTML={{
+                  __html: decodeIfEscaped(description),
+                }}
+              />
+            </div>
+            {ctaChooser && (
+              <Button asChild variant='outline'>
+                <Link
+                  href={ctaChooser.href}
+                  target={ctaChooser.isExternal ? '_blank' : undefined}
+                >
+                  {ctaChooser.label}{' '}
+                  {ctaChooser.isExternal ? <ExternalLink /> : <ArrowRight />}
+                </Link>
+              </Button>
+            )}
+          </div>
+          <div>
+            {imageUrl && (
+              <div className='relative w-full h-full min-h-[300px] overflow-hidden'>
+                <SafeImage
+                  src={imageUrl}
+                  alt={title}
+                  fill
+                  className='object-cover object-center'
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 
   return (
     <section
@@ -44,15 +95,19 @@ const ContentB1: React.FC<ContentB1Props> = ({
     >
       <div className='container mx-auto px-4'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center lg:gap-16'>
-          <div className='lg:mb-8'>
-            <Typography variant='h2' weight='light' className='mb-6'>
-              {title}
-            </Typography>
-            <Typography
-              variant={'body-large'}
-              weight={'light'}
-              dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
-            />
+          <div>
+            <div className='lg:mb-8'>
+              <Typography variant='h2' weight='light' className='mb-6'>
+                {title}
+              </Typography>
+              <Typography
+                variant={'body-large'}
+                weight={'light'}
+                dangerouslySetInnerHTML={{
+                  __html: decodeIfEscaped(description),
+                }}
+              />
+            </div>
             {ctaChooser && (
               <Button asChild variant='outline'>
                 <Link
@@ -65,7 +120,7 @@ const ContentB1: React.FC<ContentB1Props> = ({
             )}
           </div>
           {imageUrl && (
-            <div className='relative w-full h-full min-h-[300px] rounded-lg overflow-hidden'>
+            <div className='relative w-full h-full min-h-[300px] overflow-hidden'>
               <SafeImage
                 src={imageUrl}
                 alt={title}
