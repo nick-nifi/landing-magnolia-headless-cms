@@ -1,17 +1,16 @@
-import React from 'react';
-import { Typography } from '@/components/typography';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { SafeImage } from '@/components/ui/safe-image';
-import { ChevronRight } from 'lucide-react';
-import { environment } from '@/environments/environment';
 import { decodeIfEscaped } from '@/app/services/content-service';
-import { cn } from '@/lib/utils';
+import { Typography } from '@/components/typography';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { SafeImage } from '@/components/ui/safe-image';
+import { environment } from '@/environments/environment';
+import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface CtaChooser {
   label: string;
