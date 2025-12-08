@@ -4,6 +4,7 @@ import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
 import ContentB1 from './components/contentB1';
 import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
 import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
+import HeroA1List, { HeroA1Item } from './components/HeroA1List';
 import AppFooter from '@/components/app-footer';
 
 interface CtaChooser {
@@ -15,6 +16,7 @@ interface CtaChooser {
 interface FeatureC5 extends FeatureC5Item, MgnlContent {}
 interface FeatureC2 extends FeatureC2Item, MgnlContent {}
 interface FeatureC10 extends FeatureC10Item, MgnlContent {}
+interface HeroA1 extends HeroA1Item, MgnlContent {}
 
 interface ContentB1Data extends MgnlContent {
   title: string;
@@ -27,6 +29,10 @@ interface ContentB1Data extends MgnlContent {
 
 interface HomeResult extends MgnlContent {
   contentB1?: ContentB1Data;
+  heroList?: {
+    title: string; // List title, usually unused for Hero
+    heroItems: HeroA1[];
+  };
   multiMarkets?: {
     title: string;
     multimarket: FeatureC10[];
@@ -59,6 +65,10 @@ const SelectHomePage = async ({ home, footer }: SelectHomePageProps) => {
 
   return (
     <div className='SelectHomePage'>
+      {pageContent.heroList && (
+        <HeroA1List items={pageContent.heroList.heroItems} />
+      )}
+
       {pageContent.multiMarkets && (
         <FeatureC10List
           title={pageContent.multiMarkets.title}
