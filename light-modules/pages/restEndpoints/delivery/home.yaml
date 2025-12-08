@@ -1,0 +1,13 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: homes
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+references:
+  - propertyName: multiMarkets
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC10
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver

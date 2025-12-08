@@ -1,0 +1,23 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: featureC10
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:featureC10
+  properties:
+    - name: title
+    - name: image
+      type: asset
+    - name: downloadLists
+      type: downloadList
+      multiple: true
+
+  subModels:
+    - name: downloadList
+      properties:
+        - name: title
+        - name: content
+          type: richText

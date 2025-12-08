@@ -1,0 +1,12 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: retailOnline
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:retailOnline
+  properties:
+    - name: Title
+    - name: Description

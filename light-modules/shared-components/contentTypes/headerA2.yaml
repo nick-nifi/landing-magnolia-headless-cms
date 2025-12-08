@@ -1,0 +1,15 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: headerA2s
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:headerA2
+  properties:
+    - name: Title
+    - name: Description
+      type: richText
+    - name: image
+      type: asset
