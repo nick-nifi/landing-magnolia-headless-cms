@@ -1,5 +1,7 @@
-import React from 'react';
+import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -7,10 +9,10 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 import { SafeImage } from '@/components/ui/safe-image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { environment } from '@/environments/environment';
-import { decodeIfEscaped } from '@/app/services/content-service';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
 
 interface CtaChooser {
   label: string;
@@ -22,9 +24,7 @@ export interface FeatureC2Item {
   title: string;
   description: string;
   tag?: string;
-  image?: {
-    '@link': string;
-  };
+  image?: string;
   ctaChooser?: CtaChooser;
 }
 
@@ -35,9 +35,9 @@ interface FeatureC2ListProps {
 
 const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
   return (
-    <section className='py-12 lg:py-16 bg-muted/50'>
-      <div className='container mx-auto px-4'>
-        <div className='text-center mb-12'>
+    <section className='py-12 lg:py-16'>
+      <div className='container'>
+        <div className='text-center mb-12 md:mb-16 lg:mb-20'>
           <Typography variant='h2' weight='light'>
             {title}
           </Typography>
@@ -46,36 +46,40 @@ const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           {c2Items?.map((item, index) => {
             const imageUrl = item.image
-              ? environment.damRawBase + item.image['@link']
+              ? `${environment.damRawBase}/magnoliaAuthor/dam/${item.image}`
               : '';
             return (
               <Card
                 key={index}
-                className='overflow-hidden border-none shadow-sm flex flex-col h-full'
+                className='gap-0 border shadow-sm bg-card hover:shadow-md transition-shadow duration-200 flex flex-col h-full overflow-hidden'
               >
-                <div className='relative h-48 w-full'>
-                  {imageUrl && (
-                    <SafeImage
-                      src={imageUrl}
-                      alt={item.title}
-                      fill
-                      className='object-cover'
-                    />
-                  )}
+                <div className='relative aspect-9/5'>
+                  <SafeImage
+                    src={imageUrl}
+                    alt={item.title}
+                    fill
+                    className='object-cover'
+                  />
                   {item.tag && (
-                    <div className='absolute bottom-0 left-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium uppercase'>
+                    <Badge
+                      className='absolute left-0 bottom-0'
+                      variant={'secondary'}
+                    >
                       {item.tag}
-                    </div>
+                    </Badge>
                   )}
                 </div>
+
                 <CardHeader className='pt-6'>
-                  <h3 className='text-xl font-semibold leading-tight'>
+                  <Typography variant='h4' weight='medium'>
                     {item.title}
-                  </h3>
+                  </Typography>
                 </CardHeader>
                 <CardContent className='flex-grow'>
-                  <div
-                    className='text-muted-foreground text-sm line-clamp-3'
+                  <Typography
+                    variant='body-large'
+                    weight={'light'}
+                    className='line-clamp-3'
                     dangerouslySetInnerHTML={{
                       __html: decodeIfEscaped(item.description),
                     }}
@@ -83,13 +87,21 @@ const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
                 </CardContent>
                 <CardFooter className='pb-6'>
                   {item.ctaChooser && (
-                    <Link
-                      href={item.ctaChooser.href}
-                      target={item.ctaChooser.isExternal ? '_blank' : undefined}
-                      className='text-primary hover:underline inline-flex items-center gap-2 text-sm font-medium'
-                    >
-                      {item.ctaChooser.label} <ArrowRight className='w-4 h-4' />
-                    </Link>
+                    <Button asChild variant={'outline'}>
+                      <Link
+                        href={item.ctaChooser.href}
+                        target={
+                          item.ctaChooser.isExternal ? '_blank' : undefined
+                        }
+                      >
+                        {item.ctaChooser.label}
+                        {item.ctaChooser.isExternal ? (
+                          <ExternalLink />
+                        ) : (
+                          <ArrowRight className='w-4 h-4' />
+                        )}
+                      </Link>
+                    </Button>
                   )}
                 </CardFooter>
               </Card>

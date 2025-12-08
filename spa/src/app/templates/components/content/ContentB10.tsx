@@ -1,9 +1,6 @@
-
-import { SafeImage } from "@/components/ui/safe-image";
-import { cn } from "@/lib/utils";
-import { environment } from "@/environments/environment";
-import get from "lodash/get";
-import has from "lodash/has";
+import { SafeImage } from '@/components/ui/safe-image';
+import { environment } from '@/environments/environment';
+import { cn } from '@/lib/utils';
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -26,19 +23,22 @@ interface ContentB10Props {
 export default function ContentB10({
   imageChooser,
   image,
-  imageAlt = "Content image",
+  imageAlt = 'Content image',
   className,
   customClass,
 }: ContentB10Props) {
   // Get image from Magnolia or use image prop
-  let imageSrc = image || "/assets/placeholder-img.png";
+  let imageSrc = image || '/assets/placeholder-img.png';
   let displayAlt = imageAlt;
 
   if (imageChooser) {
     if (imageChooser.field === 'image' && imageChooser.image) {
       imageSrc = `${environment.damRawBase}${imageChooser.image['@link']}`;
       displayAlt = imageChooser.imageAlt || imageAlt;
-    } else if (imageChooser.field === 'externalImage' && imageChooser.externalImage) {
+    } else if (
+      imageChooser.field === 'externalImage' &&
+      imageChooser.externalImage
+    ) {
       imageSrc = imageChooser.externalImage;
       displayAlt = imageChooser.externalImageAlt || imageAlt;
     }
@@ -46,19 +46,23 @@ export default function ContentB10({
 
   return (
     <section
-      data-name="content-b10"
-      style={{ backgroundColor: "#DBE0E4" }}
-      className={cn("bg-uobkh-steel-grey py-16 px-4 lg:px-40", className, customClass)}
+      data-name='content-b10'
+      style={{ backgroundColor: '#DBE0E4' }}
+      className={cn(
+        'bg-uobkh-steel-grey py-16 px-4 lg:px-40',
+        className,
+        customClass
+      )}
     >
-      <div className="container mx-auto max-w-[1280px]">
-        <div className="flex flex-col gap-20 items-center justify-center w-full">
-          <div className="relative w-full max-w-[738px] flex justify-center items-center">
-            <div className="relative w-full aspect-[738/772]">
+      <div className='container mx-auto max-w-[1280px]'>
+        <div className='flex flex-col gap-20 items-center justify-center w-full'>
+          <div className='relative w-full max-w-[738px] flex justify-center items-center'>
+            <div className='relative w-full aspect-[738/772]'>
               <SafeImage
                 src={imageSrc}
                 alt={displayAlt}
                 fill
-                className="object-contain object-center"
+                className='object-contain object-center'
               />
             </div>
           </div>

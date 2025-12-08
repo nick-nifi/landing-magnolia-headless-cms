@@ -10,6 +10,8 @@ model:
   properties:
     - name: title
     - name: description
+    - name: heroList
+      type: heroListItem
     - name: multiMarkets
       type: multiMarket
     - name: contentB1
@@ -32,9 +34,9 @@ model:
         - name: c5Items
           type: reference:featureC5
           multiple: true
-    - name: featureC2Item
+    - name: heroListItem
       properties:
         - name: title
-        - name: c2Items
-          type: reference:featureC2
+        - name: heroItems
+          type: reference:heroA1
           multiple: true

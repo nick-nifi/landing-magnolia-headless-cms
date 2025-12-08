@@ -20,15 +20,10 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: contentB1
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
-      nodeType: mt:contentB1
-  - propertyName: image
-    referenceResolver:
-      $type: assetReferenceResolver
-      nodeType: mt:featureC2
-  - propertyName: image
-    referenceResolver:
-      $type: assetReferenceResolver
-      nodeType: mt:featureC10

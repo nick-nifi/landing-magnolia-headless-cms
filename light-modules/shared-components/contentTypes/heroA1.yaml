@@ -1,0 +1,23 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: heroA1
+  autoCreate: true
+
+model:
+  nodeType: mt:heroA1
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: image
+      type: asset
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href

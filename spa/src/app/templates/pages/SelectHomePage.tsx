@@ -3,6 +3,9 @@ import { MgnlContent } from '@magnolia/frontend-helpers-base';
 import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
 import ContentB1 from './components/contentB1';
 import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
+import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
+import HeroA1List, { HeroA1Item } from './components/HeroA1List';
+import AppFooter from '@/components/app-footer';
 
 interface CtaChooser {
   label: string;
@@ -12,6 +15,8 @@ interface CtaChooser {
 
 interface FeatureC5 extends FeatureC5Item, MgnlContent {}
 interface FeatureC2 extends FeatureC2Item, MgnlContent {}
+interface FeatureC10 extends FeatureC10Item, MgnlContent {}
+interface HeroA1 extends HeroA1Item, MgnlContent {}
 
 interface ContentB1Data extends MgnlContent {
   title: string;
@@ -22,14 +27,12 @@ interface ContentB1Data extends MgnlContent {
   ctaChooser?: CtaChooser;
 }
 
-interface FeatureC10 extends MgnlContent {
-  title: string;
-  image: string;
-  downloadLists: MgnlContent;
-}
-
 interface HomeResult extends MgnlContent {
   contentB1?: ContentB1Data;
+  heroList?: {
+    title: string; // List title, usually unused for Hero
+    heroItems: HeroA1[];
+  };
   multiMarkets?: {
     title: string;
     multimarket: FeatureC10[];
@@ -48,11 +51,12 @@ interface HomeResult extends MgnlContent {
 
 interface SelectHomePageProps {
   metadata: MgnlContent;
+  footer?: MgnlContent;
   title: string;
   home: string;
 }
 
-const SelectHomePage = async ({ home }: SelectHomePageProps) => {
+const SelectHomePage = async ({ home, footer }: SelectHomePageProps) => {
   const listResponse = await fetchPageContentByName(
     `http://localhost:8080/magnoliaAuthor/.rest/delivery/home/?@jcr:uuid=${home}`
   );
@@ -61,6 +65,17 @@ const SelectHomePage = async ({ home }: SelectHomePageProps) => {
 
   return (
     <div className='SelectHomePage'>
+      {pageContent.heroList && (
+        <HeroA1List items={pageContent.heroList.heroItems} />
+      )}
+
+      {pageContent.multiMarkets && (
+        <FeatureC10List
+          title={pageContent.multiMarkets.title}
+          items={pageContent.multiMarkets.multimarket}
+        />
+      )}
+
       {pageContent.contentB1 && typeof pageContent.contentB1 === 'object' && (
         <ContentB1
           title={pageContent.contentB1.title}
@@ -84,7 +99,7 @@ const SelectHomePage = async ({ home }: SelectHomePageProps) => {
         />
       )}
 
-      {/* Placeholder for MultiMarkets if needed later */}
+      {footer && <AppFooter />}
     </div>
   );
 };
