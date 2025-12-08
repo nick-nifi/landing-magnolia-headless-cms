@@ -8,6 +8,10 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: featureC10
+  - propertyName: items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
