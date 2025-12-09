@@ -1,0 +1,29 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: researchPrivateWealthManagements
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+references:
+  - propertyName: multimarket
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC10
+  - propertyName: c5Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: contentB1
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB1
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver
