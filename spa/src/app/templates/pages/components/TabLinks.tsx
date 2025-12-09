@@ -16,6 +16,7 @@ interface TabLinksProps {
 }
 
 const TabLinks = ({ groups }: TabLinksProps) => {
+  console.log('🚀 ~ TabLinks ~ groups:', groups);
   if (!groups || groups.length === 0) return null;
 
   // Flatten all links from all groups into a single list

@@ -29,6 +29,7 @@ references:
       $type: jcrReferenceResolver
       targetWorkspace: headerA2s
   - propertyName: tabLinks
+    nodeType: mt:researchPrivateWealthManagement
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: tabLinks

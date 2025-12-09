@@ -13,17 +13,16 @@ model:
     - name: headerA2
       type: reference:headerA2
     - name: tabLinks
-      type: reference:tabLink
-      multiple: true
+      type: tabLink
+    - name: featureC2List
+      type: featureC2Item
     - name: selectUobkhResearch
       type: reference:selectUobkhResearch
       multiple: true
-    - name: featureC5List
-      type: featureC5Item
     - name: listD3List
       type: listD3Item
-    - name: featureC2List
-      type: featureC2Item
+    - name: featureC5List
+      type: featureC5Item
 
   subModels:
     - name: featureC5Item

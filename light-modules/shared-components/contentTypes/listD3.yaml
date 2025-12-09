@@ -8,5 +8,6 @@ model:
   properties:
     - name: reportTitle
     - name: description
+      type: richText
     - name: reportDate
     - name: length
