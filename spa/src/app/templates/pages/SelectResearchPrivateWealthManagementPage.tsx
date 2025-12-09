@@ -6,6 +6,7 @@ import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
 import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
 import HeroA1List, { HeroA1Item } from './components/HeroA1List';
 import HeaderA2, { HeaderA2Item } from './components/HeaderA2';
+import TabLinks, { TabLinkItem } from './components/TabLinks';
 import AppFooter from '@/components/app-footer';
 import AppBreadcrumb from '../components/app-breadcrumb';
 
@@ -32,6 +33,7 @@ interface ContentB1Data extends MgnlContent {
 
 interface ResearchPrivateWealthManagementResult extends MgnlContent {
   headerA2?: HeaderA2;
+  tabLinks?: TabLinkItem[];
   contentB1?: ContentB1Data;
   heroList?: {
     title: string;
@@ -82,7 +84,10 @@ const SelectResearchPrivateWealthManagementPage = async ({
           },
         ]}
       />
+
       {pageContent.headerA2 && <HeaderA2 content={pageContent.headerA2} />}
+
+      {pageContent.tabLinks && <TabLinks items={pageContent.tabLinks} />}
 
       {pageContent.heroList && (
         <HeroA1List items={pageContent.heroList.heroItems} />

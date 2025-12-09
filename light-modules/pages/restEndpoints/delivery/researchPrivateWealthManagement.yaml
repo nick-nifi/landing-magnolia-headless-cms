@@ -28,6 +28,10 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: headerA2s
+  - propertyName: tabLinks
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: tabLinks
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver

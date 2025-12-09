@@ -12,3 +12,6 @@ model:
     - name: description
     - name: headerA2
       type: reference:headerA2
+    - name: tabLinks
+      type: reference:tabLink
+      multiple: true

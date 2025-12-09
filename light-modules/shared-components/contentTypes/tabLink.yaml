@@ -1,0 +1,10 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: tabLinks
+  autoCreate: true
+
+model:
+  nodeType: mt:tabLink
+  properties:
+    - name: label
+    - name: href
