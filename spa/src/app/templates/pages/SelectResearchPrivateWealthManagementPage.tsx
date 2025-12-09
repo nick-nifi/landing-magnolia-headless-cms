@@ -7,6 +7,9 @@ import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
 import HeroA1List, { HeroA1Item } from './components/HeroA1List';
 import HeaderA2, { HeaderA2Item } from './components/HeaderA2';
 import TabLinks, { TabLinkItem } from './components/TabLinks';
+import SelectUobkhResearch, {
+  SelectUobkhResearchItem,
+} from './components/SelectUobkhResearch';
 import AppFooter from '@/components/app-footer';
 import AppBreadcrumb from '../components/app-breadcrumb';
 
@@ -34,6 +37,7 @@ interface ContentB1Data extends MgnlContent {
 interface ResearchPrivateWealthManagementResult extends MgnlContent {
   headerA2?: HeaderA2;
   tabLinks?: TabLinkItem[];
+  selectUobkhResearch?: SelectUobkhResearchItem[];
   contentB1?: ContentB1Data;
   heroList?: {
     title: string;
@@ -122,6 +126,10 @@ const SelectResearchPrivateWealthManagementPage = async ({
           c2Items={pageContent.featureC2List.c2Items}
           className='bg-ring'
         />
+      )}
+
+      {pageContent.selectUobkhResearch && (
+        <SelectUobkhResearch items={pageContent.selectUobkhResearch} />
       )}
 
       {footer && <AppFooter />}

@@ -15,6 +15,9 @@ model:
     - name: tabLinks
       type: reference:tabLink
       multiple: true
+    - name: selectUobkhResearch
+      type: reference:selectUobkhResearch
+      multiple: true
     - name: featureC2List
       type: featureC2Item
 

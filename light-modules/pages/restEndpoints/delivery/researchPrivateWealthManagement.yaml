@@ -32,6 +32,10 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: tabLinks
+  - propertyName: selectUobkhResearch
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: selectUobkhResearch
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
