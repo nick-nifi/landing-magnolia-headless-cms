@@ -36,14 +36,14 @@ export default function HeaderA2({ content }: HeaderA2Props) {
     <section
       ref={sectionRef}
       data-name='header a2'
-      className='md:h-[460px] bg-gray-200 relative'
+      className='h-[calc(100svh-103px)] md:h-[460px] bg-gray-200 relative'
       style={{
         background: 'linear-gradient(101.22deg, #C33B32 1.75%, #D55C4D 58.27%)',
       }}
     >
       <div data-name='content-group' className='w-full h-full z-[3]'>
         <div className='container h-full'>
-          <div className='grid grid-cols-1 md:grid-cols-2 h-full'>
+          <div className='grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 h-full'>
             <div className='h-full flex flex-col justify-center text-white gap-4'>
               <Typography variant={'h1'} weight='light'>
                 {content.title}
