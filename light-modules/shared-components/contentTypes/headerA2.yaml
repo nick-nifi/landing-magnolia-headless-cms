@@ -8,8 +8,18 @@ datasource:
 model:
   nodeType: mt:headerA2
   properties:
-    - name: Title
-    - name: Description
+    - name: title
+    - name: description
       type: richText
     - name: image
       type: asset
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href

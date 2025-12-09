@@ -1,0 +1,11 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: selectUobkhResearch
+  autoCreate: true
+
+model:
+  nodeType: mt:selectUobkhResearch
+  properties:
+    - name: label
+    - name: value
+    - name: href
