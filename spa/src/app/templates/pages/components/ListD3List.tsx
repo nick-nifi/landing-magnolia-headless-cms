@@ -1,3 +1,4 @@
+import { decodeIfEscaped } from '@/app/services/content-service';
 import { Typography } from '@/components/typography';
 import React from 'react';
 
@@ -20,65 +21,15 @@ const ListD3List: React.FC<ListD3ListProps> = ({ title, items }) => {
     <section className='py-12 bg-gray-50'>
       <div className='container'>
         {title && (
-          <Typography variant='h2' className='mb-8 text-center'>
+          <Typography variant='h2' weight='light' className='mb-8 text-center'>
             {title}
           </Typography>
         )}
 
-        <div className='bg-white shadow-sm rounded-md overflow-hidden'>
-          {/* Header - Hidden on mobile, visible on desktop */}
-          <div className='hidden md:grid grid-cols-12 gap-4 p-6 border-b border-gray-100 text-uobkh-red font-semibold'>
-            <div className='col-span-3'>Report</div>
-            <div className='col-span-5'>Description</div>
-            <div className='col-span-2'>Report Date</div>
-            <div className='col-span-2'>Length</div>
-          </div>
-
-          {/* Items */}
-          <div className='divide-y divide-gray-100'>
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className='grid grid-cols-1 md:grid-cols-12 gap-4 p-6 hover:bg-gray-50 transition-colors'
-              >
-                <div className='col-span-12 md:col-span-3'>
-                  <span className='md:hidden text-uobkh-red font-semibold block mb-1'>
-                    Report
-                  </span>
-                  <Typography
-                    variant='body-large'
-                    className='font-bold text-gray-800'
-                  >
-                    {item.reportTitle}
-                  </Typography>
-                </div>
-                <div className='col-span-12 md:col-span-5'>
-                  <span className='md:hidden text-uobkh-red font-semibold block mb-1'>
-                    Description
-                  </span>
-                  <Typography variant='body-small' className='text-gray-600'>
-                    {item.description}
-                  </Typography>
-                </div>
-                <div className='col-span-6 md:col-span-2'>
-                  <span className='md:hidden text-uobkh-red font-semibold block mb-1'>
-                    Report Date
-                  </span>
-                  <Typography variant='body-small' className='text-gray-600'>
-                    {item.reportDate}
-                  </Typography>
-                </div>
-                <div className='col-span-6 md:col-span-2'>
-                  <span className='md:hidden text-uobkh-red font-semibold block mb-1'>
-                    Length
-                  </span>
-                  <Typography variant='body-small' className='text-gray-600'>
-                    {item.length}
-                  </Typography>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className='flex flex-col gap-4'>
+          {items.map((item, index) => (
+            <ListD3Item {...item} key={index} />
+          ))}
         </div>
       </div>
     </section>
@@ -86,3 +37,54 @@ const ListD3List: React.FC<ListD3ListProps> = ({ title, items }) => {
 };
 
 export default ListD3List;
+
+export const ListD3Item = ({
+  description,
+  length,
+  reportDate,
+  reportTitle,
+}: ListD3Item) => {
+  return (
+    <div
+      data-name='list-d3-item'
+      className='border-l border-l-10 border shadow hover:shadow-md transition-shadow duration-200 px-8 py-5'
+    >
+      <div className='grid grid-cols-1 md:grid-cols-6 gap-5'>
+        <div>
+          <Typography variant='h5' weight='medium' className='text-primary'>
+            Report
+          </Typography>
+          <Typography variant='body-large' weight='bold'>
+            {reportTitle}
+          </Typography>
+        </div>
+        <div className='lg:col-span-3'>
+          <Typography variant='h5' weight='medium' className='text-primary'>
+            Description
+          </Typography>
+          <Typography
+            variant='body-large'
+            weight='light'
+            dangerouslySetInnerHTML={{ __html: decodeIfEscaped(description) }}
+          />
+        </div>
+        <div>
+          <Typography variant='h5' weight='medium' className='text-primary'>
+            Report Date
+          </Typography>
+          <Typography variant='body-large' weight='light'>
+            {reportDate}
+          </Typography>
+        </div>
+        <div>
+          <Typography variant='h5' weight='medium' className='text-primary'>
+            Length
+          </Typography>
+          <Typography variant='body-large' weight='light'>
+            {length}
+          </Typography>
+        </div>
+      </div>
+    </div>
+  );
+};
