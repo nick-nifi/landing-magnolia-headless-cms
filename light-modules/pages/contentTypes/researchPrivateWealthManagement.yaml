@@ -18,8 +18,18 @@ model:
     - name: selectUobkhResearch
       type: reference:selectUobkhResearch
       multiple: true
+    - name: listD3List
+      type: listD3Item
     - name: featureC2List
       type: featureC2Item
+
+  subModels:
+    - name: listD3Item
+      properties:
+        - name: title
+        - name: listD3Items
+          type: reference:listD3
+          multiple: true
 
   subModels:
     - name: featureC2Item

@@ -1,0 +1,12 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: listD3
+  autoCreate: true
+
+model:
+  nodeType: mt:listD3
+  properties:
+    - name: reportTitle
+    - name: description
+    - name: reportDate
+    - name: length

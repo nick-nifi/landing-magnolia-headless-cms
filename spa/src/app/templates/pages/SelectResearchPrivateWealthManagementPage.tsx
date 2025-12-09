@@ -10,6 +10,7 @@ import TabLinks, { TabLinkItem } from './components/TabLinks';
 import SelectUobkhResearch, {
   SelectUobkhResearchItem,
 } from './components/SelectUobkhResearch';
+import ListD3List, { ListD3Item } from './components/ListD3List';
 import AppFooter from '@/components/app-footer';
 import AppBreadcrumb from '../components/app-breadcrumb';
 
@@ -38,6 +39,10 @@ interface ResearchPrivateWealthManagementResult extends MgnlContent {
   headerA2?: HeaderA2;
   tabLinks?: TabLinkItem[];
   selectUobkhResearch?: SelectUobkhResearchItem[];
+  listD3List?: {
+    title: string;
+    listD3Items: ListD3Item[];
+  };
   contentB1?: ContentB1Data;
   heroList?: {
     title: string;
@@ -130,6 +135,13 @@ const SelectResearchPrivateWealthManagementPage = async ({
 
       {pageContent.selectUobkhResearch && (
         <SelectUobkhResearch items={pageContent.selectUobkhResearch} />
+      )}
+
+      {pageContent.listD3List && (
+        <ListD3List
+          title={pageContent.listD3List.title}
+          items={pageContent.listD3List.listD3Items}
+        />
       )}
 
       {footer && <AppFooter />}

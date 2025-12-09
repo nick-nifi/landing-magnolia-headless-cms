@@ -36,6 +36,10 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: selectUobkhResearch
+  - propertyName: listD3Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: listD3
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
