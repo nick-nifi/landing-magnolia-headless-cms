@@ -44,7 +44,7 @@ const FeatureC5List: React.FC<FeatureC5ListProps> = ({ title, c5Items }) => {
           {c5Items?.map((item, index) => (
             <Card
               key={index}
-              className='gap-0 border shadow-sm bg-card hover:shadow-md transition-shadow duration-200 flex flex-col h-full overflow-hidden'
+              className='gap-0 border shadow bg-card hover:shadow-md transition-shadow duration-200 flex flex-col h-full overflow-hidden'
             >
               <CardHeader className='pt-5'>
                 <Typography variant='h4' weight='medium'>
