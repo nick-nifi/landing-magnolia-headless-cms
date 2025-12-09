@@ -6,5 +6,13 @@ datasource:
 model:
   nodeType: mt:tabLink
   properties:
-    - name: label
-    - name: href
+    - name: title
+    - name: tabLinks
+      type: tabLinkItem
+      multiple: true
+
+  subModels:
+    - name: tabLinkItem
+      properties:
+        - name: label
+        - name: href

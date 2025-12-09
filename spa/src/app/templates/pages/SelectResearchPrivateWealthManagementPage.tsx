@@ -37,7 +37,9 @@ interface ContentB1Data extends MgnlContent {
 
 interface ResearchPrivateWealthManagementResult extends MgnlContent {
   headerA2?: HeaderA2;
-  tabLinks?: TabLinkItem[];
+  tabLinks?: {
+    tabLinks: TabLinkItem[];
+  }[];
   selectUobkhResearch?: SelectUobkhResearchItem[];
   listD3List?: {
     title: string;
@@ -96,7 +98,7 @@ const SelectResearchPrivateWealthManagementPage = async ({
 
       {pageContent.headerA2 && <HeaderA2 content={pageContent.headerA2} />}
 
-      {pageContent.tabLinks && <TabLinks items={pageContent.tabLinks} />}
+      {pageContent.tabLinks && <TabLinks groups={pageContent.tabLinks} />}
 
       {pageContent.heroList && (
         <HeroA1List items={pageContent.heroList.heroItems} />

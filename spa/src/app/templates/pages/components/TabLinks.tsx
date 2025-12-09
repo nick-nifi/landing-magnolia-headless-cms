@@ -6,18 +6,28 @@ export interface TabLinkItem {
   href: string;
 }
 
-interface TabLinksProps {
-  items: TabLinkItem[];
+export interface TabLinkGroup {
+  title?: string;
+  tabLinks?: TabLinkItem[];
 }
 
-const TabLinks = ({ items }: TabLinksProps) => {
-  if (!items || items.length === 0) return null;
+interface TabLinksProps {
+  groups: TabLinkGroup[];
+}
+
+const TabLinks = ({ groups }: TabLinksProps) => {
+  if (!groups || groups.length === 0) return null;
+
+  // Flatten all links from all groups into a single list
+  const allLinks = groups.flatMap((group) => group.tabLinks || []);
+
+  if (allLinks.length === 0) return null;
 
   return (
     <div className='bg-white border-b border-gray-200'>
       <div className='container mx-auto'>
         <div className='flex space-x-8 overflow-x-auto'>
-          {items.map((item, index) => (
+          {allLinks.map((item, index) => (
             <Link
               key={index}
               href={item.href || '#'}
