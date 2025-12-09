@@ -13,7 +13,7 @@ model:
     - name: headerA2
       type: reference:headerA2
     - name: tabLinks
-      type: tabLink
+      type: reference:tabLink
     - name: featureC2List
       type: featureC2Item
     - name: selectUobkhResearch

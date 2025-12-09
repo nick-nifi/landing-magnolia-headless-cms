@@ -18,7 +18,7 @@ const ListD3List: React.FC<ListD3ListProps> = ({ title, items }) => {
 
   return (
     <section className='py-12 bg-gray-50'>
-      <div className='container mx-auto px-4'>
+      <div className='container'>
         {title && (
           <Typography variant='h2' className='mb-8 text-center'>
             {title}

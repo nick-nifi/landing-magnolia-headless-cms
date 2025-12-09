@@ -4,10 +4,6 @@ depth: 10
 bypassWorkspaceAcls: true
 includeSystemProperties: false
 references:
-  - propertyName: multimarket
-    referenceResolver:
-      $type: jcrReferenceResolver
-      targetWorkspace: featureC10
   - propertyName: c5Items
     referenceResolver:
       $type: jcrReferenceResolver
@@ -29,7 +25,6 @@ references:
       $type: jcrReferenceResolver
       targetWorkspace: headerA2s
   - propertyName: tabLinks
-    nodeType: mt:researchPrivateWealthManagement
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: tabLinks

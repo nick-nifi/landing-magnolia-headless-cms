@@ -84,6 +84,15 @@ const SelectResearchPrivateWealthManagementPage = async ({
   const pageContent = listResponse
     .results[0] as ResearchPrivateWealthManagementResult;
 
+  console.log(
+    '🚀 ~ SelectResearchPrivateWealthManagementPage ~ pageContent:',
+    pageContent
+  );
+
+  if (!pageContent) {
+    return <div>Page not found</div>;
+  }
+
   return (
     <div className='SelectResearchPrivateWealthManagementPage'>
       <AppBreadcrumb
@@ -98,18 +107,18 @@ const SelectResearchPrivateWealthManagementPage = async ({
 
       {pageContent.headerA2 && <HeaderA2 content={pageContent.headerA2} />}
 
-      {pageContent.tabLinks && <TabLinks groups={pageContent.tabLinks} />}
+      {/* {pageContent.tabLinks && <TabLinks groups={pageContent.tabLinks} />} */}
 
-      {pageContent.heroList && (
+      {/* {pageContent.heroList && (
         <HeroA1List items={pageContent.heroList.heroItems} />
-      )}
+      )} */}
 
-      {pageContent.multiMarkets && (
+      {/* {pageContent.multiMarkets && (
         <FeatureC10List
           title={pageContent.multiMarkets.title}
           items={pageContent.multiMarkets.multimarket}
         />
-      )}
+      )} */}
 
       {pageContent.contentB1 && typeof pageContent.contentB1 === 'object' && (
         <ContentB1
@@ -117,13 +126,6 @@ const SelectResearchPrivateWealthManagementPage = async ({
           description={pageContent.contentB1.description}
           image={pageContent.contentB1.image}
           ctaChooser={pageContent.contentB1.ctaChooser}
-        />
-      )}
-
-      {pageContent.featureC5List && (
-        <FeatureC5List
-          title={pageContent.featureC5List.title}
-          c5Items={pageContent.featureC5List.c5Items}
         />
       )}
 
@@ -143,6 +145,13 @@ const SelectResearchPrivateWealthManagementPage = async ({
         <ListD3List
           title={pageContent.listD3List.title}
           items={pageContent.listD3List.listD3Items}
+        />
+      )}
+
+      {pageContent.featureC5List && (
+        <FeatureC5List
+          title={pageContent.featureC5List.title}
+          c5Items={pageContent.featureC5List.c5Items}
         />
       )}
 

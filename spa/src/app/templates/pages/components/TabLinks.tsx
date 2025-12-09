@@ -8,7 +8,7 @@ export interface TabLinkItem {
 
 export interface TabLinkGroup {
   title?: string;
-  tabLinks?: TabLinkItem[];
+  items?: TabLinkItem[];
 }
 
 interface TabLinksProps {
@@ -16,14 +16,14 @@ interface TabLinksProps {
 }
 
 const TabLinks = ({ groups }: TabLinksProps) => {
-  console.log('🚀 ~ TabLinks ~ groups:', groups);
   if (!groups || groups.length === 0) return null;
 
   // Flatten all links from all groups into a single list
-  const allLinks = groups.flatMap((group) => group.tabLinks || []);
+  const allLinks = groups.flatMap((group) => group.items || []);
 
-  if (allLinks.length === 0) return null;
+  // if (allLinks.length === 0) return null;
 
+  return null;
   return (
     <div className='bg-white border-b border-gray-200'>
       <div className='container mx-auto'>

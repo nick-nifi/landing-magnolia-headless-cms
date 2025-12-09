@@ -32,11 +32,13 @@ const FeatureC5List: React.FC<FeatureC5ListProps> = ({ title, c5Items }) => {
   return (
     <section className='py-12 lg:py-16'>
       <div className='container'>
-        <div className='text-center mb-12 md:mb-16 lg:mb-20'>
-          <Typography variant='h2' weight='light'>
-            {title}
-          </Typography>
-        </div>
+        {title && (
+          <div className='text-center mb-12 md:mb-16 lg:mb-20'>
+            <Typography variant='h2' weight='light'>
+              {title}
+            </Typography>
+          </div>
+        )}
 
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           {c5Items?.map((item, index) => (
