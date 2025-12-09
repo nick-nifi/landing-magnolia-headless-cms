@@ -1,6 +1,6 @@
-# Next.js SSR Starter Project
+# Minimal Headless Next.js Demo
 
-This starter project is built on top of the Next.js framework to show how Magnolia integrates with the framework using the [react-editor](https://www.npmjs.com/package/@magnolia/react-editor) library.
+This demo is built on top of the Next.js framework to show how Magnolia integrates with the framework using the [react-editor](https://www.npmjs.com/package/@magnolia/react-editor) library.
 
 ## Installation
 
@@ -17,7 +17,7 @@ This project can be cloned using [Magnolia CLI v5](https://mgnl.io/cli).
 2. Create a new folder, for example `mgnl`, and switch to it.
 3. Run `npx @magnolia/cli jumpstart`.
 4. Choose `3) headless`.
-5. Choose `6) nextjs-ssr-starter`.
+5. Choose `5) nextjs-demo`.
 6. Choose `1) dx-core` (or `2) ce`).
 7. Execute `npm run mgnl -- start` to start Magnolia.
 8. Open another terminal window in the same place (in `mgnl`).

@@ -1,18 +1,24 @@
-import '../styles.css';
 import { Metadata } from 'next';
-import { Karla } from 'next/font/google';
+import { Libre_Baskerville, Roboto } from 'next/font/google';
+import '../styles.css';
 
 export const metadata: Metadata = {
-  title: 'Next.js SSR Starter Project',
+  title: 'Minimal Headless Next.js Demo',
   icons: {
     icon: '/Magnolia_favicon.png',
   },
 };
 
-const karla = Karla({
+const roboto = Roboto({
+  variable: '--font-roboto',
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-karla',
+});
+
+const libreBaskerville = Libre_Baskerville({
+  variable: '--font-libre-baskerville',
+  subsets: ['latin'],
+  weight: '400',
+  style: 'italic',
 });
 
 export default function RootLayout({
@@ -21,7 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={karla.variable}>
+    <html
+      lang='en'
+      className={`${roboto.variable} ${libreBaskerville.variable} font-sans antialiased relative`}
+    >
       <body>{children}</body>
     </html>
   );

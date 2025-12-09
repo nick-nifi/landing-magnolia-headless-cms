@@ -57,19 +57,11 @@ interface SelectHomePageProps {
 }
 
 const SelectHomePage = async ({ home, footer }: SelectHomePageProps) => {
-  if (!home) {
-    return <div className='SelectHomePage'>No home selected</div>;
-  }
-
   const listResponse = await fetchPageContentByName(
     `http://localhost:8080/magnoliaAuthor/.rest/delivery/home/?@jcr:uuid=${home}`
   );
 
-  const pageContent = listResponse?.results?.[0] as HomeResult | undefined;
-
-  if (!pageContent) {
-    return <div className='SelectHomePage'>No content found</div>;
-  }
+  const pageContent = listResponse.results[0] as HomeResult;
 
   return (
     <div className='SelectHomePage'>

@@ -11,7 +11,9 @@ import { cn } from '@/lib/utils';
 interface ContentB1Props {
   title: string;
   description: string;
-  image?: string;
+  image?: {
+    '@link': string;
+  };
   ctaChooser?: {
     label: string;
     isExternal: boolean;
@@ -26,6 +28,8 @@ const ContentB1: React.FC<ContentB1Props> = ({
   description,
   image,
   ctaChooser,
+  className,
+  customClass,
 }) => {
   const imageUrl = image
     ? `${environment.damRawBase}/magnoliaAuthor/dam/${image}`
@@ -75,6 +79,56 @@ const ContentB1: React.FC<ContentB1Props> = ({
               </div>
             )}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+
+  return (
+    <section
+      data-name='content-b1'
+      className={cn(
+        'bg-muted-foreground py-12 lg:py-16',
+        className,
+        customClass
+      )}
+    >
+      <div className='container mx-auto px-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center lg:gap-16'>
+          <div>
+            <div className='lg:mb-8'>
+              <Typography variant='h2' weight='light' className='mb-6'>
+                {title}
+              </Typography>
+              <Typography
+                variant={'body-large'}
+                weight={'light'}
+                dangerouslySetInnerHTML={{
+                  __html: decodeIfEscaped(description),
+                }}
+              />
+            </div>
+            {ctaChooser && (
+              <Button asChild variant='outline'>
+                <Link
+                  href={ctaChooser.href}
+                  target={ctaChooser.isExternal ? '_blank' : undefined}
+                >
+                  {ctaChooser.label} <ArrowRight className='ml-2 w-4 h-4' />
+                </Link>
+              </Button>
+            )}
+          </div>
+          {imageUrl && (
+            <div className='relative w-full h-full min-h-[300px] overflow-hidden'>
+              <SafeImage
+                src={imageUrl}
+                alt={title}
+                fill
+                className='object-cover object-center'
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>
