@@ -5,6 +5,7 @@ import ContentB1 from './components/contentB1';
 import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
 import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
 import HeroA1List, { HeroA1Item } from './components/HeroA1List';
+import HeaderA2, { HeaderA2Item } from './components/HeaderA2';
 import AppFooter from '@/components/app-footer';
 
 interface CtaChooser {
@@ -17,6 +18,7 @@ interface FeatureC5 extends FeatureC5Item, MgnlContent {}
 interface FeatureC2 extends FeatureC2Item, MgnlContent {}
 interface FeatureC10 extends FeatureC10Item, MgnlContent {}
 interface HeroA1 extends HeroA1Item, MgnlContent {}
+interface HeaderA2 extends HeaderA2Item, MgnlContent {}
 
 interface ContentB1Data extends MgnlContent {
   title: string;
@@ -28,6 +30,7 @@ interface ContentB1Data extends MgnlContent {
 }
 
 interface ResearchPrivateWealthManagementResult extends MgnlContent {
+  headerA2?: HeaderA2;
   contentB1?: ContentB1Data;
   heroList?: {
     title: string;
@@ -69,6 +72,8 @@ const SelectResearchPrivateWealthManagementPage = async ({
 
   return (
     <div className='SelectResearchPrivateWealthManagementPage'>
+      {pageContent.headerA2 && <HeaderA2 content={pageContent.headerA2} />}
+
       {pageContent.heroList && (
         <HeroA1List items={pageContent.heroList.heroItems} />
       )}

@@ -10,3 +10,5 @@ model:
   properties:
     - name: title
     - name: description
+    - name: headerA2
+      type: reference:headerA2
