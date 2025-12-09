@@ -7,6 +7,7 @@ import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
 import HeroA1List, { HeroA1Item } from './components/HeroA1List';
 import HeaderA2, { HeaderA2Item } from './components/HeaderA2';
 import AppFooter from '@/components/app-footer';
+import AppBreadcrumb from '../components/app-breadcrumb';
 
 interface CtaChooser {
   label: string;
@@ -72,6 +73,15 @@ const SelectResearchPrivateWealthManagementPage = async ({
 
   return (
     <div className='SelectResearchPrivateWealthManagementPage'>
+      <AppBreadcrumb
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Research' },
+          {
+            label: pageContent.title,
+          },
+        ]}
+      />
       {pageContent.headerA2 && <HeaderA2 content={pageContent.headerA2} />}
 
       {pageContent.heroList && (

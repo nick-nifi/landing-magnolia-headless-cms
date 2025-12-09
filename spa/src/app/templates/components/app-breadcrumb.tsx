@@ -1,7 +1,4 @@
-"use client";
-import { EPageSectionType } from "@/core/page-model";
-import { ChevronRight } from "lucide-react";
-import React from "react";
+'use client';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,7 +6,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "./ui/breadcrumb";
+} from '@/components/ui/breadcrumb';
+import { ChevronRight } from 'lucide-react';
+import React from 'react';
 
 interface BreadcrumbItemProps {
   label: string;
@@ -24,8 +23,8 @@ export default function AppBreadcrumb({ items = [] }: AppBreadcrumbProps) {
   const len = items.length - 1;
 
   return (
-    <div className="bg-secondary-foreground hidden lg:block xl:px-20">
-      <div className="container mx-auto py-1">
+    <div className='bg-secondary-foreground hidden lg:block xl:px-20'>
+      <div className='container mx-auto py-1'>
         <Breadcrumb>
           <BreadcrumbList>
             {items.map(({ label, href }, idx) =>
@@ -53,7 +52,7 @@ export default function AppBreadcrumb({ items = [] }: AppBreadcrumbProps) {
   );
 }
 
-export type TAppBreadcrumbSection = {
-  type: EPageSectionType.BreadCrumb;
-  data: AppBreadcrumbProps;
-};
+// export type TAppBreadcrumbSection = {
+//   type: EPageSectionType.BreadCrumb;
+//   data: AppBreadcrumbProps;
+// };
