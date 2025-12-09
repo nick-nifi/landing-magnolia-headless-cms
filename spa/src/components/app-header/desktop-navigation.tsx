@@ -46,57 +46,70 @@ export function NavigationMenuDemo() {
                   {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className='w-screen border-t'>
-                    <Grid cols={4} gap={0}>
-                      <Grid>
-                        <div className='relative'>
+                  <div className='w-screen border-t bg-background'>
+                    <div className='container mx-auto'>
+                      <Grid cols={12} gap={0} className='min-h-[360px]'>
+                        {/* Column 1: Intro (Image & Text) */}
+                        <div className='col-span-3 relative group overflow-hidden'>
                           <Image
                             src={item.content.intro.imageUrl}
                             alt={item.content.intro.title}
                             fill
                             unoptimized
-                            className='object-cover'
+                            className='object-cover transition-transform duration-700 group-hover:scale-105'
                           />
+                          {/* Overlay for better text readability if needed, or gradient */}
+                          <div className='absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors' />
+
+                          <div className='absolute bottom-0 left-0 p-8 text-white z-10'>
+                            <Typography
+                              variant='h3'
+                              className='mb-3 text-white font-bold'
+                            >
+                              {item.content.intro.title}
+                            </Typography>
+                            <Typography
+                              variant='body-small'
+                              className='text-white/90 line-clamp-3'
+                            >
+                              {item.content.intro.description}
+                            </Typography>
+                          </div>
                         </div>
-                      </Grid>
-                      <Grid className='bg-muted-foreground'>
-                        <div className='py-8 px-6'>
-                          <Typography variant='h3' className='mb-[14px]'>
-                            {item.title}
-                          </Typography>
-                          <Typography variant='body-small'>
-                            {item.content.intro.description}
-                          </Typography>
+
+                        {/* Column 2: Links */}
+                        <div className='col-span-5 bg-muted/30 p-8'>
+                          <div className='grid grid-cols-2 gap-8'>
+                            {item.content.linkGroups.map((group, index) => (
+                              <ul key={index} className='space-y-4'>
+                                {group.links.map((link) => (
+                                  <li key={link.title}>
+                                    <NavigationMenuLink asChild>
+                                      <Link
+                                        href={link.href}
+                                        className='block text-base font-medium text-foreground/80 hover:text-primary transition-colors hover:translate-x-1 duration-200'
+                                      >
+                                        {link.title}
+                                      </Link>
+                                    </NavigationMenuLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            ))}
+                          </div>
                         </div>
-                      </Grid>
-                      <Grid className='bg-muted-foreground'>
-                        <div className='py-8 px-6'>
-                          {item.content.linkGroups.map((group, index) => (
-                            <ul key={index} className='flex flex-col space-y-3'>
-                              {group.links.map((link) => (
-                                <li key={link.title}>
-                                  <NavigationMenuLink asChild>
-                                    <Link
-                                      href={link.href}
-                                      className='text-sm text-secondary-foreground transition-colors hover:text-accent'
-                                    >
-                                      {link.title}
-                                    </Link>
-                                  </NavigationMenuLink>
-                                </li>
-                              ))}
-                            </ul>
-                          ))}
-                        </div>
-                      </Grid>
-                      <Grid className='bg-secondary'>
-                        <div className='py-8 px-6'>
-                          <Typography
-                            variant='body-large'
-                            className='font-semibold mb-6'
-                          >
-                            Featured
-                          </Typography>
+
+                        {/* Column 3: Featured */}
+                        <div className='col-span-4 bg-secondary/50 p-8'>
+                          <div className='flex items-center justify-between mb-6'>
+                            <Typography
+                              variant='body-large'
+                              className='font-bold'
+                            >
+                              Featured
+                            </Typography>
+                            {/* Optional: Add a "View All" link here if needed */}
+                          </div>
                           <div className='flex flex-col gap-6'>
                             {item.content.featured.items.map(
                               (featureItem, idx) => (
@@ -108,7 +121,7 @@ export function NavigationMenuDemo() {
                           </div>
                         </div>
                       </Grid>
-                    </Grid>
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
