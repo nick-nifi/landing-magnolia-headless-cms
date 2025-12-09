@@ -1,18 +1,18 @@
 import { fetchPageContentByName } from '@/app/services/magnolia-service';
+import AppFooter from '@/components/app-footer';
 import { MgnlContent } from '@magnolia/frontend-helpers-base';
-import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
+import AppBreadcrumb from '../components/app-breadcrumb';
 import ContentB1 from './components/contentB1';
+import { FeatureC10Item } from './components/FeatureC10List';
+import FeatureC2List, { FeatureC2Item } from './components/FeatureC2List';
 import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
-import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
-import HeroA1List, { HeroA1Item } from './components/HeroA1List';
 import HeaderA2, { HeaderA2Item } from './components/HeaderA2';
-import TabLinks, { TabLinkItem } from './components/TabLinks';
+import { HeroA1Item } from './components/HeroA1List';
+import ListD3List, { ListD3Item } from './components/ListD3List';
 import SelectUobkhResearch, {
   SelectUobkhResearchItem,
 } from './components/SelectUobkhResearch';
-import ListD3List, { ListD3Item } from './components/ListD3List';
-import AppFooter from '@/components/app-footer';
-import AppBreadcrumb from '../components/app-breadcrumb';
+import TabLinks, { TabLinkItem } from './components/TabLinks';
 
 interface CtaChooser {
   label: string;
@@ -84,11 +84,6 @@ const SelectResearchPrivateWealthManagementPage = async ({
   const pageContent = listResponse
     .results[0] as ResearchPrivateWealthManagementResult;
 
-  console.log(
-    '🚀 ~ SelectResearchPrivateWealthManagementPage ~ pageContent:',
-    pageContent
-  );
-
   if (!pageContent) {
     return <div>Page not found</div>;
   }
@@ -107,7 +102,7 @@ const SelectResearchPrivateWealthManagementPage = async ({
 
       {pageContent.headerA2 && <HeaderA2 content={pageContent.headerA2} />}
 
-      {/* {pageContent.tabLinks && <TabLinks groups={pageContent.tabLinks} />} */}
+      {pageContent.tabLinks && <TabLinks groups={[]} />}
 
       {/* {pageContent.heroList && (
         <HeroA1List items={pageContent.heroList.heroItems} />

@@ -1,5 +1,9 @@
+'use client';
+
 import { Typography } from '@/components/typography';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export interface TabLinkItem {
   label: string;
@@ -16,30 +20,44 @@ interface TabLinksProps {
 }
 
 const TabLinks = ({ groups }: TabLinksProps) => {
-  if (!groups || groups.length === 0) return null;
+  const pathname = usePathname();
 
   // Flatten all links from all groups into a single list
-  const allLinks = groups.flatMap((group) => group.items || []);
+  let allLinks = groups ? groups.flatMap((group) => group.items || []) : [];
 
-  // if (allLinks.length === 0) return null;
+  if (allLinks.length === 0) {
+    allLinks = [
+      {
+        label: 'Private wealth management',
+        href: '/research/private-wealth-management',
+      },
+      { label: 'Major markets', href: '/research/major-markets' },
+      { label: 'Sectors', href: '/research/sectors' },
+      { label: 'Companies', href: '/research/companies' },
+    ];
+  }
 
-  return null;
   return (
-    <div className='bg-white border-b border-gray-200'>
-      <div className='container mx-auto'>
-        <div className='flex space-x-8 overflow-x-auto'>
-          {allLinks.map((item, index) => (
+    <div className='container pt-12 md:pt-16'>
+      <div className='flex border-b overflow-x-auto no-scrollbar gap-2'>
+        {allLinks.map((item, index) => {
+          const isActive = pathname === item.href;
+
+          return (
             <Link
               key={index}
-              href={item.href || '#'}
-              className='py-4 px-1 border-b-2 border-transparent hover:border-uobkh-red text-uobkh-dark-grey hover:text-uobkh-red transition-colors whitespace-nowrap'
+              href={item.href}
+              className={cn(
+                'min-w-[200px] md:min-w-0 md:w-1/4 text-center pb-4 px-1 border-b-2 transition-colors whitespace-nowrap cursor-pointer hover:border-b-primary transition-color duration-200',
+                isActive ? 'border-primary text-primary' : ''
+              )}
             >
-              <Typography variant='body-small' weight='medium'>
+              <Typography variant='h5' weight={isActive ? 'bold' : 'medium'}>
                 {item.label}
               </Typography>
             </Link>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );
