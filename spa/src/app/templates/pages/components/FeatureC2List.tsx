@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card';
 import { SafeImage } from '@/components/ui/safe-image';
 import { environment } from '@/environments/environment';
+import { cn } from '@/lib/utils';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
@@ -31,11 +32,16 @@ export interface FeatureC2Item {
 interface FeatureC2ListProps {
   title: string;
   c2Items: FeatureC2Item[];
+  className?: string;
 }
 
-const FeatureC2List: React.FC<FeatureC2ListProps> = ({ title, c2Items }) => {
+const FeatureC2List: React.FC<FeatureC2ListProps> = ({
+  title,
+  c2Items,
+  className = '',
+}) => {
   return (
-    <section className='py-12 lg:py-16'>
+    <section className={cn('py-12 lg:py-16', className)}>
       <div className='container'>
         <div className='text-center mb-12 md:mb-16 lg:mb-20'>
           <Typography variant='h2' weight='light'>

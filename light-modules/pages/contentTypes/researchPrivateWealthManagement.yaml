@@ -15,3 +15,13 @@ model:
     - name: tabLinks
       type: reference:tabLink
       multiple: true
+    - name: featureC2List
+      type: featureC2Item
+
+  subModels:
+    - name: featureC2Item
+      properties:
+        - name: title
+        - name: c2Items
+          type: reference:featureC2
+          multiple: true

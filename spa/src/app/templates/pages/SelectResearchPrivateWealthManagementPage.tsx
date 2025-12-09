@@ -120,6 +120,7 @@ const SelectResearchPrivateWealthManagementPage = async ({
         <FeatureC2List
           title={pageContent.featureC2List.title}
           c2Items={pageContent.featureC2List.c2Items}
+          className='bg-ring'
         />
       )}
 
