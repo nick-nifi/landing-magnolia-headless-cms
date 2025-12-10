@@ -11,6 +11,8 @@ model:
       type: richText
     - name: image
       type: asset
+    - name: headerA2
+      type: reference:headerA2
     - name: officeList
       type: reference:officeItem
       multiple: true
