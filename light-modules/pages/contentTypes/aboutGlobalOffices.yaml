@@ -1,0 +1,23 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: aboutGlobalOffices
+  autoCreate: true
+
+model:
+  nodeType: mt:aboutGlobalOffices
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: image
+      type: asset
+    - name: officeList
+      type: officeItem
+      multiple: true
+
+  subModels:
+    - name: officeItem
+      properties:
+        - name: title
+        - name: address
+        - name: country
