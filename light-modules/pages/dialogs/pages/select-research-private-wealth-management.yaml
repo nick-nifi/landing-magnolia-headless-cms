@@ -8,4 +8,3 @@ form:
       datasource:
         $type: jcrDatasource
         workspace: researchPrivateWealthManagements
-      appName: researchPrivateWealthManagements-app

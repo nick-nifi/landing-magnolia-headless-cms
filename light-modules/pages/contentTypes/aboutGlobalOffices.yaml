@@ -12,12 +12,5 @@ model:
     - name: image
       type: asset
     - name: officeList
-      type: officeItem
+      type: reference:officeItem
       multiple: true
-
-  subModels:
-    - name: officeItem
-      properties:
-        - name: title
-        - name: address
-        - name: country

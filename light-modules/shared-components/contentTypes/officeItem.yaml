@@ -1,0 +1,38 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: officeItems
+  autoCreate: true
+
+model:
+  nodeType: mt:officeItem
+  properties:
+    - name: title
+    - name: value
+    - name: email
+    - name: phoneNumber
+    - name: address
+      type: address
+
+  subModels:
+    - name: address
+      properties:
+        - name: text
+          type: richText
+        - name: level
+        - name: building
+        - name: house
+        - name: street
+        - name: streets
+          multiple: true
+        - name: postalCode
+        - name: areas
+          multiple: true
+        - name: district
+        - name: city
+        - name: regions
+          multiple: true
+        - name: county
+        - name: state
+        - name: stateCode
+        - name: country
+        - name: countryCode

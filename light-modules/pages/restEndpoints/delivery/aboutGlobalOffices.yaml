@@ -4,6 +4,10 @@ depth: 10
 bypassWorkspaceAcls: true
 includeSystemProperties: false
 references:
+  - propertyName: officeList
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: officeItems
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
