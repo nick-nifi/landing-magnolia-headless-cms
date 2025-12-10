@@ -11,3 +11,7 @@ references:
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
