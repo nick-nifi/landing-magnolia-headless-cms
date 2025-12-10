@@ -78,7 +78,7 @@ const SelectResearchPrivateWealthManagementPage = async ({
   footer,
 }: SelectResearchPrivateWealthManagementPageProps) => {
   const listResponse = await fetchPageContentByName(
-    `http://localhost:8080/magnoliaAuthor/.rest/delivery/researchPrivateWealthManagement/?@jcr:uuid=${home}`
+    `http://localhost:8080/magnoliaAuthor/.rest/delivery/researchPrivateWealthManagement/${home ? `?@jcr:uuid=${home}` : ''}`
   );
 
   const pageContent = listResponse

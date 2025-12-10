@@ -1,13 +1,18 @@
-class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+$type: jcrDeliveryEndpoint_v2
 workspace: homes
-depth: 10
 bypassWorkspaceAcls: true
-includeSystemProperties: false
+depth: 2
 references:
-  - propertyName: multimarket
+  # - propertyName: multimarket
+  #   referenceResolver:
+  #     $type: jcrReferenceResolver
+  #     targetWorkspace: featureC10
+  - name: multimarket
+    propertyName: multimarket
     referenceResolver:
-      $type: jcrReferenceResolver
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
       targetWorkspace: featureC10
+      depthInReferencedNode: 10
   - propertyName: c5Items
     referenceResolver:
       $type: jcrReferenceResolver
