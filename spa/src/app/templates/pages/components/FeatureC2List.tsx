@@ -11,7 +11,6 @@ import {
 import { SafeImage } from '@/components/ui/safe-image';
 import { environment } from '@/environments/environment';
 import { cn } from '@/lib/utils';
-import { ArrowRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
@@ -101,11 +100,6 @@ const FeatureC2List: React.FC<FeatureC2ListProps> = ({
                         }
                       >
                         {item.ctaChooser.label}
-                        {item.ctaChooser.isExternal ? (
-                          <ExternalLink />
-                        ) : (
-                          <ArrowRight className='w-4 h-4' />
-                        )}
                       </Link>
                     </Button>
                   )}

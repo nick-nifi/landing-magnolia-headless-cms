@@ -1,0 +1,21 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: aboutGlobalOffices
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+references:
+  - propertyName: officeList
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: officeItems
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
