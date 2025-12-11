@@ -1,0 +1,32 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: partnerships-insurance
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - name: e2Items
+    propertyName: e2Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: accordionE2
+      depthInReferencedNode: 10
+  - name: b3Items
+    propertyName: b3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentB3
+      depthInReferencedNode: 10
+  - name: c3Items
+    propertyName: c3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentC3
+      depthInReferencedNode: 10
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

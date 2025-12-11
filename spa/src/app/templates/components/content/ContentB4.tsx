@@ -6,8 +6,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { environment } from "@/environments/environment";
-import get from "lodash/get";
-import has from "lodash/has";
 
 interface ImageChooser {
   field?: 'image' | 'externalImage';
@@ -33,50 +31,53 @@ interface ContentB4Props {
   title?: string;
   description?: string;
   backgroundImageChooser?: ImageChooser;
-  imageChooser?: ImageChooser;
-  thumb?: string;
+  overlayImageChooser?: ImageChooser;
   ctaChooser?: CtaChooser;
-  button?: {
-    label?: string;
-    href?: string;
-  };
   customClass?: string;
 }
 
 export default function ContentB4({
-  button,
   description,
   backgroundImageChooser,
-  imageChooser,
+  overlayImageChooser,
   ctaChooser,
-  thumb = "/assets/placeholder-img.png",
   title = "",
   customClass,
 }: ContentB4Props) {
-  // Use CSS classes for responsive behavior instead of hooks
+  // Get background image (Layer 1)
+  let backgroundImageSrc = '';
+  let backgroundImageAlt = title;
 
-  // Get image from Magnolia or use thumb prop
-  let imageSrc = thumb;
-  let imageAlt = title;
-
-  // Prefer backgroundImageChooser, then imageChooser, then thumb
-  const chooser = backgroundImageChooser || imageChooser;
-  if (chooser) {
-    if (chooser.field === 'image' && chooser.image) {
-      imageSrc = `${environment.damRawBase}${chooser.image['@link']}`;
-      imageAlt = chooser.imageAlt || title;
-    } else if (chooser.field === 'externalImage' && chooser.externalImage) {
-      imageSrc = chooser.externalImage;
-      imageAlt = chooser.externalImageAlt || title;
+  if (backgroundImageChooser) {
+    if (backgroundImageChooser.field === 'image' && backgroundImageChooser.image) {
+      backgroundImageSrc = `${environment.damRawBase}${backgroundImageChooser.image['@link']}`;
+      backgroundImageAlt = backgroundImageChooser.imageAlt || title;
+    } else if (backgroundImageChooser.field === 'externalImage' && backgroundImageChooser.externalImage) {
+      backgroundImageSrc = backgroundImageChooser.externalImage;
+      backgroundImageAlt = backgroundImageChooser.externalImageAlt || title;
     }
   }
 
-  // Get button from Magnolia CTA or fallback to button prop
-  let buttonLabel = button?.label;
-  let buttonHref = button?.href || '#';
+  // Get overlay image (Layer 2)
+  let overlayImageSrc = '';
+  let overlayImageAlt = title;
+
+  if (overlayImageChooser) {
+    if (overlayImageChooser.field === 'image' && overlayImageChooser.image) {
+      overlayImageSrc = `${environment.damRawBase}${overlayImageChooser.image['@link']}`;
+      overlayImageAlt = overlayImageChooser.imageAlt || title;
+    } else if (overlayImageChooser.field === 'externalImage' && overlayImageChooser.externalImage) {
+      overlayImageSrc = overlayImageChooser.externalImage;
+      overlayImageAlt = overlayImageChooser.externalImageAlt || title;
+    }
+  }
+
+  // Get button from Magnolia CTA
+  let buttonLabel = '';
+  let buttonHref = '#';
 
   if (ctaChooser && ctaChooser.field === 'withCta') {
-    buttonLabel = ctaChooser.ctaText || buttonLabel;
+    buttonLabel = ctaChooser.ctaText || '';
     if (ctaChooser.ctaLink) {
       if (ctaChooser.ctaLink.field === 'externalPageLink') {
         buttonHref = ctaChooser.ctaLink.externalLink || buttonHref;
@@ -89,60 +90,81 @@ export default function ContentB4({
   return (
     <section
       data-name="content-b4"
-      className={cn("relative py-12 md:py-8 lg:py-16 lg:min-h-[600px] xl:px-20", customClass)}
+      className={cn("relative flex items-center justify-center px-[160px] py-8 min-h-[600px]", customClass)}
     >
-      <div className="relative z-10 container mx-auto px-2 lg:px-0 h-full pt-25 md:pt-20 lg:pt-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-20 h-full">
-          <div
-            className={cn("h-full flex flex-col justify-between lg:gap-8 text-white lg:text-inherit")}
-          >
-            {title && (
-              <Typography variant={"h2"} weight={"light"}>
-                {title}
-              </Typography>
-            )}
-
-            {description && (
-              <Typography
-                variant={"body-large"}
-                weight={"light"}
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            )}
-
-            {buttonLabel && (
-              <div>
-                <Button
-                  variant={"outline"}
-                  asChild
-                  className="lg:border-[#c33b32] lg:text-[#c33b32] border-white text-white"
-                >
-                  <Link
-                    href={buttonHref}
-                    className="flex items-center justify-between gap-2"
-                  >
-                    {buttonLabel} <ArrowRight />
-                  </Link>
-                </Button>
-              </div>
-            )}
+      {/* Background Images Layer */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        {/* Background Image (Layer 1) */}
+        {backgroundImageSrc && (
+          <div className="absolute inset-0 overflow-hidden">
+            <SafeImage
+              src={backgroundImageSrc}
+              alt={backgroundImageAlt}
+              fill
+              className="absolute h-[144.46%] left-[-5.54%] max-w-none top-[-21.17%] w-[111.07%] object-cover"
+            />
           </div>
-        </div>
+        )}
+        
+        {/* Dark Overlay */}
+        <div className="absolute bg-[rgba(0,0,0,0.5)] inset-0" />
+        
+        {/* Overlay Image (Layer 2) */}
+        {overlayImageSrc && (
+          <div className="absolute inset-0 overflow-hidden">
+            <SafeImage
+              src={overlayImageSrc}
+              alt={overlayImageAlt}
+              fill
+              className="absolute h-[128.45%] left-[-1.63%] max-w-none top-[-6.55%] w-[127.45%] object-cover"
+            />
+          </div>
+        )}
       </div>
 
-      <div
-        className="overlay lg:hidden w-full h-full absolute top-0 left-0 z-5"
-        style={{
-          background: `linear-gradient(255.53deg, rgba(0, 0, 0, 0) 6.39%, rgba(0, 0, 0, 0.5) 45.28%)`,
-        }}
-      />
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col items-start max-w-[1280px] px-0 py-8 shrink-0 w-full">
+        <div className="flex gap-20 items-end relative shrink-0 w-full">
+          {/* Left Column - Text Content */}
+          <div className="flex flex-row items-end self-stretch">
+            <div className="flex flex-col gap-8 h-full items-start justify-center relative shrink-0 w-[470px]">
+              {title && (
+                <Typography
+                  variant={"h2"}
+                  weight={"light"}
+                  className="text-[#3f4c54] text-[40px] leading-[1.2] tracking-[-0.4px]"
+                >
+                  {title}
+                </Typography>
+              )}
 
-      <SafeImage
-        src={imageSrc}
-        alt={imageAlt}
-        fill
-        className="w-full h-full object-cover z-1"
-      />
+              {description && (
+                <Typography
+                  variant={"body-large"}
+                  weight={"light"}
+                  className="text-[#3f4c54] text-[20px] leading-[1.5]"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              )}
+
+              {buttonLabel && (
+                <div className="border border-[#c33b32] border-solid flex gap-2.5 h-[46px] items-center justify-center px-2.5 py-1.5">
+                  <Link
+                    href={buttonHref}
+                    className="flex items-center justify-center gap-2.5 text-[#c33b32] text-[20px] leading-[1.5]"
+                  >
+                    <span>{buttonLabel}</span>
+                    <ArrowRight className="h-[14.645px] w-[10.307px] rotate-90" />
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right Column - Empty space for layout */}
+          <div className="h-[375px] shrink-0 w-[570px]" />
+        </div>
+      </div>
     </section>
   );
 }

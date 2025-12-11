@@ -1,0 +1,29 @@
+label: disclaimer
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+      defaultValue: Disclaimer
+    content:
+      $type: richTextField
+      label: Content
+      required: true
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+    cancelButtonText:
+      $type: textField
+      label: Cancel Button Text
+      required: false
+      i18n: true
+      defaultValue: Cancel
+    confirmButtonText:
+      $type: textField
+      label: Confirm Button Text
+      required: false
+      i18n: true
+      defaultValue: Confirm
+

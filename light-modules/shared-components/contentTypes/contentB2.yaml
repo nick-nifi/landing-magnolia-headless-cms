@@ -1,0 +1,47 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: contentB2
+  autoCreate: true
+
+model:
+  nodeType: mt:contentB2
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: imageChooser
+      type: imageChooser
+    - name: overlayImageChooser
+      type: overlayImageChooser
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: imageChooser
+      properties:
+        - name: field
+        - name: image
+          type: asset
+        - name: imageAlt
+        - name: externalImage
+        - name: externalImageAlt
+    - name: overlayImageChooser
+      properties:
+        - name: field
+        - name: image
+          type: asset
+        - name: imageAlt
+        - name: externalImage
+        - name: externalImageAlt
+    - name: ctaChooser
+      properties:
+        - name: field
+        - name: ctaText
+        - name: ctaLink
+          type: ctaLink
+    - name: ctaLink
+      properties:
+        - name: field
+        - name: internalLink
+        - name: externalLink
+

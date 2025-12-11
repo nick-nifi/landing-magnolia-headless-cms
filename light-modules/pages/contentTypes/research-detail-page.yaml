@@ -1,0 +1,27 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: research-detail-page
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:research-detail-page
+  properties:
+    - name: title
+    - name: description
+    - name: heroList
+      type: heroListItem
+    - name: contentB11
+      type: reference:contentB11
+    - name: filterI
+      type: reference:filterI
+
+  subModels:
+    - name: heroListItem
+      properties:
+        - name: title
+        - name: heroItems
+          type: reference:heroA1
+          multiple: true
+

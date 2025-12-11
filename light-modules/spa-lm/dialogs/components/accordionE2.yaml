@@ -1,0 +1,16 @@
+label: accordionE2
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    description:
+      $type: richTextField
+      label: Description
+      required: false
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+

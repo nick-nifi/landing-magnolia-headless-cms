@@ -1,0 +1,32 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: research-private-wealth-management
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - name: d3Items
+    propertyName: d3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: listD3
+      depthInReferencedNode: 10
+  - propertyName: c5Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: specialMenu
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: specialMenu
+  - propertyName: filterI
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: filterI
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

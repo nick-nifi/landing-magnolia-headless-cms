@@ -1,0 +1,26 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: research-major-markets
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - propertyName: c5Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: specialMenu
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: specialMenu
+  - propertyName: filterI
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: filterI
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

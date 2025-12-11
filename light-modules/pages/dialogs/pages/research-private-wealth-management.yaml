@@ -1,0 +1,12 @@
+label: Select Research Private Wealth Management
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Research Private Wealth Management
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: research-private-wealth-management
+      appName: research-private-wealth-management-app
+

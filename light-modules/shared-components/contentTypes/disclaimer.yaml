@@ -1,0 +1,16 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: disclaimer
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:disclaimer
+  properties:
+    - name: title
+    - name: content
+      type: richText
+    - name: cancelButtonText
+    - name: confirmButtonText
+

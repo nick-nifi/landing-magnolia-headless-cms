@@ -1,30 +1,21 @@
 label: stepsK
 form:
   properties:
-    steps:
-      $type: listField
-      label: Steps
+    stepNumber:
+      $type: textField
+      label: Step Number
       required: true
-      itemProvider:
-        $type: jcrChildNodeProvider
-      form:
-        properties:
-          stepNumber:
-            $type: textField
-            label: Step Number
-            required: true
-            i18n: true
-          title:
-            $type: textField
-            label: Title
-            required: true
-            i18n: true
-          description:
-            $type: textField
-            label: Description
-            required: true
-            i18n: true
-    ctaChooser:
+      i18n: true
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    description:
+      $type: textField
+      label: Description
+      required: true
+      i18n: true
       $type: switchableField
       label: Call To Action
       i18n: true

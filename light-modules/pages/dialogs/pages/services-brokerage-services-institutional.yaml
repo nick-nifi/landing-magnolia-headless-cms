@@ -1,0 +1,12 @@
+label: Select Services Brokerage Services Institutional
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Services Brokerage Services Institutional
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: services-brokerage-services-institutional
+      appName: services-brokerage-services-institutional-app
+

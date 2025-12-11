@@ -114,26 +114,12 @@ form:
           properties: {}
         - name: withShare
           properties:
-            emailLink:
+            shareUrl:
               $type: textField
-              label: Email Link
+              label: Share URL
               required: false
               i18n: true
-            facebookLink:
-              $type: textField
-              label: Facebook Link
-              required: false
-              i18n: true
-            xLink:
-              $type: textField
-              label: X (Twitter) Link
-              required: false
-              i18n: true
-            linkedinLink:
-              $type: textField
-              label: LinkedIn Link
-              required: false
-              i18n: true
+              description: The URL to share on social media platforms
 
     analystSection:
       $type: switchableField
@@ -366,4 +352,42 @@ form:
               label: Percentage
               required: true
               i18n: true
+
+    disclaimers:
+      $type: switchableField
+      label: Disclaimers
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noDisclaimers
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noDisclaimers
+              label: No Disclaimers
+              value: noDisclaimers
+            - name: withDisclaimers
+              label: With Disclaimers
+              value: withDisclaimers
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noDisclaimers
+          properties: {}
+        - name: withDisclaimers
+          properties:
+            title:
+              $type: textField
+              label: Disclaimers Title
+              required: false
+              i18n: true
+              defaultValue: Disclaimers and Important Notices
+            content:
+              $type: richTextField
+              label: Disclaimers Content
+              required: false
+              i18n: true
+              colors: 02373F
+              fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
 

@@ -1,0 +1,92 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: contentB11
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:contentB11
+  properties:
+    - name: backButton
+      type: backButton
+    - name: title
+    - name: date
+    - name: location
+    - name: shareSection
+      type: shareSection
+    - name: analystSection
+      type: analystSection
+    - name: subhead
+    - name: highlights
+      type: richText
+    - name: downloadText
+    - name: downloadButton
+      type: downloadButton
+    - name: rightSideImage
+      type: imageChooser
+    - name: priceList
+      type: priceList
+    - name: disclaimers
+      type: disclaimers
+
+  subModels:
+    - name: backButton
+      properties:
+        - name: field
+        - name: backButtonText
+        - name: backButtonLink
+          type: backButtonLink
+    - name: backButtonLink
+      properties:
+        - name: field
+        - name: internalLink
+        - name: externalLink
+    - name: shareSection
+      properties:
+        - name: field
+        - name: shareUrl
+        - name: emailLink
+        - name: facebookLink
+        - name: xLink
+        - name: linkedinLink
+    - name: analystSection
+      properties:
+        - name: field
+        - name: analystName
+        - name: analystEmail
+    - name: downloadButton
+      properties:
+        - name: field
+        - name: downloadButtonText
+        - name: downloadLink
+          type: downloadLink
+    - name: downloadLink
+      properties:
+        - name: field
+        - name: file
+          type: asset
+        - name: internalLink
+        - name: externalLink
+    - name: imageChooser
+      properties:
+        - name: field
+        - name: image
+          type: asset
+        - name: imageAlt
+        - name: externalImage
+        - name: externalImageAlt
+    - name: priceList
+      properties:
+        - name: field
+        - name: buyStatus
+        - name: currentPrice
+        - name: targetPrice
+        - name: percentage
+    - name: disclaimers
+      properties:
+        - name: field
+        - name: title
+        - name: content
+          type: richText
+

@@ -1,0 +1,12 @@
+label: Select Research Sectors
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Research Sectors
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: research-sectors
+      appName: research-sectors-app
+

@@ -1,0 +1,72 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: services-private-wealth-management
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - name: c11Items
+    propertyName: c11Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: featureC11
+      depthInReferencedNode: 10
+  - name: d1Items
+    propertyName: d1Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: listD1
+      depthInReferencedNode: 10
+  - name: kSteps
+    propertyName: kSteps
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: stepsK
+      depthInReferencedNode: 10
+  - name: e2Items
+    propertyName: e2Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: accordionE2
+      depthInReferencedNode: 10
+  - name: mItems
+    propertyName: mItems
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: logoM
+      depthInReferencedNode: 10
+  - name: c4Items
+    propertyName: c4Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentC4
+      depthInReferencedNode: 10
+  - name: c3Items
+    propertyName: c3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentC3
+      depthInReferencedNode: 10
+  - propertyName: c5Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: contentB1
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB1
+  - propertyName: contentB2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB2
+  - propertyName: contentB7
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB7
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

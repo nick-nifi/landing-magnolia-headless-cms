@@ -23,51 +23,12 @@ form:
             $type: checkBoxField
             label: Is Active
             required: false
-          linkChooser:
-            $type: switchableField
-            label: Link (Optional)
+          internalLink:
             i18n: true
-            field:
-              $type: comboBoxField
-              defaultValue: noLink
-              required: false
-              datasource:
-                $type: optionListDatasource
-                options:
-                  - name: noLink
-                    label: No Link
-                    value: noLink
-                  - name: internalPageLink
-                    label: Internal Page Link
-                    value: internalPageLink
-                  - name: externalPageLink
-                    label: External Page Link
-                    value: externalPageLink
-            itemProvider:
-              $type: jcrChildNodeProvider
-            forms:
-              - name: noLink
-                properties: {}
-              - name: internalPageLink
-                properties:
-                  internalLink:
-                    i18n: true
-                    required: true
-                    $type: pageLinkField
-                    label: Internal Page Link
-                    converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
-              - name: externalPageLink
-                properties:
-                  externalLink:
-                    i18n: true
-                    required: true
-                    $type: textField
-                    label: External Page Link
-                    validators:
-                      urlValidator:
-                        $type: regexpValidator
-                        pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
-                        errorMessage: Please enter a valid URL
+            required: true
+            $type: pageLinkField
+            label: Internal Page Link
+            converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
     category:
       $type: textField
       label: Category (Optional)

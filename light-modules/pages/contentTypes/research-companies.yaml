@@ -1,0 +1,64 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: research-companies
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:research-companies
+  properties:
+    - name: title
+    - name: description
+    - name: heroList
+      type: heroListItem
+    - name: specialMenu
+      type: reference:specialMenu
+    - name: featureC2List
+      type: featureC2Item
+    - name: filterI
+      type: reference:filterI
+    - name: contentC6List
+      type: contentC6Item
+    - name: featureC5List
+      type: featureC5Item
+
+  subModels:
+    - name: heroListItem
+      properties:
+        - name: title
+        - name: heroItems
+          type: reference:heroA1
+          multiple: true
+    - name: contentC6Item
+      properties:
+        - name: title
+        - name: c6Items
+          type: reference:contentC6
+          multiple: true
+        - name: ctaChooser
+          type: ctaChooser
+    - name: featureC5Item
+      properties:
+        - name: title
+        - name: c5Items
+          type: reference:featureC5
+          multiple: true
+    - name: featureC2Item
+      properties:
+        - name: title
+        - name: c2Items
+          type: reference:featureC2
+          multiple: true
+    - name: ctaChooser
+      properties:
+        - name: field
+        - name: ctaText
+        - name: ctaLink
+          type: ctaLink
+    - name: ctaLink
+      properties:
+        - name: field
+        - name: internalLink
+        - name: externalLink
+

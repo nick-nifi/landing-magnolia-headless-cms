@@ -1,0 +1,16 @@
+label: contentC6
+form:
+  properties:
+    title:
+      $type: textField
+      label: Country Name
+      required: true
+      i18n: true
+    companies:
+      $type: richTextField
+      label: Companies List
+      required: true
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+

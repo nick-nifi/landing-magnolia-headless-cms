@@ -1,0 +1,9 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: logoM
+depth: 10
+bypassWorkspaceAcls: true
+references:
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver
+

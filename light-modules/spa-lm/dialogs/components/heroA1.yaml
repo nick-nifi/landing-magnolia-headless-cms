@@ -1,0 +1,64 @@
+label: heroA1
+form:
+  properties:
+    title:
+      $type: textField
+      label: Title
+      required: true
+      i18n: true
+    description:
+      $type: richTextField
+      label: Description
+      required: false
+      i18n: true
+      colors: 02373F
+      fontSizes: "Small/0.75rem;Default/1rem;Big/1.5rem"
+    image:
+      $type: damLinkField
+      label: Background Image
+      required: false
+      i18n: true
+    overlayImage:
+      $type: damLinkField
+      label: Overlay Image (đè lên trên background image)
+      required: false
+      i18n: true
+    ctaChooser:
+      $type: switchableField
+      label: Call To Action
+      i18n: true
+      field:
+        $type: comboBoxField
+        defaultValue: noCta
+        required: true
+        datasource:
+          $type: optionListDatasource
+          options:
+            - name: noCta
+              label: No Call To Action
+              value: noCta
+            - name: withCta
+              label: With Call To Action
+              value: withCta
+      itemProvider:
+        $type: jcrChildNodeProvider
+      forms:
+        - name: noCta
+          properties: {}
+        - name: withCta
+          properties:
+            label:
+              $type: textField
+              required: true
+              label: Call To Action - Text
+              i18n: true
+            isExternal:
+              $type: checkBoxField
+              label: Is External Link
+              required: false
+            href:
+              $type: textField
+              required: true
+              label: Call To Action - Link
+              i18n: true
+

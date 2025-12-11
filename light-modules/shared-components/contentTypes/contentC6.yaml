@@ -1,0 +1,14 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: contentC6
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:contentC6
+  properties:
+    - name: title
+    - name: companies
+      type: richText
+

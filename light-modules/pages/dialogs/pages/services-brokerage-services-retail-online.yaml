@@ -1,0 +1,11 @@
+label: Select Services Brokerage Services Retail Online
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Services Brokerage Services Retail Online
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: services-brokerage-services-retail-online
+      appName: services-brokerage-services-retail-online-app

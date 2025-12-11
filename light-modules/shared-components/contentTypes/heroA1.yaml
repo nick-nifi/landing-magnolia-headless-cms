@@ -1,6 +1,8 @@
 datasource:
   $type: jcrContentTypeDatasource
   workspace: heroA1
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
   autoCreate: true
 
 model:
@@ -10,6 +12,8 @@ model:
     - name: description
       type: richText
     - name: image
+      type: asset
+    - name: overlayImage
       type: asset
     - name: ctaChooser
       type: ctaChooser

@@ -1,0 +1,34 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: partnerships-financial-institutions
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - name: b3Items
+    propertyName: b3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentB3
+      depthInReferencedNode: 10
+  - name: c3Items
+    propertyName: c3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentC3
+      depthInReferencedNode: 10
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: contentB2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB2
+  - propertyName: contentB7
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB7
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

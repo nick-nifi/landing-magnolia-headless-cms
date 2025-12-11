@@ -1,0 +1,12 @@
+label: Select Services Private Wealth Management
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Services Private Wealth Management
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: services-private-wealth-management
+      appName: services-private-wealth-management-app
+
