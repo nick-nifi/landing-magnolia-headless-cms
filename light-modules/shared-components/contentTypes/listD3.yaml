@@ -1,13 +1,14 @@
 datasource:
   $type: jcrContentTypeDatasource
   workspace: listD3
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
   autoCreate: true
 
 model:
   nodeType: mt:listD3
   properties:
-    - name: reportTitle
+    - name: reportName
     - name: description
-      type: richText
     - name: reportDate
     - name: length

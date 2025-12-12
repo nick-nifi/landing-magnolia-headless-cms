@@ -1,0 +1,12 @@
+label: Select Research Major Markets
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Research Major Markets
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: research-major-markets
+      appName: research-major-markets-app
+

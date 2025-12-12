@@ -1,0 +1,32 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: research-companies
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - name: c6Items
+    propertyName: c6Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentC6
+      depthInReferencedNode: 10
+  - propertyName: c5Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+  - propertyName: specialMenu
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: specialMenu
+  - propertyName: filterI
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: filterI
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

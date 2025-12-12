@@ -1,0 +1,12 @@
+label: Select Partnerships Independent Financial Advisory (IFA)
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Partnerships Independent Financial Advisory (IFA)
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: partnerships-independent-financial-advisory
+      appName: partnerships-independent-financial-advisory-app
+

@@ -1,0 +1,29 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: contentB3
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:contentB3
+  properties:
+    - name: title
+    - name: description
+    - name: listItems
+      type: listItem
+      multiple: true
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: listItem
+      properties:
+        - name: itemText
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href
+

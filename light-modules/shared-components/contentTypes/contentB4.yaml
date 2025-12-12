@@ -1,0 +1,49 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: contentB4
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:contentB4
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: backgroundImageChooser
+      type: backgroundImageChooser
+    - name: overlayImageChooser
+      type: overlayImageChooser
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: backgroundImageChooser
+      properties:
+        - name: field
+        - name: image
+          type: asset
+        - name: imageAlt
+        - name: externalImage
+        - name: externalImageAlt
+    - name: overlayImageChooser
+      properties:
+        - name: field
+        - name: image
+          type: asset
+        - name: imageAlt
+        - name: externalImage
+        - name: externalImageAlt
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href
+    - name: ctaLink
+      properties:
+        - name: field
+        - name: internalLink
+        - name: externalLink
+

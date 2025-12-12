@@ -6,3 +6,6 @@ references:
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver
+  - propertyName: overlayImage
+    referenceResolver:
+      $type: assetReferenceResolver

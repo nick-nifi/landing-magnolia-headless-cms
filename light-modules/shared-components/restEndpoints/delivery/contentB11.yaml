@@ -1,0 +1,12 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: contentB11
+depth: 10
+bypassWorkspaceAcls: true
+references:
+  - propertyName: rightSideImage.image
+    referenceResolver:
+      $type: assetReferenceResolver
+  - propertyName: downloadButton.downloadLink.file
+    referenceResolver:
+      $type: assetReferenceResolver
+

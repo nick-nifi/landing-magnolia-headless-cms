@@ -1,0 +1,15 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: stepsK
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:stepsK
+  properties:
+    - name: stepNumber
+    - name: title
+    - name: description
+      type: richText
+

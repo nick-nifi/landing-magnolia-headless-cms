@@ -1,4 +1,9 @@
 site:
+  mappings:
+    uriPatterns:
+      - patternString: /.rest/*
+        enabled: false
+
   cors:
     default:
       uris:

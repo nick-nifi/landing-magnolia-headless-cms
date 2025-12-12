@@ -6,6 +6,7 @@ import FeatureC5List, { FeatureC5Item } from './components/FeatureC5List';
 import FeatureC10List, { FeatureC10Item } from './components/FeatureC10List';
 import HeroA1List, { HeroA1Item } from './components/HeroA1List';
 import AppFooter from '@/components/app-footer';
+import { notFound } from 'next/navigation';
 
 interface CtaChooser {
   label: string;
@@ -57,26 +58,28 @@ interface SelectHomePageProps {
 }
 
 const SelectHomePage = async ({ home, footer }: SelectHomePageProps) => {
+
   const listResponse = await fetchPageContentByName(
-    `http://localhost:8080/magnoliaAuthor/.rest/delivery/home/?@jcr:uuid=${home}`
+    `http://localhost:8080/magnoliaAuthor/.rest/delivery/home/${home ? `?@jcr:uuid=${home}` : ''}`
   );
+
 
   const pageContent = listResponse.results[0] as HomeResult;
 
   return (
     <div className='SelectHomePage'>
-      {pageContent.heroList && (
-        <HeroA1List items={pageContent.heroList.heroItems} />
+      {pageContent?.heroList && (
+        <HeroA1List items={pageContent?.heroList?.heroItems || []} />
       )}
 
-      {pageContent.multiMarkets && (
+      {pageContent?.multiMarkets && (
         <FeatureC10List
-          title={pageContent.multiMarkets.title}
-          items={pageContent.multiMarkets.multimarket}
+          title={pageContent.multiMarkets?.title}
+          items={pageContent.multiMarkets?.multimarket}
         />
       )}
 
-      {pageContent.contentB1 && typeof pageContent.contentB1 === 'object' && (
+      {pageContent.contentB1 && typeof pageContent?.contentB1 === 'object' && (
         <ContentB1
           title={pageContent.contentB1.title}
           description={pageContent.contentB1.description}

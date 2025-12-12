@@ -1,0 +1,18 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: research-detail-page
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - propertyName: contentB11
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB11
+  - propertyName: filterI
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: filterI
+  - propertyName: heroItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: heroA1
+

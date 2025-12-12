@@ -1,0 +1,12 @@
+label: Select Services Investment Banking Services
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Services Investment Banking Services
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: services-investment-banking-services
+      appName: services-investment-banking-services-app
+

@@ -28,52 +28,12 @@ form:
             label: Location Name
             required: true
             i18n: true
-          locationLink:
-            $type: switchableField
-            label: Location Link (Optional)
+          internalLink:
+            $type: pageLinkField
+            label: Internal Page Link
+            required: true
             i18n: true
-            field:
-              $type: comboBoxField
-              label: Link Type
-              required: true
-              defaultValue: noLink
-              datasource:
-                $type: optionListDatasource
-                options:
-                  - name: noLink
-                    label: No Link
-                    value: noLink
-                  - name: internalPageLink
-                    label: Internal Page Link
-                    value: internalPageLink
-                  - name: externalPageLink
-                    label: External Page Link
-                    value: externalPageLink
-            itemProvider:
-              $type: jcrChildNodeProvider
-            forms:
-              - name: noLink
-                properties: {}
-              - name: internalPageLink
-                properties:
-                  internalLink:
-                    $type: pageLinkField
-                    label: Internal Page Link
-                    required: true
-                    i18n: true
-                    converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
-              - name: externalPageLink
-                properties:
-                  externalLink:
-                    $type: textField
-                    label: External Page Link
-                    required: true
-                    i18n: true
-                    validators:
-                      urlValidator:
-                        $type: regexpValidator
-                        pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
-                        errorMessage: Please enter a valid URL
+            converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
 
     buttonText:
       $type: textField
@@ -81,45 +41,3 @@ form:
       required: true
       i18n: true
       defaultValue: Go
-
-    buttonLink:
-      $type: switchableField
-      label: Button Link
-      i18n: true
-      field:
-        $type: comboBoxField
-        label: Link Type
-        required: true
-        defaultValue: internalPageLink
-        datasource:
-          $type: optionListDatasource
-          options:
-            - name: internalPageLink
-              label: Internal Page Link
-              value: internalPageLink
-            - name: externalPageLink
-              label: External Page Link
-              value: externalPageLink
-      itemProvider:
-        $type: jcrChildNodeProvider
-      forms:
-        - name: internalPageLink
-          properties:
-            internalLink:
-              $type: pageLinkField
-              label: Internal Page Link
-              required: true
-              i18n: true
-              converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
-        - name: externalPageLink
-          properties:
-            externalLink:
-              $type: textField
-              label: External Page Link
-              required: true
-              i18n: true
-              validators:
-                urlValidator:
-                  $type: regexpValidator
-                  pattern: ^https?:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$
-                  errorMessage: Please enter a valid URL

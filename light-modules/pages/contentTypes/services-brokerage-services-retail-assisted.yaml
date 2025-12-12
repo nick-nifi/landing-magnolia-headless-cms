@@ -1,0 +1,69 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: services-brokerage-services-retail-assisted
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:services-brokerage-services-retail-assisted
+  properties:
+    - name: title
+    - name: description
+    - name: heroList
+      type: heroListItem
+    - name: featureC11List
+      type: featureC11Item
+    - name: contentB4
+      type: reference:contentB4
+    - name: accordionE2List
+      type: accordionE2Item
+    - name: contentB7
+      type: reference:contentB7
+    - name: contentC3List
+      type: contentC3Item
+    - name: featureC5List
+      type: featureC5Item
+    - name: featureC2List
+      type: featureC2Item
+
+  subModels:
+    - name: heroListItem
+      properties:
+        - name: title
+        - name: heroItems
+          type: reference:heroA1
+          multiple: true
+    - name: featureC11Item
+      properties:
+        - name: title
+        - name: c11Items
+          type: reference:featureC11
+          multiple: true
+    - name: accordionE2Item
+      properties:
+        - name: title
+        - name: description
+          type: richText
+        - name: e2Items
+          type: reference:accordionE2
+          multiple: true
+    - name: contentC3Item
+      properties:
+        - name: title
+        - name: c3Items
+          type: reference:contentC3
+          multiple: true
+    - name: featureC5Item
+      properties:
+        - name: title
+        - name: c5Items
+          type: reference:featureC5
+          multiple: true
+    - name: featureC2Item
+      properties:
+        - name: title
+        - name: c2Items
+          type: reference:featureC2
+          multiple: true
+

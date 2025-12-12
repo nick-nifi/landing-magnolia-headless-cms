@@ -1,0 +1,15 @@
+title: Services Investment Banking Services
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+dialog: pages:pages/services-investment-banking-services
+
+baseUrl: http://localhost:8181
+routeTemplate: "/{language}{{@path}}"
+
+areas:
+  footer:
+    title: Footer Area
+    inheritance:
+      enabled: true
+      components: all
+

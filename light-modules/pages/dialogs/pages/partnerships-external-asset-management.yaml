@@ -1,0 +1,12 @@
+label: Select Partnerships External Asset Management (EAM)
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Partnerships External Asset Management (EAM)
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: partnerships-external-asset-management
+      appName: partnerships-external-asset-management-app
+

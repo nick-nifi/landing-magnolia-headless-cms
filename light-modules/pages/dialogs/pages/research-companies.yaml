@@ -1,0 +1,12 @@
+label: Select Research Companies
+form:
+  properties:
+    home:
+      $type: linkField
+      label: Research Companies
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: research-companies
+      appName: research-companies-app
+
