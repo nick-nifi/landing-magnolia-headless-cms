@@ -1,0 +1,11 @@
+label: Select About Careers
+form:
+  properties:
+    about-careers:
+      $type: linkField
+      label: About Careers
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: aboutCareers
+      appName: aboutCareers-app

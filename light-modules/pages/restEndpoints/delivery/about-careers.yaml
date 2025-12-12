@@ -1,0 +1,18 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: aboutCareers
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+references:
+  - propertyName: headerA2
+    referenceResolver:
+      $type: contentReferenceResolver
+      referenceContentType: headerA2
+  - propertyName: contentB1
+    referenceResolver:
+      $type: contentReferenceResolver
+      referenceContentType: contentB1
+  - propertyName: listFeatureC6
+    referenceResolver:
+      $type: contentReferenceResolver
+      referenceContentType: featureC6
