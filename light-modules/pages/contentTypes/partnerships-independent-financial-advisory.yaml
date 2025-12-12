@@ -15,7 +15,7 @@ model:
     - name: accordionE2List
       type: accordionE2Item
     - name: contentB3List
-      type: contentB3Item
+      type: reference:contentB3
     - name: contentC3List
       type: contentC3Item
     - name: featureC2List

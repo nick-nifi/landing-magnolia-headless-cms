@@ -35,13 +35,8 @@ model:
         - name: externalImageAlt
     - name: ctaChooser
       properties:
-        - name: field
-        - name: ctaText
-        - name: ctaLink
-          type: ctaLink
-    - name: ctaLink
-      properties:
-        - name: field
-        - name: internalLink
-        - name: externalLink
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href
 

@@ -10,10 +10,11 @@ model:
   properties:
     - name: title
     - name: description
-    - name: heroList
-      type: heroListItem
+    - name: headerA2
+      type: reference:headerA2
     - name: specialMenu
       type: reference:specialMenu
+      multiple: true
     - name: featureC2List
       type: featureC2Item
     - name: filterI

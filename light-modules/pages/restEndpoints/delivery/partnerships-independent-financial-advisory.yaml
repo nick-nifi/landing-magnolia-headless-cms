@@ -15,6 +15,12 @@ references:
       class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
       targetWorkspace: contentB3
       depthInReferencedNode: 10
+  - name: contentB3List
+    propertyName: contentB3List
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: contentB3
+      depthInReferencedNode: 10
   - name: c3Items
     propertyName: c3Items
     referenceResolver:

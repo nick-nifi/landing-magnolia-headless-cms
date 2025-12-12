@@ -25,8 +25,14 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: filterI
+      depthInReferencedNode: 10
   - propertyName: heroItems
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: heroA1
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+      depthInReferencedNode: 10
 

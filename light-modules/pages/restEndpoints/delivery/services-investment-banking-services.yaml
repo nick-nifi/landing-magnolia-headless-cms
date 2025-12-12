@@ -23,6 +23,21 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: contentB2
+  - propertyName: contentB3List1
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB3
+      depthInReferencedNode: 10
+  - propertyName: contentB3List2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB3
+      depthInReferencedNode: 10
+  - propertyName: contentB3List3
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB3
+      depthInReferencedNode: 10
   - propertyName: contentB7
     referenceResolver:
       $type: jcrReferenceResolver

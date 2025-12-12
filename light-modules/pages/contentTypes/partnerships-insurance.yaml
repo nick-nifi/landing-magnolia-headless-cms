@@ -15,7 +15,7 @@ model:
     - name: accordionE2List
       type: accordionE2Item
     - name: contentB3List
-      type: contentB3Item
+      type: reference:contentB3
     - name: contentC3List
       type: contentC3Item
     - name: featureC2List
@@ -35,12 +35,6 @@ model:
           type: richText
         - name: e2Items
           type: reference:accordionE2
-          multiple: true
-    - name: contentB3Item
-      properties:
-        - name: title
-        - name: b3Items
-          type: reference:contentB3
           multiple: true
     - name: contentC3Item
       properties:

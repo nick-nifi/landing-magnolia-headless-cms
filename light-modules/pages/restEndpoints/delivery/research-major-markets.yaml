@@ -19,6 +19,7 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: filterI
+      depthInReferencedNode: 10
   - propertyName: heroItems
     referenceResolver:
       $type: jcrReferenceResolver

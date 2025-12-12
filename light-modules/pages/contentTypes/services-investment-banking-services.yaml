@@ -15,11 +15,11 @@ model:
     - name: contentB2
       type: reference:contentB2
     - name: contentB3List1
-      type: contentB3Item
+      type: reference:contentB3
     - name: contentB3List2
-      type: contentB3Item
+      type: reference:contentB3
     - name: contentB3List3
-      type: contentB3Item
+      type: reference:contentB3
     - name: contentB7
       type: reference:contentB7
     - name: contentC3List
@@ -33,12 +33,6 @@ model:
         - name: title
         - name: heroItems
           type: reference:heroA1
-          multiple: true
-    - name: contentB3Item
-      properties:
-        - name: title
-        - name: b3Items
-          type: reference:contentB3
           multiple: true
     - name: contentC3Item
       properties:

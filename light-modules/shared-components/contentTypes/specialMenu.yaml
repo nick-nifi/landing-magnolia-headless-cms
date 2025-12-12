@@ -10,7 +10,6 @@ model:
   properties:
     - name: menuItems
       type: menuItem
-      multiple: true
     - name: category
 
   subModels:
