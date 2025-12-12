@@ -1,0 +1,30 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: aboutGlobalOffices
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:aboutGlobalOffices
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: image
+      type: asset
+    - name: headerA2
+      type: reference:headerA2
+    - name: officeList
+      type: reference:officeItem
+      multiple: true
+    - name: featureC2List
+      type: featureC2Item
+
+  subModels:
+    - name: featureC2Item
+      properties:
+        - name: title
+        - name: c2Items
+          type: reference:featureC2
+          multiple: true
