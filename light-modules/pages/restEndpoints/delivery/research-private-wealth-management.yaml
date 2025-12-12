@@ -35,4 +35,14 @@ references:
       $type: jcrReferenceResolver
       targetWorkspace: headerA2s
       depthInReferencedNode: 10
+  - propertyName: menuItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: specialMenu
+      depthInReferencedNode: 10
+  - propertyName: disclaimer
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: disclaimer
+      depthInReferencedNode: 10
 

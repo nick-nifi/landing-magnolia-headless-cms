@@ -22,3 +22,5 @@ model:
         - name: isExternal
           type: boolean
         - name: href
+        - name: detailPage
+          type: reference:research-detail-page

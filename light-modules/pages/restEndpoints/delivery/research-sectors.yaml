@@ -3,10 +3,9 @@ workspace: research-sectors
 bypassWorkspaceAcls: true
 depth: 2
 references:
-  - name: b3Items
-    propertyName: b3Items
+  - propertyName: contentB3List
     referenceResolver:
-      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      $type: jcrReferenceResolver
       targetWorkspace: contentB3
       depthInReferencedNode: 10
   - propertyName: c5Items
@@ -29,4 +28,14 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: heroA1
+  - propertyName: menuItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: specialMenu
+      depthInReferencedNode: 10
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+      depthInReferencedNode: 10
 

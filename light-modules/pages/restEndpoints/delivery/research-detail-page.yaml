@@ -7,6 +7,7 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: contentB11
+      depthInReferencedNode: 10
   - propertyName: filterI
     referenceResolver:
       $type: jcrReferenceResolver
@@ -15,4 +16,8 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: heroA1
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
 

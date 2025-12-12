@@ -39,6 +39,8 @@ model:
           label: Red Gradient
     - name: ctaChooser
       type: ctaChooser
+    - name: overlayImage
+      type: asset
 
   subModels:
     - name: ctaChooser

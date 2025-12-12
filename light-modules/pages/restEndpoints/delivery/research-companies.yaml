@@ -29,4 +29,17 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: heroA1
+  - propertyName: menuItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: specialMenu
+      depthInReferencedNode: 10
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+      depthInReferencedNode: 10
+  - propertyName: overlayImage
+    referenceResolver:
+      $type: assetReferenceResolver
 

@@ -10,8 +10,8 @@ model:
   properties:
     - name: title
     - name: description
-    - name: heroList
-      type: heroListItem
+    - name: headerA2
+      type: reference:headerA2
     - name: accordionE2List
       type: accordionE2Item
     - name: contentB3List

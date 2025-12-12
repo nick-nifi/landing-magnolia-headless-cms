@@ -10,16 +10,12 @@ model:
   properties:
     - name: title
     - name: description
-    - name: listItems
-      type: listItem
-      multiple: true
+    - name: itemText
+      type: richText
     - name: ctaChooser
       type: ctaChooser
 
   subModels:
-    - name: listItem
-      properties:
-        - name: itemText
     - name: ctaChooser
       properties:
         - name: label
