@@ -15,5 +15,12 @@ model:
     - name: contentB1
       type: reference:contentB1
     - name: listFeatureC6
-      type: reference:featureC6
-      multiple: true
+      type: featureC6Item
+
+  subModels:
+    - name: featureC6Item
+      properties:
+        - name: title
+        - name: c6Items
+          type: reference:featureC6
+          multiple: true
