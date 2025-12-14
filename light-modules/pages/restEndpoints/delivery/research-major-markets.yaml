@@ -11,10 +11,16 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: featureC2
-  - propertyName: specialMenu
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+      depthInReferencedNode: 10
+  - propertyName: menuItems
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: specialMenu
+      depthInReferencedNode: 10
   - propertyName: filterI
     referenceResolver:
       $type: jcrReferenceResolver

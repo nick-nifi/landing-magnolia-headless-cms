@@ -24,6 +24,10 @@ form:
             label: Item Text
             required: true
             i18n: true
+    divider:
+      $type: checkBoxField
+      label: Divider
+      required: false
     ctaChooser:
       $type: switchableField
       label: Call To Action (Optional)

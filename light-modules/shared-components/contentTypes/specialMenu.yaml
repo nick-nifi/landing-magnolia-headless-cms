@@ -17,7 +17,5 @@ model:
       properties:
         - name: id
         - name: label
-        - name: isActive
-          type: boolean
         - name: internalLink
 

@@ -8,8 +8,6 @@ datasource:
 model:
   nodeType: mt:contentB11
   properties:
-    - name: backButton
-      type: backButton
     - name: title
     - name: date
     - name: location
@@ -57,13 +55,11 @@ model:
         - name: analystEmail
     - name: downloadButton
       properties:
-        - name: field
         - name: downloadButtonText
         - name: downloadLink
           type: downloadLink
     - name: downloadLink
       properties:
-        - name: field
         - name: file
           type: asset
         - name: internalLink

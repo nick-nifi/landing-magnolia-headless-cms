@@ -20,7 +20,7 @@ form:
       i18n: true
     overlayImage:
       $type: damLinkField
-      label: Overlay Image (đè lên trên background image)
+      label: Overlay Image
       required: false
       i18n: true
     ctaChooser:

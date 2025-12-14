@@ -10,16 +10,17 @@ model:
   properties:
     - name: title
     - name: description
-    - name: heroList
-      type: heroListItem
+    - name: headerA2
+      type: reference:headerA2
     - name: specialMenu
-      type: reference:specialMenu
+      type: specialMenus
+      multiple: true
     - name: featureC2List
       type: featureC2Item
     - name: filterI
       type: reference:filterI
     - name: contentB3List
-      type: contentB3Item
+      type: reference:contentB3
     - name: featureC5List
       type: featureC5Item
 
@@ -29,12 +30,6 @@ model:
         - name: title
         - name: heroItems
           type: reference:heroA1
-          multiple: true
-    - name: contentB3Item
-      properties:
-        - name: title
-        - name: b3Items
-          type: reference:contentB3
           multiple: true
     - name: featureC5Item
       properties:
@@ -48,4 +43,12 @@ model:
         - name: c2Items
           type: reference:featureC2
           multiple: true
+        - name: isBackground
+          type: boolean
+    - name: specialMenus
+      properties:
+        - name: menuItems
+          type: reference:specialMenu
+        - name: isActive
+          type: boolean
 

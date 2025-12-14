@@ -19,6 +19,11 @@ form:
       label: Custom CSS Class
       required: false
 
+    background:
+      $type: checkBoxField
+      label: Background
+      required: false
+
     imageChooser:
       $type: switchableField
       label: Image

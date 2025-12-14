@@ -10,10 +10,11 @@ model:
   properties:
     - name: title
     - name: description
-    - name: heroList
-      type: heroListItem
+    - name: headerA2
+      type: reference:headerA2
     - name: specialMenu
-      type: reference:specialMenu
+      type: specialMenus
+      multiple: true
     - name: featureC2List
       type: featureC2Item
     - name: filterI
@@ -50,9 +51,17 @@ model:
         - name: c2Items
           type: reference:featureC2
           multiple: true
+        - name: isBackground
+          type: boolean
     - name: ctaChooser
       properties:
         - name: label
         - name: isExternal
           type: boolean
         - name: href
+    - name: specialMenus
+      properties:
+        - name: menuItems
+          type: reference:specialMenu
+        - name: isActive
+          type: boolean

@@ -10,8 +10,8 @@ model:
   properties:
     - name: title
     - name: description
-    - name: heroList
-      type: heroListItem
+    - name: headerA2
+      type: reference:headerA2
     - name: contentB11
       type: reference:contentB11
     - name: filterI
