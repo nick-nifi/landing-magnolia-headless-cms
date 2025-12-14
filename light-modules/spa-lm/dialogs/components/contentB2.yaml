@@ -25,6 +25,16 @@ form:
           pattern: ^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$
           errorMessage: Enter a valid color in hex format
 
+    background:
+      $type: checkBoxField
+      label: Background
+      required: false
+
+    divider:
+      $type: checkBoxField
+      label: Divider
+      required: false
+
     imageChooser:
       $type: switchableField
       label: Image (Layer 1)

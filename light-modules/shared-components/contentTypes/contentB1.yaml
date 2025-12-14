@@ -13,6 +13,9 @@ model:
       type: asset
     - name: ctaChooser
       type: ctaChooser
+    - name: background
+      type: boolean
+      defaultValue: false
 
   subModels:
     - name: ctaChooser

@@ -10,6 +10,8 @@ model:
   properties:
     - name: title
     - name: description
+    - name: rectangles
+      type: rectangle
     - name: headerA2
       type: reference:headerA2
     - name: contentB2
@@ -44,4 +46,9 @@ model:
         - name: c2Items
           type: reference:featureC2
           multiple: true
+    - name: rectangle
+      properties:
+        - name: field1
+        - name: field2
+        - name: field3
 
