@@ -1,0 +1,23 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: fastFacts
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:fastFacts
+  properties:
+    - name: fastFactItem
+      type: fastFactItem
+      multiple: true
+    - name: fastFactContent
+      type: richText
+      multiple: true
+
+  subModels:
+    - name: fastFactItem
+      properties:
+        - name: name
+        - name: image
+          type: asset

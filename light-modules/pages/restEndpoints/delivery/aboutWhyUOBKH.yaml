@@ -1,0 +1,17 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: aboutWhyUOBKH
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+references:
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+  - propertyName: featureC5List
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver
