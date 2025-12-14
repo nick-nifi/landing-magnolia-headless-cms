@@ -1,0 +1,10 @@
+label: Select About Why UOBKH
+form:
+  properties:
+    about-why-uobkh:
+      $type: linkField
+      label: About Why UOBKH
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: aboutWhyUobkh

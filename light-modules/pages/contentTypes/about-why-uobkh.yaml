@@ -1,0 +1,29 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: aboutWhyUobkh
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:aboutWhyUobkh
+  properties:
+    - name: title
+    - name: description
+    - name: headerA2
+      type: reference:headerA2
+    - name: fastFactList
+      type: fastFactItem
+    - name: listFeatureC5
+      type: featureC5Item
+
+  subModels:
+    - name: fastFactItem
+
+    - name: featureC5Item
+      properties:
+        - name: title
+          type: richText
+        - name: c5Items
+          type: reference:featureC5
+          multiple: true
