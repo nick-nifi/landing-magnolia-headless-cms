@@ -1,17 +1,14 @@
 class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
 workspace: investorAnnualReports
-depth: 10
-includeSystemProperties: true
-nodeTypes:
-  - mt:investorAnnouncement
-  - mt:downloadListF
-  - mgnl:contentNode
+depth: 20
+bypassWorkspaceAcls: true
+includeSystemProperties: false
 references:
-  - name: headerA2
+  - propertyName: headerA2
     referenceResolver:
-      class: info.magnolia.rest.delivery.jcr.v2.ReferenceResolverDefinition
-      targetWorkspace: headerA2
-  - name: downloadListF
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+  - propertyName: highlightsAnnualReport
     referenceResolver:
-      class: info.magnolia.rest.delivery.jcr.v2.ReferenceResolverDefinition
-      targetWorkspace: downloadListFs
+      $type: jcrReferenceResolver
+      targetWorkspace: highlightAnnualReports
