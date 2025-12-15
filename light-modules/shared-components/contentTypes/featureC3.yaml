@@ -1,20 +1,25 @@
 datasource:
   $type: jcrContentTypeDatasource
-  workspace: aboutWhyUOBKH
+  workspace: featureC3
   namespaces:
     mt: https://www.magnolia-travel.com/jcr/1.0/mt
   autoCreate: true
 
 model:
-  nodeType: mt:aboutWhyUOBKH
+  nodeType: mt:featureC3
   properties:
     - name: title
     - name: description
       type: richText
     - name: image
       type: asset
-    - name: headerA2
-      type: reference:headerA2
-    - name: featureC5List
-      type: reference:featureC5
-      multiple: true
+    - name: ctaChooser
+      type: ctaChooser
+
+  subModels:
+    - name: ctaChooser
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href

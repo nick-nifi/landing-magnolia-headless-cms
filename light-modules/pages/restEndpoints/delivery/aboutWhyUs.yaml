@@ -1,5 +1,5 @@
 class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
-workspace: aboutWhyUOBKH
+workspace: aboutWhyUs
 depth: 10
 bypassWorkspaceAcls: true
 includeSystemProperties: false
@@ -8,10 +8,10 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: headerA2s
-  - propertyName: featureC5List
+  - propertyName: fastFactList
     referenceResolver:
       $type: jcrReferenceResolver
-      targetWorkspace: featureC5
+      targetWorkspace: fastFacts
   - propertyName: image
     referenceResolver:
       $type: assetReferenceResolver

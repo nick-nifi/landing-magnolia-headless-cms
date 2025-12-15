@@ -7,4 +7,4 @@ form:
       required: true
       datasource:
         $type: jcrDatasource
-        workspace: aboutWhyUOBKH
+        workspace: aboutWhyUs

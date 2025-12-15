@@ -1,0 +1,27 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: aboutLeaderships
+  # namespaces:
+  #   mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:aboutLeaderships
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: headerA2
+      type: reference:headerA2
+    - name: accordionE3List
+      type: reference:accordionE3
+      multiple: true
+    - name: contentB7List
+      type: reference:contentB7
+      multiple: true
+    - name: featureC3List
+      type: reference:featureC3
+      multiple: true
+    - name: featureC5List
+      type: reference:featureC5
+      multiple: true

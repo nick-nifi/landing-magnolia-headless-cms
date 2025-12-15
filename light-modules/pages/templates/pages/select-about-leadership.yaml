@@ -1,0 +1,4 @@
+title: Select About Leadership
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+dialog: pages:pages/select-about-leadership

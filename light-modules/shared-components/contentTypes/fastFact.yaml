@@ -1,8 +1,6 @@
 datasource:
   $type: jcrContentTypeDatasource
   workspace: fastFacts
-  namespaces:
-    mt: https://www.magnolia-travel.com/jcr/1.0/mt
   autoCreate: true
 
 model:
