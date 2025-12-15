@@ -1,0 +1,4 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: downloadListFs
+depth: 10
+includeSystemProperties: false
