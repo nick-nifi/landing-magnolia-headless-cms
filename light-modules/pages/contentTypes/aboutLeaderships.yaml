@@ -25,3 +25,6 @@ model:
     - name: featureC5List
       type: reference:featureC5
       multiple: true
+    - name: tourGuideList
+      type: reference:tourGuide
+      multiple: true

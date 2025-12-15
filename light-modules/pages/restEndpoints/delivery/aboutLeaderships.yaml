@@ -1,5 +1,5 @@
 class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
-workspace: aboutLeadership
+workspace: aboutLeaderships
 depth: 10
 bypassWorkspaceAcls: true
 includeSystemProperties: false
@@ -24,3 +24,7 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: featureC5
+  - propertyName: tourGuideList
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: tourguides
