@@ -1,0 +1,27 @@
+!content-type:accordionE3
+$type: contentTypeApp
+label: Accordion E3
+name: accordionE3-app
+# subApp:
+#   browser:
+#     actions:
+#       confirmDeletion:
+#         $type: deleteItemAction
+#       edit:
+#         $type: openDetailSubAppAction
+#     actionbar:
+#       sections:
+#         root:
+#           items:
+#             - name: add
+#               $type: createItemAction
+#               icon: icon-add-item
+#               label: Add Accordion E3
+#             - name: edit
+#               $type: openDetailSubAppAction
+#               icon: icon-edit
+#               label: Edit
+#             - name: delete
+#               $type: deleteItemAction
+#               icon: icon-delete
+#               label: Delete

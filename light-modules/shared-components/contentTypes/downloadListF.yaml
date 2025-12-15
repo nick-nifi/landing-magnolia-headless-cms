@@ -1,0 +1,32 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: downloadListFs
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:downloadListF
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: downloadListFItems
+      label: Download List F Items
+      type: downloadListFItem
+      multiple: true
+
+  subModels:
+    - name: downloadListFItem
+      properties:
+        - name: title
+          label: Title
+        - name: description
+          label: Description
+          type: richText
+        - name: file
+          label: File
+          type: asset
+        - name: date
+          label: Date
+          type: date

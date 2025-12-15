@@ -1,0 +1,22 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: tourguides
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:tourGuide
+  properties:
+    - name: birthday
+      type: Date
+    - name: gender
+      options:
+        - value: female
+          label: Female
+        - value: male
+          label: Male
+        - value: other
+          label: Other
+    - name: shortBio
+      type: richText

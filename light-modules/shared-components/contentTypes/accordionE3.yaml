@@ -1,0 +1,21 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: accordionE3
+  autoCreate: true
+
+model:
+  nodeType: mt:accordionE3
+  properties:
+    - name: title
+    - name: subtitle
+    - name: accordionItem
+      type: accordionItem
+      multiple: true
+
+  subModels:
+    - name: accordionItem
+      properties:
+        - name: title
+        - name: description
+        - name: content
+          type: richText

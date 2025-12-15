@@ -1,0 +1,32 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: annualReports
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:annualReport
+  properties:
+    - name: title
+    - name: description
+
+  subModels:
+    - name: annualReport
+      label: Annual Report
+      properties:
+        - name: title
+        - name: description
+        - name: file
+          label: File
+          type: asset
+        - name: category
+          label: Category
+          type: select
+          options:
+            - value: cash_flow
+              label: Cash Flow
+            - value: income_statement
+              label: Income Statement
+            - value: balance_sheet
+              label: Balance Sheet

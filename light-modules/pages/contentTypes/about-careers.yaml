@@ -1,0 +1,26 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: aboutCareers
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:aboutCareers
+  properties:
+    - name: title
+    - name: description
+    - name: headerA2
+      type: reference:headerA2
+    - name: contentB1
+      type: reference:contentB1
+    - name: listFeatureC6
+      type: featureC6Item
+
+  subModels:
+    - name: featureC6Item
+      properties:
+        - name: title
+        - name: c6Items
+          type: reference:featureC6
+          multiple: true
