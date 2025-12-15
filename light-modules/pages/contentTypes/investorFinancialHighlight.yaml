@@ -12,3 +12,5 @@ model:
     - name: description
     - name: headerA2
       type: reference:headerA2
+    - name: highlightsAnnualReport
+      type: reference:highlightAnnualReport

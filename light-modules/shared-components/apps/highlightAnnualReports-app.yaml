@@ -1,3 +1,20 @@
 !content-type:highlightAnnualReport
 name: highlightAnnualReports-app
-icon: icon-content-app
+label: Highlight Annual Reports
+
+subApps:
+  detail:
+    editor:
+      form:
+        tabs:
+          default:
+            fields:
+              - name: file
+                fieldType: link
+                targetWorkspace: dam
+                appName: assets
+                label: Select file
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
