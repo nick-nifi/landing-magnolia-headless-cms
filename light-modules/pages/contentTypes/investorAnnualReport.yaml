@@ -1,0 +1,14 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: investorAnnualReports
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:investorAnnualReport
+  properties:
+    - name: title
+    - name: description
+    - name: headerA2
+      type: reference:headerA2

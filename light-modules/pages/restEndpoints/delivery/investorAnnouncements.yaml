@@ -1,0 +1,9 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: investorAnnouncements
+depth: 10
+includeSystemProperties: false
+references:
+  - name: headerA2
+    referenceResolver:
+      class: info.magnolia.rest.delivery.jcr.v2.ReferenceResolverDefinition
+      targetWorkspace: headerA2
