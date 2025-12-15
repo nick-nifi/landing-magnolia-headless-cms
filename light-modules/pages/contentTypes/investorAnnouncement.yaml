@@ -10,5 +10,13 @@ model:
   properties:
     - name: title
     - name: description
+      type: richText
     - name: headerA2
       type: reference:headerA2
+      label: Header A2
+    - name: downloadListF
+      type: reference:downloadListF
+      label: Download List F
+    - name: contentB9
+      type: reference:contentB9
+      label: Content B9

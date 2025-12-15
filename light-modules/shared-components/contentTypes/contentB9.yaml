@@ -10,3 +10,4 @@ model:
   properties:
     - name: title
     - name: description
+      type: richText
