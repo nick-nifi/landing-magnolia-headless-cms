@@ -1,4 +1,0 @@
-title: Select About Why Us
-renderType: spa
-class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
-dialog: pages:pages/select-about-why-us
