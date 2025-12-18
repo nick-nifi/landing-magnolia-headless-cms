@@ -1,0 +1,6 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: filterJ
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+

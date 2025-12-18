@@ -1,3 +1,20 @@
 !content-type:contentC3
 name: contentC3s-app
 
+subApps:
+  detail:
+    editor:
+      form:
+        tabs:
+          default:
+            fields:
+              - name: image
+                fieldType: link
+                targetWorkspace: dam
+                appName: assets
+                label: Select image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+

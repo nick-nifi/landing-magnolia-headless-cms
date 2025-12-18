@@ -12,5 +12,14 @@ model:
     - name: description
     - name: headerA2
       type: reference:headerA2
-    - name: highlightsAnnualReport
-      type: reference:highlightAnnualReport
+    - name: filters
+      type: filterJ
+    # - name: annualReportList
+    #   type: reference:annualReportList
+  subModels:
+      - name: filterJ
+        properties:
+          - name: title
+          - name: filterJItems
+            type: reference:filterJ
+            multiple: true

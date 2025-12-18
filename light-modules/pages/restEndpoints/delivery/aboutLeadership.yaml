@@ -1,0 +1,45 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: aboutLeadership
+bypassWorkspaceAcls: true
+depth: 2
+references:
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+      depthInReferencedNode: 10
+  - name: e3Items
+    propertyName: e3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: accordionE3
+      depthInReferencedNode: 10
+  - propertyName: contentB7
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: contentB7
+      depthInReferencedNode: 10
+  - name: c3Items
+    propertyName: c3Items
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: featureC3
+      depthInReferencedNode: 10
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+      depthInReferencedNode: 10
+  - name: accordionE3BoardOfDirectors
+    propertyName: accordionE3List
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: accordionE3
+      depthInReferencedNode: 10
+  - name: accordionItem
+    propertyName: accordionItem
+    referenceResolver:
+      class: info.magnolia.rest.reference.jcr.JcrReferenceResolverDefinition
+      targetWorkspace: accordionE3
+      depthInReferencedNode: 10
+

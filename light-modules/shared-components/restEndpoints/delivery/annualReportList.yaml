@@ -1,0 +1,13 @@
+class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
+workspace: annualReportLists
+depth: 10
+bypassWorkspaceAcls: true
+includeSystemProperties: false
+references:
+  - propertyName: coverImage
+    referenceResolver:
+      $type: assetReferenceResolver
+  - propertyName: file
+    referenceResolver:
+      $type: assetReferenceResolver
+

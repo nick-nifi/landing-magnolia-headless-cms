@@ -11,7 +11,30 @@ model:
     - name: title
     - name: description
       type: richText
+    - name: headerA2
+      type: reference:headerA2
+    - name: filters
+      type: filterJ
     - name: downloadListF
       type: reference:downloadListF
     - name: contentB9
-      type: reference:contentB9
+      type: contentB9
+  
+  subModels:
+      - name: filterJ
+        properties:
+          - name: title
+          - name: filterJItems
+            type: reference:filterJ
+            multiple: true
+      - name: contentB9
+        properties:
+          - name: title
+          - name: image
+            type: image
+            multiple: true
+      - name: image
+        properties:
+          - name: image
+            type: asset
+          - name: alt

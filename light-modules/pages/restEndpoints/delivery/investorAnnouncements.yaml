@@ -17,3 +17,17 @@ references:
     referenceResolver:
       $type: jcrReferenceResolver
       targetWorkspace: contentB9s
+  - propertyName: filters
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: filterJ
+  - propertyName: annualReportList
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: annualReportLists
+      # depthInReferencedNode: 10
+  - propertyName: filterJItems
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: filterJ
+      depthInReferencedNode: 10

@@ -1,0 +1,29 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: annualReportLists
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:annualReportList
+  properties:
+    - name: name
+      label: Name
+    - name: title
+      label: Title
+      defaultValue: Annual report
+    - name: coverImage
+      label: Cover Image
+      type: asset
+    - name: file
+      label: File
+      type: asset
+    - name: label
+      label: Label
+    - name: href
+      label: Link (Optional)
+      type: string
+
+ 
+
