@@ -1,0 +1,33 @@
+$type: jcrDeliveryEndpoint_v2
+workspace: aboutWhyUOBKH
+bypassWorkspaceAcls: true
+depth: 10
+references:
+  - propertyName: headerA2
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: headerA2s
+      depthInReferencedNode: 10
+  - propertyName: sectionC5list
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+      depthInReferencedNode: 10
+  - propertyName: listD1
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: listD1
+      depthInReferencedNode: 10
+  - propertyName: c5Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC5
+      depthInReferencedNode: 10
+  - propertyName: c2Items
+    referenceResolver:
+      $type: jcrReferenceResolver
+      targetWorkspace: featureC2
+      depthInReferencedNode: 10
+  - propertyName: image
+    referenceResolver:
+      $type: assetReferenceResolver

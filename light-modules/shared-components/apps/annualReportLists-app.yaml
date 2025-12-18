@@ -1,0 +1,30 @@
+!content-type:annualReportList
+name: annualReportLists-app
+label: Annual Report Lists
+
+subApps:
+  detail:
+    editor:
+      form:
+        tabs:
+          default:
+            fields:
+              - name: coverImage
+                fieldType: link
+                targetWorkspace: dam
+                appName: assets
+                label: Select cover image
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+              - name: file
+                fieldType: link
+                targetWorkspace: dam
+                appName: assets
+                label: Select file
+                identifierToPathConverter:
+                  class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+                contentPreviewDefinition:
+                  contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+

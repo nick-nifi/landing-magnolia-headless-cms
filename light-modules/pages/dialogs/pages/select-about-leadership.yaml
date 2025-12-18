@@ -1,0 +1,12 @@
+label: Select About Leadership
+form:
+  properties:
+    aboutLeadershipId:
+      $type: linkField
+      label: About Leadership
+      required: true
+      datasource:
+        $type: jcrDatasource
+        workspace: aboutLeadership
+      appName: about-leadership-app
+

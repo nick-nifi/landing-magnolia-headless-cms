@@ -27,7 +27,7 @@ model:
       properties:
         - name: field
         - name: image
-          type: asset
+          # type: asset
         - name: imageAlt
         - name: externalImage
         - name: externalImageAlt

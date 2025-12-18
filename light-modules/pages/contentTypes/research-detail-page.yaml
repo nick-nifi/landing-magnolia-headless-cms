@@ -10,8 +10,8 @@ model:
   properties:
     - name: title
     - name: description
-    - name: headerA2
-      type: reference:headerA2
+    - name: header
+      type: header
     - name: contentB11
       type: reference:contentB11
     - name: filterI
@@ -24,4 +24,16 @@ model:
         - name: heroItems
           type: reference:heroA1
           multiple: true
+    - name: header
+      properties:
+        - name: title
+        - name: description
+        - name: button
+          type: button
+    - name: button
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href
 

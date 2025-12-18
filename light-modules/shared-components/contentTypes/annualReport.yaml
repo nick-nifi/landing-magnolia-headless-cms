@@ -24,9 +24,9 @@ model:
           label: Category
           type: select
           options:
-            - value: cash_flow
+            - value: Cash flow
               label: Cash Flow
-            - value: income_statement
+            - value: Income statement
               label: Income Statement
-            - value: balance_sheet
+            - value: Balance sheet
               label: Balance Sheet

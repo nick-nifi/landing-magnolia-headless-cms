@@ -1,0 +1,119 @@
+datasource:
+  $type: jcrContentTypeDatasource
+  workspace: aboutWhyUOBKH
+  namespaces:
+    mt: https://www.magnolia-travel.com/jcr/1.0/mt
+  autoCreate: true
+
+model:
+  nodeType: mt:aboutWhyUOBKH
+  properties:
+    - name: title
+    - name: description
+      type: richText
+    - name: headerA2
+      type: reference:headerA2
+    - name: gSection
+      type: gSection
+    - name: listD1
+      type: listD1Items
+
+    - name: hSection
+      type: hSection
+    - name: timelineComponentSection
+      type: timelineComponentSection
+    - name: sectionC5list
+      type: sectionC5
+
+  subModels:
+    - name: headerA2
+      type: reference:headerA2
+    - name: listD1Items
+      type: reference:listD1
+      multiple: true
+    - name: gSection
+      properties:
+        - name: title
+        - name: component1
+          type: component1
+          multiple: true
+        - name: component2
+          type: component2
+          multiple: true
+        - name: button
+          type: button
+    - name: hSection
+      properties:
+        - name: title
+        - name: component3
+          type: component3
+          multiple: true
+    - name: timelineComponentSection
+      properties:
+        - name: title
+        - name: subtitle
+        - name: timelineItems
+          type: timelineItem
+          multiple: true
+    - name: component1
+      properties:
+        - name: image
+          type: asset
+        - name: description
+    - name: component2
+      properties:
+        - name: content
+          type: richText
+    - name: component3
+      properties:
+        - name: icon
+          type: select
+          options:
+            - value: id
+              label: ID
+            - value: th
+              label: TH
+            - value: hk
+              label: HK
+            - value: sg
+              label: SG
+            - value: my
+              label: MY
+            - value: honour
+              label: Honour
+            - value: enterprise
+              label: Enterprise
+            - value: united
+              label: United
+            - value: committed
+              label: Committed
+            - value: line8
+              label: Line 8
+            - value: handScrool
+              label: Hand Scroll
+        - name: title
+        - name: description
+          type: richText
+    - name: timelineItem
+      properties:
+        - name: title
+        - name: description
+          type: richText
+    - name: button
+      properties:
+        - name: label
+        - name: isExternal
+          type: boolean
+        - name: href
+    - name: sectionC5
+      properties:
+        - name: title
+        - name: c5Items
+          type: reference:featureC5
+          multiple: true
+    # - name: featureC2Item
+    #   properties:
+    #     - name: title
+    #     - name: c2Items
+    #       type: reference:featureC2
+    #       multiple: true
